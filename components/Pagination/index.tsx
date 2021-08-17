@@ -20,21 +20,46 @@ const Pagination = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context?.jobs]);
 
+  console.log(context?.n);
+
   return (
-    <ul className="flex flex-row justify-center my-8">
-      {pagination.map((item) => (
-        <li className="mx-2" key={item}>
+    <>
+      <ul className="hidden md:flex flex-row justify-center my-8">
+        {pagination.map((item) => (
+          <li className="mx-2" key={item}>
+            <button
+              className={`${
+                context?.n === item * 10 ? "bg-purple-900" : "bg-purple-700"
+              } px-4 py-1 rounded shadow-md text-gray-100 hover:bg-purple-900`}
+              onClick={() => context?.setN(10 * item)}
+            >
+              {item}
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <ul className="flex flex-row justify-center mb-8">
+        <li className="mx-2">
           <button
-            className={`${
-              context?.n === item * 10 ? "bg-purple-900" : "bg-purple-700"
-            } px-4 py-1 rounded shadow-md text-gray-100 hover:bg-purple-900`}
-            onClick={() => context?.setN(10 * item)}
+            className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
+            onClick={() => context?.setN(context?.n - 10)}
+            disabled={context?.n === 10}
           >
-            {item}
+            {"<<"}
           </button>
         </li>
-      ))}
-    </ul>
+        <li className="mx-2">
+          <button
+            className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
+            onClick={() => context?.setN(context?.n + 10)}
+            disabled={context?.n === 100}
+          >
+            {">>"}
+          </button>
+        </li>
+      </ul>
+    </>
   );
 };
 
