@@ -3,6 +3,7 @@ import { Context } from "../../pages/_app";
 
 const Pagination = () => {
   const [pagination, setPagination] = useState<number[]>([]);
+  const [page, setPage] = useState<number>(1);
 
   const context = useContext(Context);
 
@@ -11,14 +12,19 @@ const Pagination = () => {
     const pages = length / 10;
     const paginationArr = [];
 
-    for (let i = 1; i < pages; i++) {
+    for (let i = 1; i <= pages; i++) {
       paginationArr.push(i);
     }
 
     setPagination(paginationArr);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context?.jobs]);
+
+  useEffect(() => {
+    const p = context?.n || 0;
+    const result = p / 10;
+
+    setPage(result);
+  }, [pagination, context?.n]);
 
   return (
     <>
@@ -37,26 +43,31 @@ const Pagination = () => {
         ))}
       </ul>
 
-      <ul className="md:hidden flex flex-row justify-center mb-8">
-        <li className="mx-2">
-          <button
-            className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
-            onClick={() => context?.setN(context?.n - 10)}
-            disabled={context?.n === 10}
-          >
-            {"<<"}
-          </button>
-        </li>
-        <li className="mx-2">
-          <button
-            className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
-            onClick={() => context?.setN(context?.n + 10)}
-            disabled={context?.n === 100}
-          >
-            {">>"}
-          </button>
-        </li>
-      </ul>
+      <div className="md:hidden block">
+        <p className="w-full text-center text-sm">
+          {page}/{pagination.length}
+        </p>
+        <ul className="md:hidden flex flex-row justify-center mb-8">
+          <li className="mx-2">
+            <button
+              className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
+              onClick={() => context?.setN(context?.n - 10)}
+              disabled={context?.n === 10}
+            >
+              {"<<"}
+            </button>
+          </li>
+          <li className="mx-2">
+            <button
+              className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
+              onClick={() => context?.setN(context?.n + 10)}
+              disabled={context?.n === 100}
+            >
+              {">>"}
+            </button>
+          </li>
+        </ul>
+      </div>
     </>
   );
 };
