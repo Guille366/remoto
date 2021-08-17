@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 const Header = () => {
   return (
-    <h1 className="font-mono text-6xl font-bold w-full text-center pt-8">
-      REMOTO
-    </h1>
+    <div className="w-full text-center py-8">
+      <Link href="/">
+        <a className="font-mono text-7xl font-bold ">REMOTO</a>
+      </Link>
+    </div>
   );
 };
 
