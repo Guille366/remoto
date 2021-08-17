@@ -46,7 +46,7 @@ const Jobs = () => {
           arr.map((item) => (
             <li
               key={item.id}
-              className="p-4 shadow-md rounded border-purple-700 border"
+              className="p-4 shadow-md rounded border-purple-700 border border-opacity-30"
             >
               <Link href={`/jobs/${item.id}`}>
                 <a className="text-gray-700">
@@ -54,7 +54,7 @@ const Jobs = () => {
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
                       <div
-                        className="font-bold py-1 px-2 mx-1 my-1 rounded-lg bg-purple-900 text-gray-200"
+                        className="font-bold py-1 px-2 mx-1 my-1 rounded-lg bg-purple-700 text-gray-200"
                         key={key}
                       >
                         {item.name}
