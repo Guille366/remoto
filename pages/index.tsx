@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Jobs from "../components/Jobs";
+import Pagination from "../components/Pagination";
 import { Context } from "./_app";
 
 export async function getStaticProps() {
@@ -49,7 +50,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
         <Jobs />
 
-        {/* <Pagination /> */}
+        <Pagination />
       </main>
 
       <Footer />
