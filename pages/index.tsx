@@ -57,8 +57,6 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(context?.jobs);
-
   return (
     <div>
       <Head>
@@ -67,7 +65,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-mono min-h-total max-w-screen-lg m-auto">
+      <main className="font-mono min-h-total max-w-screen-lg m-auto px-4">
         <Header />
 
         <Pagination />
