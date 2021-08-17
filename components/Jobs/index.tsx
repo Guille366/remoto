@@ -13,28 +13,14 @@ interface StateTypes {
 }
 
 const Jobs = () => {
-  const [arr, setArr] = useState<StateTypes[] | undefined | null>(null);
+  const [arr, setArr] = useState<StateTypes[] | []>([]);
 
   const context = useContext(Context);
 
   useEffect(() => {
     const limited = context?.jobs.slice(0, context?.n);
 
-    setArr(limited);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    const length = context?.jobs.length || 0;
-    const pages = length / 10;
-    const paginationArr = [];
-
-    for (let i = 1; i <= pages; i++) {
-      paginationArr.push(i);
-    }
-
-    context?.setPagination(paginationArr);
+    setArr(limited || []);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
