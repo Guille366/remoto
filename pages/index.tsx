@@ -8,16 +8,14 @@ import Pagination from "../components/Pagination";
 import { Context } from "./_app";
 
 interface DateType {
-  data: {
-    body: string;
-    html_url: string;
-    created_at: string;
-    id: number;
-    labels: {
-      name: string;
-    }[];
-    title: string;
+  body: string;
+  html_url: string;
+  created_at: string;
+  id: number;
+  labels: {
+    name: string;
   }[];
+  title: string;
 }
 
 export async function getStaticProps() {
@@ -27,7 +25,7 @@ export async function getStaticProps() {
 
     return {
       props: {
-        data: data,
+        data: data.data,
       },
     };
   } catch (error) {
@@ -39,9 +37,9 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const context = useContext(Context);
 
   useEffect(() => {
-    const staticData: DateType = data;
+    const staticData: DateType[] = data;
 
-    const filterJobs = staticData.data.sort((a, b) => {
+    const filterJobs = staticData.sort((a, b) => {
       const dateA: any = new Date(a.created_at);
       const dateB: any = new Date(b.created_at);
 
