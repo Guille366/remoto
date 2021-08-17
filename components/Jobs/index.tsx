@@ -40,7 +40,7 @@ const Jobs = () => {
       <ul className="grid md:grid-cols-2 gap-4">
         {arr.length === 0 ? (
           <li>
-            <h2 className="w-full text-center pt-12 text-xl">No items...</h2>
+            <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
           </li>
         ) : (
           arr.map((item) => (
