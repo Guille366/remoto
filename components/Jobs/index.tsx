@@ -25,6 +25,14 @@ const Jobs = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const limited = context?.jobs.slice(context?.n - 10, context?.n);
+
+    setArr(limited || []);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.n]);
+
   return (
     <div className="font-nunito">
       <ul>
