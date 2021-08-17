@@ -15,8 +15,6 @@ interface JobsTypes {
 interface ContextTypes {
   n: number;
   setN: Dispatch<SetStateAction<number>>;
-  pagination: number[] | null;
-  setPagination: Dispatch<SetStateAction<number[] | null>>;
   jobs: JobsTypes[];
   setJobs: Dispatch<SetStateAction<never[]>>;
 }
@@ -25,13 +23,10 @@ export const Context = createContext<ContextTypes | null>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [n, setN] = useState(10);
-  const [pagination, setPagination] = useState<number[] | null>(null);
   const [jobs, setJobs] = useState([]);
 
   return (
-    <Context.Provider
-      value={{ n, setN, pagination, setPagination, setJobs, jobs }}
-    >
+    <Context.Provider value={{ n, setN, setJobs, jobs }}>
       <Component {...pageProps} />
     </Context.Provider>
   );
