@@ -36,7 +36,7 @@ const Jobs = () => {
   }, [context?.n, context?.jobs]);
 
   return (
-    <div className="font-nunito">
+    <div className="font-nunito py-8">
       <ul className="grid md:grid-cols-2 gap-4">
         {arr.length === 0 ? (
           <li>
