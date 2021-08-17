@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../pages/_app";
 
 const Pagination = () => {
-  const [pagination, setPagination] = useState<number[] | []>([]);
+  const [pagination, setPagination] = useState<number[]>([]);
 
   const context = useContext(Context);
 
@@ -18,14 +18,16 @@ const Pagination = () => {
     setPagination(paginationArr);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [context?.jobs]);
 
   return (
     <ul className="flex flex-row justify-center my-8">
       {pagination.map((item) => (
         <li className="mx-2" key={item}>
           <button
-            className="px-4 py-1 rounded shadow-md bg-purple-800 text-gray-100 hover:bg-purple-900"
+            className={`${
+              context?.n === item * 10 ? "bg-purple-900" : "bg-purple-700"
+            } px-4 py-1 rounded shadow-md text-gray-100 hover:bg-purple-900`}
             onClick={() => context?.setN(10 * item)}
           >
             {item}
