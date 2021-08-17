@@ -1,6 +1,10 @@
 import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import { useContext, useEffect } from "react";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Jobs from "../components/Jobs";
+import { Context } from "./_app";
 
 export async function getStaticProps() {
   try {
@@ -24,7 +28,14 @@ export async function getStaticProps() {
 }
 
 const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(data);
+  const context = useContext(Context);
+
+  useEffect(() => {
+    context?.setJobs(data);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
       <Head>
@@ -33,20 +44,15 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main></main>
+      <main className="font-mono min-h-total max-w-screen-lg m-auto">
+        <Header />
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <Jobs />
+
+        {/* <Pagination /> */}
+      </main>
+
+      <Footer />
     </div>
   );
 };
