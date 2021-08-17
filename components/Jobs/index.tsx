@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../pages/_app";
 import formatDate from "../../utils/formatDate";
+import Link from "next/link";
 
 interface StateTypes {
   body: string;
@@ -44,9 +45,13 @@ const Jobs = () => {
         ) : (
           arr.map((item) => (
             <li key={item.id}>
-              {item.title}
-              <br /> {item.labels.map((item) => item.name)}
-              <br /> {formatDate(item.created_at)}
+              <Link href={`/jobs/${item.id}`}>
+                <a className="">
+                  {item.title}
+                  <br /> {item.labels.map((item) => item.name)}
+                  <br /> {formatDate(item.created_at)}
+                </a>
+              </Link>
             </li>
           ))
         )}
