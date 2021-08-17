@@ -12,6 +12,11 @@
 a {
   --tw-bg-opacity: 1;
   color: rgba(109, 40, 217, var(--tw-bg-opacity));
+  transition: all 0.2s ease;
+}
+a:hover {
+  --tw-bg-opacity: 1;
+  color: rgba(76, 29, 149, var(--tw-bg-opacity));
 }
 
 h2 {
