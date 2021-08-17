@@ -37,19 +37,31 @@ const Jobs = () => {
 
   return (
     <div className="font-nunito">
-      <ul>
+      <ul className="grid md:grid-cols-2 gap-4">
         {arr.length === 0 ? (
           <li>
             <h2 className="w-full text-center pt-12 text-xl">No items...</h2>
           </li>
         ) : (
           arr.map((item) => (
-            <li key={item.id}>
+            <li
+              key={item.id}
+              className="p-4 shadow-md rounded border-purple-700 border"
+            >
               <Link href={`/jobs/${item.id}`}>
-                <a className="">
-                  {item.title}
-                  <br /> {item.labels.map((item) => item.name)}
-                  <br /> {formatDate(item.created_at)}
+                <a className="text-gray-700">
+                  <h2 className="font-mono">{item.title}</h2>
+                  <div className="flex flex-row flex-wrap">
+                    {item.labels.map((item, key) => (
+                      <div
+                        className="font-bold py-1 px-2 mx-1 my-1 rounded-lg bg-purple-900 text-gray-200"
+                        key={key}
+                      >
+                        {item.name}
+                      </div>
+                    ))}
+                  </div>
+                  <small className="">{formatDate(item.created_at)}</small>
                 </a>
               </Link>
             </li>
