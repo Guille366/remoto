@@ -1,5 +1,6 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
+import Details from "../../components/Details";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
@@ -78,8 +79,6 @@ export async function getStaticProps({ params }: ParamType) {
 const JobDescription = ({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const typedData: DataType = data;
-
   return (
     <div>
       <Head>
@@ -91,7 +90,7 @@ const JobDescription = ({
       <main className="font-mono min-h-total max-w-screen-lg m-auto px-4">
         <Header />
 
-        <h1>{typedData.title}</h1>
+        <Details data={data} />
       </main>
 
       <Footer />
