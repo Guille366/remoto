@@ -20,8 +20,6 @@ const Pagination = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context?.jobs]);
 
-  console.log(context?.n);
-
   return (
     <>
       <ul className="hidden md:flex flex-row justify-center my-8">
