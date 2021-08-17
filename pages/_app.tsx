@@ -15,15 +15,15 @@ interface JobsTypes {
 interface ContextTypes {
   n: number;
   setN: Dispatch<SetStateAction<number>>;
-  jobs: JobsTypes[];
-  setJobs: Dispatch<SetStateAction<never[]>>;
+  jobs: JobsTypes[] | [];
+  setJobs: Dispatch<SetStateAction<JobsTypes[] | []>>;
 }
 
 export const Context = createContext<ContextTypes | null>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [n, setN] = useState(10);
-  const [jobs, setJobs] = useState([]);
+  const [n, setN] = useState<number>(10);
+  const [jobs, setJobs] = useState<JobsTypes[] | []>([]);
 
   return (
     <Context.Provider value={{ n, setN, setJobs, jobs }}>
