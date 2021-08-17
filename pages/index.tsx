@@ -8,30 +8,26 @@ import Pagination from "../components/Pagination";
 import { Context } from "./_app";
 
 interface DateType {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
+  data: {
+    body: string;
+    html_url: string;
+    created_at: string;
+    id: number;
+    labels: {
+      name: string;
+    }[];
+    title: string;
   }[];
-  title: string;
 }
 
 export async function getStaticProps() {
   try {
-    const rbrRes = await fetch(
-      "https://api.github.com/repos/react-brasil/vagas/issues?state=open&per_page=50"
-    );
-    const fbrRes = await fetch(
-      "https://api.github.com/repos/frontendbr/vagas/issues?state=open&per_page=50"
-    );
-    const rbr = await rbrRes.json();
-    const fbr = await fbrRes.json();
+    const ghData = await fetch("http://localhost:3000/api/data");
+    const data = await ghData.json();
 
     return {
       props: {
-        data: [...rbr, ...fbr],
+        data: data,
       },
     };
   } catch (error) {
@@ -43,9 +39,9 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const context = useContext(Context);
 
   useEffect(() => {
-    const staticData: DateType[] = data;
+    const staticData: DateType = data;
 
-    const filterJobs = staticData.sort((a, b) => {
+    const filterJobs = staticData.data.sort((a, b) => {
       const dateA: any = new Date(a.created_at);
       const dateB: any = new Date(b.created_at);
 

@@ -26,21 +26,13 @@ interface ParamType {
 }
 
 export async function getStaticPaths() {
-  const rbrRes = await fetch(
-    "https://api.github.com/repos/react-brasil/vagas/issues?state=open&per_page=50"
-  );
-  const fbrRes = await fetch(
-    "https://api.github.com/repos/frontendbr/vagas/issues?state=open&per_page=50"
-  );
-  const rbr = await rbrRes.json();
-  const fbr = await fbrRes.json();
+  const ghData = await fetch("http://localhost:3000/api/data");
+
+  const data = await ghData.json();
 
   const arr: ArrType[] = [];
 
-  rbr.forEach((item: DataType) => {
-    arr.push({ params: { id: String(item.id) } });
-  });
-  fbr.forEach((item: DataType) => {
+  data.data.forEach((item: DataType) => {
     arr.push({ params: { id: String(item.id) } });
   });
 
@@ -52,19 +44,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: ParamType) {
   try {
-    const rbrRes = await fetch(
-      "https://api.github.com/repos/react-brasil/vagas/issues?state=open&per_page=50"
-    );
-    const fbrRes = await fetch(
-      "https://api.github.com/repos/frontendbr/vagas/issues?state=open&per_page=50"
-    );
-    const rbr = await rbrRes.json();
-    const fbr = await fbrRes.json();
+    const ghData = await fetch("http://localhost:3000/api/data");
 
-    const data = [...rbr, ...fbr];
+    const data = await ghData.json();
 
     //Filter data arr
-    const filteredData = data.filter((item) => item.id === Number(params.id));
+    const filteredData = data.data.filter(
+      (item: DataType) => item.id === Number(params.id)
+    );
 
     return {
       props: {
