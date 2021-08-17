@@ -39,7 +39,7 @@ const Pagination = () => {
         ))}
       </ul>
 
-      <ul className="flex flex-row justify-center mb-8">
+      <ul className="md:hidden flex flex-row justify-center mb-8">
         <li className="mx-2">
           <button
             className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
