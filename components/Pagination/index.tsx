@@ -26,6 +26,27 @@ const Pagination = () => {
     setPage(result);
   }, [pagination, context?.n]);
 
+  function handleBtn(item: number) {
+    context?.setN(10 * item);
+
+    window.scrollTo(0, 0);
+  }
+
+  function handleBtnMobile(direction: string) {
+    switch (direction) {
+      case "previous":
+        context?.setN(context?.n - 10);
+        break;
+      case "next":
+        context?.setN(context?.n + 10);
+        break;
+      default:
+        break;
+    }
+
+    window.scrollTo(0, 0);
+  }
+
   return (
     <>
       <ul className="hidden md:flex flex-row justify-center my-8">
@@ -35,7 +56,7 @@ const Pagination = () => {
               className={`${
                 context?.n === item * 10 ? "bg-purple-900" : "bg-purple-700"
               } px-4 py-1 rounded shadow-md text-gray-100 hover:bg-purple-900`}
-              onClick={() => context?.setN(10 * item)}
+              onClick={() => handleBtn(item)}
             >
               {item}
             </button>
@@ -51,7 +72,7 @@ const Pagination = () => {
           <li className="mx-2">
             <button
               className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
-              onClick={() => context?.setN(context?.n - 10)}
+              onClick={() => handleBtnMobile("previous")}
               disabled={context?.n === 10}
             >
               {"<<"}
@@ -60,7 +81,7 @@ const Pagination = () => {
           <li className="mx-2">
             <button
               className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
-              onClick={() => context?.setN(context?.n + 10)}
+              onClick={() => handleBtnMobile("next")}
               disabled={context?.n === 100}
             >
               {">>"}
