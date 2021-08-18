@@ -13,6 +13,16 @@ interface DataType {
     title: string;
   }[];
 }
+interface FilteredDataType {
+  body: string;
+  html_url: string;
+  created_at: string;
+  id: number;
+  labels: {
+    name: string;
+  }[];
+  title: string;
+}
 
 // URLS
 const rbrUrl =
@@ -37,9 +47,13 @@ export default async function miscHandler(
 
         const rbr = await rbrRes.json();
         const fbr = await fbrRes.json();
+        const allJobs: FilteredDataType[] = [...rbr, ...fbr];
 
+        const filteredData = allJobs.filter((item) =>
+          item.labels.some((item) => item.name.toUpperCase().includes("REMOTO"))
+        );
         const obj: DataType = {
-          data: [...rbr, ...fbr],
+          data: filteredData,
         };
 
         res.setHeader(
