@@ -17,6 +17,7 @@ a {
 a:hover {
   --tw-bg-opacity: 1;
   color: rgba(76, 29, 149, var(--tw-bg-opacity));
+  text-decoration: underline;
 }
 
 h2 {
@@ -38,4 +39,30 @@ p {
 
 img {
   margin: 0 auto;
+}
+
+/* Styled List */
+ul {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+li {
+  display: flex;
+  margin-top: 1rem;
+}
+li:first-child {
+  margin-top: 0;
+}
+li::before {
+  padding-right: 0.8rem;
+}
+ul li::before {
+  content: "</>";
+  --tw-bg-opacity: 1;
+  color: rgba(109, 40, 217, var(--tw-bg-opacity));
+  display: inline-block;
+  /* width: 1.5rem; */
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: monospace;
 }
