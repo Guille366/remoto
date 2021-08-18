@@ -37,16 +37,14 @@ const Jobs = () => {
 
   return (
     <div className="font-nunito py-8">
-      <ul className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4">
         {arr.length === 0 ? (
-          <li>
-            <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
-          </li>
+          <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
         ) : (
           arr.map((item) => (
-            <li key={item.id} className="">
+            <div key={item.id} className="">
               <Link href={`/jobs/${item.id}`}>
-                <a className="text-gray-700 flex flex-col justify-center h-full p-4 shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
+                <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
                   <h2 className="font-mono pt-0">{item.title}</h2>
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
@@ -58,13 +56,15 @@ const Jobs = () => {
                       </div>
                     ))}
                   </div>
-                  <small className="">{formatDate(item.created_at)}</small>
+                  <p className="text-gray-500 text-sm p-0 font-mono">
+                    {formatDate(item.created_at)}
+                  </p>
                 </a>
               </Link>
-            </li>
+            </div>
           ))
         )}
-      </ul>
+      </div>
     </div>
   );
 };
