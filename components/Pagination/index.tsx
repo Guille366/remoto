@@ -49,45 +49,46 @@ const Pagination = () => {
 
   return (
     <>
-      <ul className="hidden md:flex flex-row justify-center my-8">
+      <div className="hidden md:flex flex-row justify-center my-8 font-nunito">
         {pagination.map((item) => (
-          <li className="mx-2" key={item}>
+          <div className="mx-2" key={item}>
             <button
               className={`${
                 context?.n === item * 10 ? "bg-purple-900" : "bg-purple-700"
-              } px-4 py-1 rounded shadow-md text-gray-100 hover:bg-purple-900`}
+              } px-4 py-1 rounded shadow-md text-gray-100 hover:bg-purple-900 hover:shadow-lg`}
               onClick={() => handleBtn(item)}
             >
               {item}
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
 
       <div className="md:hidden block">
-        <p className="w-full text-center text-sm">
-          {page}/{pagination.length}
-        </p>
-        <ul className="md:hidden flex flex-row justify-center mb-8">
-          <li className="mx-2">
+        <p className="w-full text-center text-sm"></p>
+        <div className="md:hidden flex flex-row justify-center mb-8">
+          <div className="mx-2">
             <button
-              className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
+              className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900 hover:shadow-lg`}
               onClick={() => handleBtnMobile("previous")}
               disabled={context?.n === 10}
             >
-              {"<<"}
+              {"<"}
             </button>
-          </li>
-          <li className="mx-2">
+          </div>
+          <div className="mx-2 flex align-center justify-center">
+            {page}/{pagination.length}
+          </div>
+          <div className="mx-2">
             <button
-              className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900`}
+              className={`px-4 py-1 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900 hover:shadow-lg`}
               onClick={() => handleBtnMobile("next")}
               disabled={context?.n === 100}
             >
-              {">>"}
+              {">"}
             </button>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </>
   );
