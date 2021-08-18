@@ -21,7 +21,7 @@ const Details = ({ data }: DataType) => {
       <Link href="/">
         <a className={`py-1`}>{"<< Voltar"}</a>
       </Link>
-      <h1 className="mt-4 text-4xl font-bold">{data?.title}</h1>
+      <h1 className="mt-4 text-3xl md:text-4xl font-bold">{data?.title}</h1>
       <div className="font-nunito my-4">
         <ReactMarkdown skipHtml={true} remarkPlugins={[remarkGfm]}>
           {data?.body}
