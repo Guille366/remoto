@@ -1,9 +1,14 @@
+import { memo } from "react";
+
 const Footer: React.FC = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <footer className="flex items-center justify-center w-full h-14 font-mono px-4">
       <div className="w-full flex flex-row justify-between items-center m-auto h-14 max-w-screen-lg border-t border-gray-200">
         <p className="text-start text-gray-400 text-xs">
-          &copy;2021 <span className="font-bold text-gray-400">REMOTO</span>.
+          &copy;{year} <span className="font-bold text-gray-400">REMOTO</span>.
           Todos os direitos reservados.
         </p>
         <p className="text-end text-gray-400 text-xs">
@@ -21,4 +26,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);
