@@ -62,9 +62,9 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <main className="font-mono min-h-total max-w-screen-lg m-auto px-4 text-gray-800">
         <Header />
 
-        <Pagination />
-
         <Jobs />
+
+        <Pagination />
       </main>
 
       <Footer />
