@@ -1,6 +1,8 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Alert from "../Alert";
+import Fav from "../common/Fav";
 
 interface DataType {
   data: {
@@ -17,10 +19,12 @@ interface DataType {
 
 const Details = ({ data }: DataType) => {
   return (
-    <div className="text-gray-800 py-4">
+    <div className="relative text-gray-800 py-4">
+      <Alert />
       <Link href="/">
         <a className={`py-1`}>{"< Voltar"}</a>
       </Link>
+      <Fav id={data?.id} className="text-2xl" />
       <h1 className="mt-4 text-3xl md:text-4xl font-bold">{data?.title}</h1>
       <div className="font-nunito my-4">
         <ReactMarkdown skipHtml={true} remarkPlugins={[remarkGfm]}>
