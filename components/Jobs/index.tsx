@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../pages/_app";
 import formatDate from "../../utils/formatDate";
 import Link from "next/link";
+import Alert from "../Alert";
+import Fav from "../common/Fav";
 
 interface StateTypes {
   body: string;
@@ -31,18 +33,19 @@ const Jobs = () => {
     const limited = context?.jobs.slice(context?.n - 10, context?.n);
 
     setArr(limited || []);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context?.n, context?.jobs]);
 
   return (
     <div className="font-nunito py-8">
+      <Alert />
       <div className="grid md:grid-cols-2 gap-4">
         {arr.length === 0 ? (
           <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
         ) : (
           arr.map((item) => (
-            <div key={item.id} className="">
+            <div key={item.id} className="relative">
+              <Fav id={item.id} />
+
               <Link href={`/jobs/${item.id}`}>
                 <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
                   <h2 className="font-mono pt-0">{item.title}</h2>
