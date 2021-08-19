@@ -47,7 +47,8 @@ ul {
   padding-top: 10px;
 }
 li {
-  display: flex;
+  /* display: flex;
+  flex-direction: column; */
   margin-top: 1rem;
 }
 li:first-child {
