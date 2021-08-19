@@ -12,6 +12,11 @@ interface JobsTypes {
   }[];
   title: string;
 }
+
+interface AlertTypes {
+  msg: string | null;
+  active: boolean;
+}
 interface ContextTypes {
   n: number;
   setN: Dispatch<SetStateAction<number>>;
@@ -19,6 +24,11 @@ interface ContextTypes {
   setJobs: Dispatch<SetStateAction<JobsTypes[] | []>>;
   setPage: Dispatch<SetStateAction<number>>;
   page: number;
+  alert: {
+    msg: string | null;
+    active: boolean;
+  };
+  setAlert: Dispatch<SetStateAction<AlertTypes>>;
 }
 
 export const Context = createContext<ContextTypes | null>(null);
@@ -27,9 +37,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [n, setN] = useState<number>(10);
   const [jobs, setJobs] = useState<JobsTypes[] | []>([]);
   const [page, setPage] = useState<number>(1);
+  const [alert, setAlert] = useState<AlertTypes>({ msg: null, active: false });
 
   return (
-    <Context.Provider value={{ n, setN, setJobs, jobs, page, setPage }}>
+    <Context.Provider
+      value={{ n, setN, setJobs, jobs, page, setPage, alert, setAlert }}
+    >
       <Component {...pageProps} />
     </Context.Provider>
   );
