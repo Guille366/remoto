@@ -3,7 +3,6 @@ import { Context } from "../../pages/_app";
 
 const Pagination = () => {
   const [pagination, setPagination] = useState<number[]>([]);
-  const [page, setPage] = useState<number>(1);
 
   const context = useContext(Context);
 
@@ -23,8 +22,8 @@ const Pagination = () => {
     const p = context?.n || 0;
     const result = p / 10;
 
-    setPage(result);
-  }, [pagination, context?.n]);
+    context?.setPage(result);
+  }, [pagination, context?.n, context]);
 
   function handleBtn(item: number) {
     context?.setN(10 * item);
@@ -77,7 +76,7 @@ const Pagination = () => {
             </button>
           </div>
           <div className="mx-2 flex align-center justify-center">
-            {page}/{pagination.length}
+            {context?.page}/{pagination.length}
           </div>
           <div className="mx-2">
             <button
