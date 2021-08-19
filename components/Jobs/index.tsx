@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../pages/_app";
 import formatDate from "../../utils/formatDate";
 import Link from "next/link";
-import Alert from "../Alert";
+import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 
 interface StateTypes {

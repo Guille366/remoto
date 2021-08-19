@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import Alert from "../Alert";
+import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 
 interface DataType {

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Context } from "../../pages/_app";
+import { Context } from "../../../pages/_app";
 
 const Alert = () => {
   const context = useContext(Context);
