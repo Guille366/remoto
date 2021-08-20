@@ -25,10 +25,14 @@ interface FilteredDataType {
 }
 
 // URLS
-const rbrUrl =
-  "https://api.github.com/repos/react-brasil/vagas/issues?state=open&per_page=100";
-const fbrUrl =
-  "https://api.github.com/repos/frontendbr/vagas/issues?state=open&per_page=100";
+const reactBrPageOne =
+  "https://api.github.com/repos/react-brasil/vagas/issues?state=open&page=1&per_page=100";
+const frontBrPageOne =
+  "https://api.github.com/repos/frontendbr/vagas/issues?state=open&&page=1&per_page=100";
+const reactBrPageTwo =
+  "https://api.github.com/repos/react-brasil/vagas/issues?state=open&page=2&per_page=100";
+const frontBrPageTwo =
+  "https://api.github.com/repos/frontendbr/vagas/issues?state=open&&page=2&per_page=100";
 
 // check if is in prod or dev
 // const isDev = !process.env.AWS_REGION;
@@ -42,12 +46,21 @@ export default async function miscHandler(
   switch (method) {
     case "GET":
       try {
-        const rbrRes = await fetch(rbrUrl);
-        const fbrRes = await fetch(fbrUrl);
+        const rbPageOne = await fetch(reactBrPageOne);
+        const rbPageTwo = await fetch(reactBrPageTwo);
+        const fbPageOne = await fetch(frontBrPageOne);
+        const fbPageTwo = await fetch(frontBrPageTwo);
 
-        const rbr = await rbrRes.json();
-        const fbr = await fbrRes.json();
-        const allJobs: FilteredDataType[] = [...rbr, ...fbr];
+        const rbOne = await rbPageOne.json();
+        const rbTwo = await rbPageTwo.json();
+        const fbOne = await fbPageOne.json();
+        const fbTwo = await fbPageTwo.json();
+        const allJobs: FilteredDataType[] = [
+          ...rbOne,
+          ...fbOne,
+          ...rbTwo,
+          ...fbTwo,
+        ];
 
         const filteredData = allJobs.filter((item) =>
           item.labels.some((item) => item.name.toUpperCase().includes("REMOTO"))
