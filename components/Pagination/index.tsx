@@ -42,7 +42,7 @@ const Pagination = ({
       if (pagination.length - 5 < page) {
         return setLimit([pagination.length - 5, pagination.length]);
       }
-      setLimit([limit[0] + 1, page + 1]);
+      setLimit((prev) => [prev[0] + 1, page + 1]);
     }
     if (page < 5) {
       if (pagination.length <= 5) {
@@ -57,6 +57,7 @@ const Pagination = ({
 
   function handleBtn(item: number) {
     const page = context?.page || 1;
+
     if (fav) {
       context?.setFavN(10 * item);
 
@@ -84,9 +85,13 @@ const Pagination = ({
 
           return;
         }
-        setLimit([limit[0] + 1, page + 1]);
-      }
-      if (page < 5) {
+
+        // setLimit((prev) => [prev[0] + 1, page + 1]);
+
+        window.scrollTo(0, 0);
+
+        return;
+      } else {
         if (pagination.length <= 5) {
           setLimit([0, pagination.length]);
           window.scrollTo(0, 0);
@@ -101,8 +106,6 @@ const Pagination = ({
     window.scrollTo(0, 0);
     return;
   }
-
-  console.log(context?.page);
 
   return (
     <>
