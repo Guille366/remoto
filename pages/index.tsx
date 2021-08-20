@@ -47,9 +47,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
     });
 
     context?.setJobs(filterJobs);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [context, data]);
 
   return (
     <div>
