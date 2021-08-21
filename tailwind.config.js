@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         nunito: ["Nunito", "sans-serif"],
+        code: ["Fira Code", "monospace"],
       },
     },
   },

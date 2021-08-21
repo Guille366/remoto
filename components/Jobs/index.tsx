@@ -48,7 +48,7 @@ const Jobs = () => {
 
               <Link href={`/jobs/${item.id}`}>
                 <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
-                  <h2 className="font-mono pt-0">{item.title}</h2>
+                  <h2 className="font-code pt-0">{item.title}</h2>
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
                       <div

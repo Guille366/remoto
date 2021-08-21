@@ -76,7 +76,7 @@ const JobDescription = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-mono min-h-total max-w-screen-lg m-auto px-4">
+      <main className="font-code min-h-total max-w-screen-lg m-auto px-4">
         <Header />
 
         <Details data={data} />

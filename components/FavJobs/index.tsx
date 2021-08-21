@@ -1,6 +1,4 @@
 import Link from "next/link";
-// import { useContext, useEffect, useState } from "react";
-// import { Context } from "../../pages/_app";
 import formatDate from "../../utils/formatDate";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
@@ -17,37 +15,8 @@ interface FavTypes {
     title: string;
   }[];
 }
-// interface StateTypes {
-//   body: string;
-//   html_url: string;
-//   created_at: string;
-//   id: number;
-//   labels: {
-//     name: string;
-//   }[];
-//   title: string;
-// }
 
 const FavJobs = ({ favData }: FavTypes) => {
-  //   const [arr, setArr] = useState<StateTypes[] | []>([]);
-
-  //   const context = useContext(Context);
-
-  //   useEffect(() => {
-  //     const limited = favData.slice(0, context?.favN);
-
-  //     setArr(limited);
-
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   }, []);
-
-  //   useEffect(() => {
-  //     const num = context?.favN || 11;
-  //     const limited = favData.slice(num - 10, context?.favN);
-
-  //     setArr(limited || []);
-  //   }, [context?.favN, favData]);
-
   return (
     <div className="font-nunito py-8">
       <Alert />
@@ -63,7 +32,7 @@ const FavJobs = ({ favData }: FavTypes) => {
 
               <Link href={`/jobs/${item.id}`}>
                 <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
-                  <h2 className="font-mono pt-0">{item.title}</h2>
+                  <h2 className="font-code pt-0">{item.title}</h2>
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
                       <div

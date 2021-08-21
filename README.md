@@ -35,6 +35,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 <!--
 -todo
-save functionality
+Favs number (20 favs)
+jobs number (20 jobs found)
 increase number of api results
   -->

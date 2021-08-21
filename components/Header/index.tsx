@@ -5,10 +5,10 @@ const Header = ({ fav }: { fav?: boolean }) => {
   return (
     <div className="w-full text-center py-8">
       <Link href="/">
-        <a className="font-mono text-6xl md:text-7xl no-underline font-bold text-gray-800 hover:text-gray-800">
-          <span className="text-purple-700">{"<"}</span>
+        <a className="font-code text-6xl md:text-7xl no-underline text-gray-800 hover:text-gray-800">
+          <span className="text-purple-700 font-bold">{"<"}</span>
           {"REMOTO"}
-          <span className="text-purple-700">{"/>"}</span>
+          <span className="text-purple-700 font-bold">{"/>"}</span>
         </a>
       </Link>
       <p className="text-gray-500 text-sm">
