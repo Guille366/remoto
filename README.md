@@ -1,5 +1,6 @@
 <p align="center">
     <a align="center" href="https://remoto.vercel.app/" target="__blank">
+        <img src="https://user-images.githubusercontent.com/13293669/130333820-54903c08-9b57-469e-bd10-8756f7540205.png" alt="Remoto Logo">
     </a>
 </p>
 <h1 align="center">REMOTO</h1>
