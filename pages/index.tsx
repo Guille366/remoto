@@ -53,7 +53,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <div>
       <Head>
         <title>
-          {context?.page === 1 ? "Home" : `Página ${context?.page}`} | REMOTO
+          {context?.page === 1 ? "" : `Página ${context?.page} | `}REMOTO
         </title>
         <meta
           name="description"
