@@ -38,7 +38,7 @@ const Jobs = () => {
   return (
     <div className="font-nunito py-8">
       <Alert />
-      {context?.page === 1 && (
+      {context?.page === 1 && context?.jobs.length !== 0 && (
         <p className="text-sm pt-0">{context?.jobs.length} vagas disponíveis</p>
       )}
       <div className="grid md:grid-cols-2 gap-4">
