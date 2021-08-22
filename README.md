@@ -15,7 +15,7 @@
 
 ## ✔️About
 
-REMOTO Grabs Brazilian remote dev job openings from [React-Brasil](https://github.com/react-brasil/vagas) and [Front-End Brasil](https://github.com/frontendbr/vagas) and arranges them in an easy visual way for users to go through.
+REMOTO Grabs remote dev job openings from [React-Brasil](https://github.com/react-brasil/vagas) and [Front-End Brasil](https://github.com/frontendbr/vagas) and arranges them in an easy visual way for users to go through.
 
 ## ✔️Install
 
