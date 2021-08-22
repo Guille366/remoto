@@ -38,6 +38,9 @@ const Jobs = () => {
   return (
     <div className="font-nunito py-8">
       <Alert />
+      {context?.page === 1 && (
+        <p className="text-sm pt-0">{context?.jobs.length} jobs disponíveis</p>
+      )}
       <div className="grid md:grid-cols-2 gap-4">
         {arr.length === 0 ? (
           <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
@@ -52,7 +55,7 @@ const Jobs = () => {
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
                       <div
-                        className="font-bold text-sm py-1 px-2 mx-1 my-1 rounded-lg bg-purple-700 text-gray-200"
+                        className="font-bold text-sm py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-purple-700 text-purple-700"
                         key={key}
                       >
                         {item.name}
