@@ -23,6 +23,15 @@ const Header = ({ fav }: { fav?: boolean }) => {
           </a>
         </Link>
       </div>
+      <div className={`${!fav ? "hidden" : "block"} m-auto pt-4`}>
+        <Link href="/">
+          <a
+            className={`font-nunito font-bold no-underline px-4 py-2 rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900 hover:shadow-lg`}
+          >
+            Home
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };

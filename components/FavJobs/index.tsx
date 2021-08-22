@@ -18,7 +18,7 @@ interface FavTypes {
 
 const FavJobs = ({ favData }: FavTypes) => {
   return (
-    <div className="font-nunito py-8">
+    <div className="font-nunito pt-4 pb-8">
       <Alert />
       {favData.length !== 0 && (
         <p className="text-sm pt-0">{favData.length} vagas favoritadas</p>

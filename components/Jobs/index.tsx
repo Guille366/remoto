@@ -36,7 +36,7 @@ const Jobs = () => {
   }, [context?.n, context?.jobs]);
 
   return (
-    <div className="font-nunito py-8">
+    <div className="font-nunito pt-4 pb-8">
       <Alert />
       {context?.page === 1 && context?.jobs.length !== 0 && (
         <p className="text-sm pt-0">{context?.jobs.length} vagas disponíveis</p>
