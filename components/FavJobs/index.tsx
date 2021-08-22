@@ -20,7 +20,7 @@ const FavJobs = ({ favData }: FavTypes) => {
   return (
     <div className="font-nunito py-8">
       <Alert />
-      <p className="text-sm pt-0">{favData.length} jobs favoritados</p>
+      <p className="text-sm pt-0">{favData.length} vagas favoritadas</p>
       <div className="grid md:grid-cols-2 gap-4">
         {favData.length === 0 ? (
           <h2 className="w-full text-center pt-12 text-xl">
