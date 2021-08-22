@@ -20,6 +20,7 @@ const FavJobs = ({ favData }: FavTypes) => {
   return (
     <div className="font-nunito py-8">
       <Alert />
+      <p className="text-sm pt-0">{favData.length} jobs favoritados</p>
       <div className="grid md:grid-cols-2 gap-4">
         {favData.length === 0 ? (
           <h2 className="w-full text-center pt-12 text-xl">
@@ -31,12 +32,12 @@ const FavJobs = ({ favData }: FavTypes) => {
               <Fav id={item.id} />
 
               <Link href={`/jobs/${item.id}`}>
-                <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
+                <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-red-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
                   <h2 className="font-code pt-0">{item.title}</h2>
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
                       <div
-                        className="font-bold text-sm py-1 px-2 mx-1 my-1 rounded-lg bg-purple-700 text-gray-200"
+                        className="font-bold text-sm py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-red-700 text-red-700"
                         key={key}
                       >
                         {item.name}
