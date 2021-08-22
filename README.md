@@ -11,7 +11,7 @@
 - PWA
 - Github API
 - TailwindCss
-- Localhost
+- localStorage
 
 ## ✔️About
 
