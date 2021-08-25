@@ -34,10 +34,3 @@ yarn build
 ```
 yarn dev
 ```
-
-<!--
--todo
-Favs number (20 favs)
-jobs number (20 jobs found)
-increase number of api results
-  -->

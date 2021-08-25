@@ -71,7 +71,7 @@ export default async function miscHandler(
 
         res.setHeader(
           "Cache-Control",
-          "s-maxage=43200000, stale-while-revalidate"
+          "s-maxage=43200, stale-while-revalidate"
         );
 
         res.status(200).json(obj);
