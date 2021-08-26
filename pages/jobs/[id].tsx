@@ -39,6 +39,7 @@ export async function getStaticPaths() {
   return {
     paths: [...arr],
     fallback: false,
+    revalidate: 43300,
   };
 }
 
@@ -57,6 +58,7 @@ export async function getStaticProps({ params }: ParamType) {
       props: {
         data: filteredData[0],
       },
+      revalidate: 43300,
     };
   } catch (error) {
     console.log(error);
