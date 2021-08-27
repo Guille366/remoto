@@ -1,7 +1,6 @@
 import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import { useCallback } from "react";
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Jobs from "../components/Jobs";
@@ -38,7 +37,7 @@ export async function getStaticProps() {
 const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const context = useContext(Context);
 
-  const memoData = useCallback(() => {
+  useEffect(() => {
     const staticData: DateType[] = data;
 
     const filterJobs = staticData.sort((a, b) => {
@@ -50,10 +49,6 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
     context?.setJobs(filterJobs);
   }, [context, data]);
-
-  useEffect(() => {
-    memoData();
-  }, [memoData]);
 
   return (
     <div>
