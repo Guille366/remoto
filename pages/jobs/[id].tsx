@@ -25,23 +25,6 @@ interface ParamType {
   };
 }
 
-export async function getStaticPaths() {
-  const ghData = await fetch("https://remoto.vercel.app/api/data");
-
-  const data = await ghData.json();
-
-  const arr: ArrType[] = [];
-
-  data.data.forEach((item: DataType) => {
-    arr.push({ params: { id: String(item.id) } });
-  });
-
-  return {
-    paths: [...arr],
-    fallback: false,
-  };
-}
-
 export async function getStaticProps({ params }: ParamType) {
   try {
     const ghData = await fetch("https://remoto.vercel.app/api/data");
@@ -62,6 +45,23 @@ export async function getStaticProps({ params }: ParamType) {
   } catch (error) {
     console.log(error);
   }
+}
+
+export async function getStaticPaths() {
+  const ghData = await fetch("https://remoto.vercel.app/api/data");
+
+  const data = await ghData.json();
+
+  const arr: ArrType[] = [];
+
+  data.data.forEach((item: DataType) => {
+    arr.push({ params: { id: String(item.id) } });
+  });
+
+  return {
+    paths: [...arr],
+    fallback: false,
+  };
 }
 
 const JobDescription = ({
