@@ -4,6 +4,7 @@ import formatDate from "../../utils/formatDate";
 import Link from "next/link";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
+import Filter from "../Filter";
 
 interface StateTypes {
   body: string;
@@ -38,9 +39,15 @@ const Jobs = () => {
   return (
     <div className="font-nunito pt-4 pb-8">
       <Alert />
-      {context?.page === 1 && context?.jobs.length !== 0 && (
-        <p className="text-sm pt-0">{context?.jobs.length} vagas disponíveis</p>
-      )}
+      <div className="w-full flex flex-row justify-between">
+        {context?.jobs.length !== 0 && (
+          <span className="whitespace-nowrap text-sm pt-0">
+            {context?.jobs.length} vagas disponíveis
+          </span>
+        )}
+
+        <Filter />
+      </div>
       <div className="grid md:grid-cols-2 gap-4">
         {arr.length === 0 ? (
           <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
