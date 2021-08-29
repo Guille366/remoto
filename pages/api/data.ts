@@ -63,7 +63,7 @@ export default async function miscHandler(
         ];
 
         const filteredData = allJobs.filter((item) =>
-          item.labels.some((item) => item.name.toUpperCase().includes("REMOTO"))
+          item.labels.some((i) => i.name.toUpperCase().includes("REMOTO"))
         );
         const obj: DataType = {
           data: filteredData,
