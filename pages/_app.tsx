@@ -33,6 +33,22 @@ interface ContextTypes {
   setAlert: Dispatch<SetStateAction<AlertTypes>>;
   favN: number;
   setFavN: Dispatch<SetStateAction<number>>;
+  filterArgs: {
+    pj: boolean;
+    clt: boolean;
+    junior: boolean;
+    pleno: boolean;
+    senior: boolean;
+  };
+  setFilterArgs: Dispatch<
+    SetStateAction<{
+      pj: boolean;
+      clt: boolean;
+      junior: boolean;
+      pleno: boolean;
+      senior: boolean;
+    }>
+  >;
 }
 
 export const Context = createContext<ContextTypes | null>(null);
@@ -44,6 +60,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [page, setPage] = useState<number>(1);
   const [favPage, setFavPage] = useState<number>(1);
   const [alert, setAlert] = useState<AlertTypes>({ msg: null, active: false });
+  const [filterArgs, setFilterArgs] = useState({
+    pj: false,
+    clt: false,
+    junior: false,
+    pleno: false,
+    senior: false,
+  });
 
   return (
     <Context.Provider
@@ -60,6 +83,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         setFavN,
         favPage,
         setFavPage,
+        filterArgs,
+        setFilterArgs,
       }}
     >
       <Component {...pageProps} />
