@@ -17,13 +17,6 @@ interface DateType {
   }[];
   title: string;
 }
-interface FilterTypes {
-  pj: boolean;
-  clt: boolean;
-  junior: boolean;
-  pleno: boolean;
-  senior: boolean;
-}
 
 export async function getStaticProps() {
   try {
