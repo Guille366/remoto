@@ -48,7 +48,7 @@ const Jobs = () => {
 
         <Filter />
       </div>
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4 mt-4">
         {arr.length === 0 ? (
           <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
         ) : (
