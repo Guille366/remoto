@@ -19,19 +19,15 @@ interface DataTypes {
 }
 
 export async function getStaticProps() {
-  try {
-    const ghData = await fetch("https://remoto.vercel.app/api/data");
-    const data = await ghData.json();
+  const ghData = await fetch("https://remoto.vercel.app/api/data");
+  const data = await ghData.json();
 
-    return {
-      props: {
-        data: data.data,
-      },
-      revalidate: 43300,
-    };
-  } catch (error) {
-    console.log(error);
-  }
+  return {
+    props: {
+      data: data.data,
+    },
+    revalidate: 43300,
+  };
 }
 
 const Favorites = ({

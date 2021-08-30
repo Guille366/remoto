@@ -43,25 +43,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: ParamType) {
-  try {
-    const ghData = await fetch("https://remoto.vercel.app/api/data");
+  const ghData = await fetch("https://remoto.vercel.app/api/data");
 
-    const data = await ghData.json();
+  const data = await ghData.json();
 
-    //Filter data arr
-    const filteredData = data.data.filter(
-      (item: DataType) => item.id === Number(params.id)
-    );
+  //Filter data arr
+  const filteredData = data.data.filter(
+    (item: DataType) => item.id === Number(params.id)
+  );
 
-    return {
-      props: {
-        data: filteredData[0],
-      },
-      revalidate: 43300,
-    };
-  } catch (error) {
-    console.log(error);
-  }
+  return {
+    props: {
+      data: filteredData[0],
+    },
+    revalidate: 43300,
+  };
 }
 
 const JobDescription = ({
