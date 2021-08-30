@@ -1,5 +1,6 @@
 import axios from "axios";
 import { InferGetStaticPropsType } from "next";
+import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import Details from "../../components/Details";
 import Footer from "../../components/Footer";
@@ -45,18 +46,19 @@ export async function getStaticProps({ params }: ParamType) {
 }
 
 export async function getStaticPaths() {
-  const ghData = await axios.get("https://remoto.vercel.app/api/data");
+  // const ghData = await axios.get("https://remoto.vercel.app/api/data");
 
-  const data = ghData.data;
+  // const data = ghData.data;
 
-  const arr: ArrType[] = [];
+  // const arr: ArrType[] = [];
 
-  data.data.forEach((item: DataType) => {
-    arr.push({ params: { id: String(item.id) } });
-  });
+  // data.data.forEach((item: DataType) => {
+  //   arr.push({ params: { id: String(item.id) } });
+  // });
 
   return {
-    paths: [...arr],
+    // paths: [...arr],
+    paths: [],
     fallback: true,
   };
 }
@@ -64,6 +66,12 @@ export async function getStaticPaths() {
 const JobDescription = ({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   const typedData: DataType = data;
 
   return (
