@@ -147,7 +147,7 @@ const Filter = () => {
       </div>
 
       <button
-        className="p-4 whitespace-nowrap text-purple-700"
+        className="p-4 pr-0 whitespace-nowrap text-purple-700"
         onClick={() => setOpen(!open)}
       >
         {open ? (
