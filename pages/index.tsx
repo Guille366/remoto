@@ -17,6 +17,13 @@ interface DateType {
   }[];
   title: string;
 }
+interface FilterTypes {
+  pj: boolean;
+  clt: boolean;
+  junior: boolean;
+  pleno: boolean;
+  senior: boolean;
+}
 
 export async function getStaticProps() {
   try {
@@ -47,8 +54,56 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
       return dateB - dateA;
     });
 
-    context?.setJobs(filterJobs);
-  }, [context, data]);
+    // Array of filter state keys
+    let filterArgsArray = [];
+    for (const property in context?.filterArgs) {
+      const args: any = context?.filterArgs;
+
+      if (args[property]) {
+        switch (property) {
+          case "junior":
+            filterArgsArray.push("JUNIOR");
+            break;
+          case "senior":
+            filterArgsArray.push("SENIOR");
+            break;
+          default:
+            filterArgsArray.push(property.toUpperCase());
+            break;
+        }
+      }
+    }
+    const mapped = filterArgsArray.map((item) => item.toUpperCase());
+
+    // Filter filterJobs acording to keys of state
+    const filter =
+      filterArgsArray.length !== 0
+        ? filterJobs.filter((item) => {
+            let mappedValues: string[] = [];
+            item.labels.forEach((i) => {
+              if (i.name.includes("Júnior")) {
+                mappedValues.push("JUNIOR");
+                return;
+              }
+              if (i.name.includes("Sênior")) {
+                mappedValues.push("SENIOR");
+                return;
+              }
+
+              mappedValues.push(i.name.toUpperCase());
+              return;
+            });
+
+            // console.log(mappedValues);
+
+            return mapped.every((j) => mappedValues.some((z) => z.includes(j)));
+          })
+        : filterJobs;
+
+    context?.setJobs(filter);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.filterArgs]);
 
   return (
     <div>
