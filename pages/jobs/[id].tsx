@@ -1,3 +1,4 @@
+import axios from "axios";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Details from "../../components/Details";
@@ -26,9 +27,9 @@ interface ParamType {
 }
 
 export async function getStaticProps({ params }: ParamType) {
-  const ghData = await fetch("https://remoto.vercel.app/api/data");
+  const ghData = await axios.get("http://localhost:3000/api/data");
 
-  const data = await ghData.json();
+  const data = ghData.data;
 
   //Filter data arr
   const filteredData = data.data.filter(
@@ -44,9 +45,9 @@ export async function getStaticProps({ params }: ParamType) {
 }
 
 export async function getStaticPaths() {
-  const ghData = await fetch("https://remoto.vercel.app/api/data");
+  const ghData = await axios.get("http://localhost:3000/api/data");
 
-  const data = await ghData.json();
+  const data = ghData.data;
 
   const arr: ArrType[] = [];
 

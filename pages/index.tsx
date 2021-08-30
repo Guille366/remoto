@@ -1,3 +1,4 @@
+import axios from "axios";
 import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
@@ -19,8 +20,8 @@ interface DateType {
 }
 
 export async function getStaticProps() {
-  const ghData = await fetch("https://remoto.vercel.app/api/data");
-  const data = await ghData.json();
+  const ghData = await axios.get("https://remoto.vercel.app/api/data");
+  const data = ghData.data;
 
   return {
     props: {

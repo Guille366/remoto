@@ -1,3 +1,4 @@
+import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 // Types
@@ -46,15 +47,15 @@ export default async function miscHandler(
   switch (method) {
     case "GET":
       try {
-        const rbPageOne = await fetch(reactBrPageOne);
-        const rbPageTwo = await fetch(reactBrPageTwo);
-        const fbPageOne = await fetch(frontBrPageOne);
-        const fbPageTwo = await fetch(frontBrPageTwo);
+        const rbPageOne = await axios.get(reactBrPageOne);
+        const rbPageTwo = await axios.get(reactBrPageTwo);
+        const fbPageOne = await axios.get(frontBrPageOne);
+        const fbPageTwo = await axios.get(frontBrPageTwo);
 
-        const rbOne = await rbPageOne.json();
-        const rbTwo = await rbPageTwo.json();
-        const fbOne = await fbPageOne.json();
-        const fbTwo = await fbPageTwo.json();
+        const rbOne = rbPageOne.data;
+        const rbTwo = rbPageTwo.data;
+        const fbOne = fbPageOne.data;
+        const fbTwo = fbPageTwo.data;
         const allJobs: FilteredDataType[] = [
           ...rbOne,
           ...fbOne,

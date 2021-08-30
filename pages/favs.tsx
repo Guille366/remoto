@@ -1,10 +1,11 @@
+import axios from "axios";
 import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
 import FavJobs from "../components/FavJobs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Pagination from "../components/Pagination";
+// import Pagination from "../components/Pagination";
 import { Context } from "./_app";
 
 interface DataTypes {
@@ -19,8 +20,8 @@ interface DataTypes {
 }
 
 export async function getStaticProps() {
-  const ghData = await fetch("https://remoto.vercel.app/api/data");
-  const data = await ghData.json();
+  const ghData = await axios.get("https://remoto.vercel.app/api/data");
+  const data = ghData.data;
 
   return {
     props: {
