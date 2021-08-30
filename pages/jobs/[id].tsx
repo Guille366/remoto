@@ -44,22 +44,22 @@ export async function getStaticProps({ params }: ParamType) {
   };
 }
 
-// export async function getStaticPaths() {
-//   const ghData = await axios.get("https://remoto.vercel.app/api/data");
+export async function getStaticPaths() {
+  const ghData = await axios.get("https://remoto.vercel.app/api/data");
 
-//   const data = ghData.data;
+  const data = ghData.data;
 
-//   const arr: ArrType[] = [];
+  const arr: ArrType[] = [];
 
-//   data.data.forEach((item: DataType) => {
-//     arr.push({ params: { id: String(item.id) } });
-//   });
+  data.data.forEach((item: DataType) => {
+    arr.push({ params: { id: String(item.id) } });
+  });
 
-//   return {
-//     paths: [...arr],
-//     fallback: false,
-//   };
-// }
+  return {
+    paths: [...arr],
+    fallback: true,
+  };
+}
 
 const JobDescription = ({
   data,
