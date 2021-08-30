@@ -58,7 +58,7 @@ const Filter = () => {
         <div
           className={`${
             context?.filterArgs.pj ? "sm:text-purple-700" : ""
-          } py-1`}
+          } py-2`}
         >
           <label className="mr-1 cursor-pointer" htmlFor="pj">
             PJ
@@ -76,7 +76,7 @@ const Filter = () => {
         <div
           className={`${
             context?.filterArgs.clt ? "sm:text-purple-700" : ""
-          } py-1`}
+          } py-2`}
         >
           <label className="mr-1 cursor-pointer" htmlFor="clt">
             CLT
@@ -94,7 +94,7 @@ const Filter = () => {
         <div
           className={`${
             context?.filterArgs.junior ? "sm:text-purple-700" : ""
-          } py-1`}
+          } py-2`}
         >
           <label className="mr-1 cursor-pointer" htmlFor="junior">
             Júnior
@@ -112,7 +112,7 @@ const Filter = () => {
         <div
           className={`${
             context?.filterArgs.pleno ? "sm:text-purple-700" : ""
-          } py-1`}
+          } py-2`}
         >
           <label className="mr-1 cursor-pointer" htmlFor="pleno">
             Pleno
@@ -130,7 +130,7 @@ const Filter = () => {
         <div
           className={`${
             context?.filterArgs.senior ? "sm:text-purple-700" : ""
-          } py-1`}
+          } py-2`}
         >
           <label className="mr-1 cursor-pointer" htmlFor="senior">
             Sênior
