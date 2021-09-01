@@ -75,9 +75,9 @@ const JobDescription = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+  // if (router.isFallback) {
+  //   return <div>Loading...</div>;
+  // }
 
   const typedData: DataType = data;
 
@@ -92,7 +92,7 @@ const JobDescription = ({
       <main className="font-code min-h-total max-w-screen-lg m-auto px-4">
         <Header />
 
-        <Details data={data} />
+        {router.isFallback ? <div>Loading...</div> : <Details data={data} />}
       </main>
 
       <Footer />
