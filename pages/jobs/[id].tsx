@@ -37,6 +37,13 @@ export async function getStaticProps({ params }: ParamType) {
     (item: DataType) => item.id === Number(params.id)
   );
 
+  // 404 if page id is not found within data
+  if (filteredData.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       data: filteredData[0],
