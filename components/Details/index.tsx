@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
+import { BiLinkExternal as Issue } from "@react-icons/all-files/bi/BiLinkExternal";
 
 interface DataType {
   data: {
@@ -21,21 +22,22 @@ const Details = ({ data }: DataType) => {
   return (
     <div className="relative text-gray-800 py-4">
       <Alert />
-      <div className="">
-        <div className="">
-          <Link href="/">
-            <a className={`py-1`}>{"< Voltar"}</a>
-          </Link>
+      <div className="flex w-full flex-row justify-between">
+        <Link href="/">
+          <a className="py-1 flex items-center">{"< Voltar"}</a>
+        </Link>
+        <div className="relative flex flex-row align-center">
           <a
-            className="ml-4"
+            className="mr-8 text-2xl flex items-center"
             href={data?.html_url}
             target="_blank"
             rel="noreferrer"
           >
-            Issue
+            <Issue />
           </a>
+
+          <Fav big id={data?.id} className="text-2xl" />
         </div>
-        <Fav id={data?.id} className="text-2xl p-4" />
       </div>
       <h1 className="mt-4 text-3xl md:text-4xl font-bold">{data?.title}</h1>
       <div className="font-nunito my-4">
