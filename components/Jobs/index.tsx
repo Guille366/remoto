@@ -36,6 +36,8 @@ const Jobs = () => {
     setArr(limited || []);
   }, [context?.n, context?.jobs]);
 
+  const today = new Date().toString();
+
   return (
     <div className="font-nunito pt-4 pb-8">
       <Alert />
@@ -58,6 +60,10 @@ const Jobs = () => {
 
               <Link href={`/jobs/${item.id}`} prefetch={false}>
                 <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
+                  <small className="text-red-700 opacity-80 font-bold font-code absolute top-0 left-0 p-2 pt-1">
+                    {formatDate(item.created_at) === formatDate(today) &&
+                      "Nova!"}
+                  </small>
                   <h2 className="font-code pt-0">{item.title}</h2>
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
