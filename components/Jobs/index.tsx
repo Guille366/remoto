@@ -58,7 +58,12 @@ const Jobs = () => {
             <div key={item.id} className="relative">
               <Fav id={item.id} />
 
-              <Link href={`/jobs/${item.id}`} prefetch={false}>
+              <Link
+                href={{
+                  pathname: `/jobs/[id]`,
+                  query: { id: item.id },
+                }}
+              >
                 <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
                   <small className="text-red-600 opacity-80 font-bold font-code absolute top-0 left-0 p-2 pt-1">
                     {formatDate(item.created_at) === formatDate(today) &&
