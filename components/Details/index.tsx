@@ -6,6 +6,7 @@ import Fav from "../common/Fav";
 import { BiLinkExternal as Issue } from "@react-icons/all-files/bi/BiLinkExternal";
 import { TiArrowBackOutline as Back } from "@react-icons/all-files/ti/TiArrowBackOutline";
 import formatDate from "../../utils/formatDate";
+import { useRouter } from "next/router";
 
 interface DataType {
   data: {
@@ -21,15 +22,18 @@ interface DataType {
 }
 
 const Details = ({ data }: DataType) => {
+  const router = useRouter();
+
   return (
     <div className="relative text-gray-800 py-4">
       <Alert />
       <div className="flex w-full flex-row justify-between">
-        <Link href="/">
-          <a className="py-1 text-3xl flex items-center">
-            <Back />
-          </a>
-        </Link>
+        <button
+          onClick={() => router.back()}
+          className="py-1 text-3xl flex items-center text-purple-700 hover:text-purple-900"
+        >
+          <Back />
+        </button>
         <div className="relative flex flex-row align-center">
           <a
             className="mr-8 text-2xl flex items-center"
