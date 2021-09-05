@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../pages/_app";
 import { IoFilterCircleSharp } from "@react-icons/all-files/io5/IoFilterCircleSharp";
 import { IoFilterCircleOutline } from "@react-icons/all-files/io5/IoFilterCircleOutline";
 
 const Filter = () => {
   const [open, setOpen] = useState(false);
+  const [number, setNumber] = useState(0);
 
   const context = useContext(Context);
 
@@ -47,6 +48,37 @@ const Filter = () => {
         break;
     }
   };
+
+  const handleNumberOfFilters = () => {
+    let filterArgsArray = [];
+
+    for (const property in context?.filterArgs) {
+      const args: any = context?.filterArgs;
+
+      if (args[property]) {
+        switch (property) {
+          case "junior":
+            filterArgsArray.push("JUNIOR");
+            break;
+          case "senior":
+            filterArgsArray.push("SENIOR");
+            break;
+          default:
+            filterArgsArray.push(property.toUpperCase());
+            break;
+        }
+      }
+    }
+
+    const number = filterArgsArray.length;
+    setNumber(number);
+  };
+
+  useEffect(() => {
+    handleNumberOfFilters();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.filterArgs]);
 
   return (
     <div className={`flex w-full h-6 items-center justify-end`}>
@@ -147,7 +179,7 @@ const Filter = () => {
       </div>
 
       <button
-        className="p-4 pr-0 whitespace-nowrap text-purple-700 hover:text-purple-900"
+        className="p-4 pr-0 flex flex-row whitespace-nowrap text-purple-700 hover:text-purple-900"
         onClick={() => setOpen(!open)}
       >
         {open ? (
@@ -155,6 +187,7 @@ const Filter = () => {
         ) : (
           <IoFilterCircleOutline className="text-2xl" />
         )}
+        <span>{`(${number})`}</span>
       </button>
     </div>
   );
