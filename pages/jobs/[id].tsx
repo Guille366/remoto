@@ -48,7 +48,7 @@ export async function getStaticProps({ params }: ParamType) {
     props: {
       data: filteredData[0],
     },
-    revalidate: 43300,
+    revalidate: 21600,
   };
 }
 
