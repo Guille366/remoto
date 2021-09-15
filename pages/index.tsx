@@ -5,7 +5,6 @@ import { useContext, useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Jobs from "../components/Jobs";
-import Pagination from "../components/Pagination";
 import { Context } from "./_app";
 
 interface DateType {
@@ -37,6 +36,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   useEffect(() => {
     const staticData: DateType[] = data;
 
+    // Filter by date
     const filterJobs = staticData.sort((a, b) => {
       const dateA: any = new Date(a.created_at);
       const dateB: any = new Date(b.created_at);
@@ -89,16 +89,12 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         : filterJobs;
 
     context?.setJobs(filter);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context?.filterArgs]);
+  }, [context, data]);
 
   return (
     <div>
       <Head>
-        <title>
-          {context?.page === 1 ? "" : `Página ${context?.page} | `}REMOTO
-        </title>
+        <title>REMOTO</title>
         <meta
           name="description"
           content="Dev jobs para trabalhar de onde quiser."
@@ -110,8 +106,6 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <Header />
 
         <Jobs />
-
-        <Pagination />
       </main>
 
       <Footer />
