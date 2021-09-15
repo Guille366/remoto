@@ -20,48 +20,31 @@ const Pagination = ({
     setPagination(range(1, pages));
   }, [pagesLength]);
 
-  // onClick pagination fnc with useCallback so it don't update unnecessarily
+  // Pagination fnc with useCallback so it don't update unnecessarily
   const handlePagination = useCallback(() => {
-    if (page >= 3) {
-      if (
-        pagination !== null &&
-        pagination.length - 2 < page &&
-        pagination.length - 3 > 0
-      ) {
-        setLimit([pagination.length - 3, pagination.length]);
-
-        return;
-      }
-
-      // if (page > item && item - 1 - 3 >= 1) {
-      //   setLimit([item - 3, item + 1]);
-      // } else {
-      //   setLimit([item + 1 - 3, item + 1]);
-      // }
-      setLimit([0, 3]);
+    if (page < 3) {
+      setLimitedPag(range(1, 3));
 
       return;
-    } else {
-      if (pagination !== null && pagination.length <= 3) {
-        setLimit([0, pagination.length]);
+    } else if (page === pagination?.length) {
+      const last = pagination?.length || 4;
 
-        return;
-      }
+      const filter = pagination?.slice(last - 3, last) || null;
 
-      setLimit([0, 3]);
+      setLimitedPag(filter);
+
       return;
     }
+
+    const indexOne = page - 2;
+    const indexTwo = page + 1;
+
+    const filter = pagination?.slice(indexOne, indexTwo) || null;
+
+    setLimitedPag(filter);
+
+    return;
   }, [page, pagination]);
-
-  // Update limited pagination array every time limit is changed
-  useEffect(() => {
-    const indexOne = limit[0] > 0 ? limit[0] : 0;
-    const indexTwo = limit[1] < 3 ? 3 : limit[1];
-    const filter =
-      limit[1] - limit[0] === 3 && pagination?.slice(indexOne, indexTwo);
-
-    setLimitedPag(filter || null);
-  }, [limit, pagination]);
 
   // Effect to update state with the page transition, once btn clicked
   useEffect(() => {
@@ -73,11 +56,11 @@ const Pagination = ({
       {pagination !== null && pagination.length > 1 && (
         <>
           <div className="flex flex-row justify-center my-8 font-nunito">
-            {limit[1] > 3 && (
-              <div className="mx-1 flex items-center">
+            {page >= 3 && (
+              <div className="flex items-center">
                 <Link href="/page/1">
                   <a
-                    className="px-4 no-underline py-1 font-bold rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900 hover:shadow-lg"
+                    className="mx-1 px-4 no-underline py-1 font-bold rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900 hover:shadow-lg"
                     role="link"
                   >
                     {1}
@@ -98,7 +81,7 @@ const Pagination = ({
                 </a>
               </Link>
             ))}
-            {pagination?.length > limit[1] && (
+            {page <= pagination?.length - 2 && (
               <>
                 <span className="px-2 py-1 font-bold">...</span>
                 <Link href={`/page/${pagination?.length}`}>
@@ -108,7 +91,7 @@ const Pagination = ({
                         ? "bg-purple-900"
                         : "bg-purple-700"
                     }
-                      px-4 no-underline py-1 font-bold rounded shadow-md text-gray-100 hover:bg-purple-900 hover:shadow-lg`}
+                      mx-1 px-4 no-underline py-1 font-bold rounded shadow-md text-gray-100 hover:bg-purple-900 hover:shadow-lg`}
                   >
                     {pagination?.length}
                   </a>
