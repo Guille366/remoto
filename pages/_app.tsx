@@ -18,21 +18,13 @@ interface AlertTypes {
   active: boolean;
 }
 interface ContextTypes {
-  n: number;
-  setN: Dispatch<SetStateAction<number>>;
-  jobs: JobsTypes[] | [];
-  setJobs: Dispatch<SetStateAction<JobsTypes[] | []>>;
-  setPage: Dispatch<SetStateAction<number>>;
-  page: number;
-  setFavPage: Dispatch<SetStateAction<number>>;
-  favPage: number;
+  jobs: JobsTypes[] | null;
+  setJobs: Dispatch<SetStateAction<JobsTypes[] | null>>;
   alert: {
     msg: string | null;
     active: boolean;
   };
   setAlert: Dispatch<SetStateAction<AlertTypes>>;
-  favN: number;
-  setFavN: Dispatch<SetStateAction<number>>;
   filterArgs: {
     pj: boolean;
     clt: boolean;
@@ -54,11 +46,7 @@ interface ContextTypes {
 export const Context = createContext<ContextTypes | null>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [n, setN] = useState<number>(10);
-  const [favN, setFavN] = useState<number>(10);
-  const [jobs, setJobs] = useState<JobsTypes[] | []>([]);
-  const [page, setPage] = useState<number>(1);
-  const [favPage, setFavPage] = useState<number>(1);
+  const [jobs, setJobs] = useState<JobsTypes[] | null>(null);
   const [alert, setAlert] = useState<AlertTypes>({ msg: null, active: false });
   const [filterArgs, setFilterArgs] = useState({
     pj: false,
@@ -71,18 +59,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Context.Provider
       value={{
-        n,
-        setN,
         setJobs,
         jobs,
-        page,
-        setPage,
         alert,
         setAlert,
-        favN,
-        setFavN,
-        favPage,
-        setFavPage,
         filterArgs,
         setFilterArgs,
       }}
