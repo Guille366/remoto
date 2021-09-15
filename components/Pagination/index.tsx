@@ -11,7 +11,6 @@ const Pagination = ({
 }) => {
   const [pagination, setPagination] = useState<number[] | null>(null);
   const [limitedPag, setLimitedPag] = useState<number[] | null>(null);
-  const [limit, setLimit] = useState<number[]>([0, 3]);
 
   // Update pagination array when jobs context is changed
   useEffect(() => {
