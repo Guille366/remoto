@@ -5,6 +5,9 @@ import Link from "next/link";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 import Filter from "../Filter";
+import Pagination from "../Pagination";
+import { useRouter } from "next/router";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 interface StateTypes {
   body: string;
@@ -18,23 +21,24 @@ interface StateTypes {
 }
 
 const Jobs = () => {
-  const [arr, setArr] = useState<StateTypes[] | []>([]);
+  const [arr, setArr] = useState<StateTypes[] | null>(null);
 
   const context = useContext(Context);
 
-  useEffect(() => {
-    const limited = context?.jobs.slice(0, context?.n);
-
-    setArr(limited || []);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const router = useRouter();
+  const { id } = router.query;
+  const page = !Number(id) ? 1 : Number(id);
+  const jobsLength =
+    (context?.jobs !== undefined && context!.jobs?.length) || 1;
 
   useEffect(() => {
-    const limited = context?.jobs.slice(context?.n - 10, context?.n);
+    const indexOne = page === 1 ? 0 : (page - 1) * 10;
+    const indexTwo = page * 10;
+    const limited =
+      context!.jobs !== undefined && context!.jobs?.slice(indexOne, indexTwo);
 
-    setArr(limited || []);
-  }, [context?.n, context?.jobs]);
+    setArr(limited || null);
+  }, [context, page]);
 
   const today = new Date().toString();
 
@@ -42,17 +46,17 @@ const Jobs = () => {
     <div className="font-nunito pt-4 pb-8">
       <Alert />
       <div className="w-full flex flex-row justify-between">
-        {context?.jobs.length !== 0 && (
+        {context?.jobs !== undefined && (
           <span className="whitespace-nowrap text-sm pt-0">
-            {context?.jobs.length} vagas disponíveis
+            {context?.jobs?.length + " vagas disponíveis"}
           </span>
         )}
 
         <Filter />
       </div>
       <div className="grid md:grid-cols-2 gap-4 mt-4">
-        {arr.length === 0 ? (
-          <h2 className="w-full text-center pt-12 text-xl">loading...</h2>
+        {!arr ? (
+          <LoadingSpinner />
         ) : (
           arr.map((item) => (
             <div key={item.id} className="relative">
@@ -89,6 +93,8 @@ const Jobs = () => {
           ))
         )}
       </div>
+
+      <Pagination pagesLength={jobsLength} page={page} />
     </div>
   );
 };
