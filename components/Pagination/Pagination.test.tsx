@@ -22,4 +22,15 @@ describe("Pagination", () => {
 
     expect(item3).not.toBeInTheDocument();
   });
+
+  test("should show subsequent buttons when page more or equal 3", () => {
+    render(<Pagination pagesLength={60} page={3} />);
+    const item2 = screen.queryByRole("link", { name: "2" });
+    const item3 = screen.queryByRole("link", { name: "3" });
+    const item4 = screen.queryByRole("link", { name: "4" });
+
+    expect(item2).toBeInTheDocument();
+    expect(item3).toBeInTheDocument();
+    expect(item4).toBeInTheDocument();
+  });
 });
