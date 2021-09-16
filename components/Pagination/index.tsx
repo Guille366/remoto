@@ -12,16 +12,22 @@ const Pagination = ({
   const [pagination, setPagination] = useState<number[] | null>(null);
   const [limitedPag, setLimitedPag] = useState<number[] | null>(null);
 
+  const pagesTotal = Math.ceil(pagesLength / 10);
+
   // Update pagination array when jobs context is changed
   useEffect(() => {
-    const pages = Math.ceil(pagesLength / 10);
-
-    setPagination(range(1, pages));
-  }, [pagesLength]);
+    setPagination(range(1, pagesTotal));
+  }, [pagesTotal]);
 
   // Pagination fnc with useCallback so it don't update unnecessarily
   const handlePagination = useCallback(() => {
     if (page < 3) {
+      if (pagesTotal < 3) {
+        setLimitedPag(range(1, pagesTotal));
+
+        return;
+      }
+
       setLimitedPag(range(1, 3));
 
       return;
@@ -43,7 +49,7 @@ const Pagination = ({
     setLimitedPag(filter);
 
     return;
-  }, [page, pagination]);
+  }, [page, pagination, pagesTotal]);
 
   // Effect to update state with the page transition, once btn clicked
   useEffect(() => {
@@ -65,7 +71,9 @@ const Pagination = ({
                     {1}
                   </a>
                 </Link>
-                <span className="px-2 py-1 font-bold">...</span>
+                {pagesTotal > 3 && (
+                  <span className="px-2 py-1 font-bold">...</span>
+                )}
               </div>
             )}
             {limitedPag?.map((item) => (
