@@ -42,15 +42,16 @@ const Jobs = () => {
 
   const today = new Date().toString();
 
+  const jobsAvailable =
+    context !== null &&
+    context.jobs !== null &&
+    context.jobs.length + " vagas disponíveis";
+
   return (
     <div className="font-nunito pt-4 pb-8">
       <Alert />
       <div className="w-full flex flex-row justify-between">
-        {context?.jobs !== undefined && (
-          <span className="whitespace-nowrap text-sm pt-0">
-            {context?.jobs?.length + " vagas disponíveis"}
-          </span>
-        )}
+        <span className="whitespace-nowrap text-sm pt-0">{jobsAvailable}</span>
 
         <Filter />
       </div>
