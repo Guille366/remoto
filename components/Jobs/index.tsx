@@ -8,6 +8,7 @@ import Filter from "../Filter";
 import Pagination from "../Pagination";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../common/LoadingSpinner";
+import JobsAvailable from "../JobsAvailable";
 
 interface StateTypes {
   body: string;
@@ -42,17 +43,13 @@ const Jobs = () => {
 
   const today = new Date().toString();
 
-  const jobsAvailable =
-    context !== null &&
-    context.jobs !== null &&
-    context.jobs.length + " vagas disponíveis";
+  const totalAvailable = context?.jobs?.length;
 
   return (
     <div className="font-nunito pt-4 pb-8">
       <Alert />
       <div className="w-full flex flex-row justify-between">
-        <span className="whitespace-nowrap text-sm pt-0">{jobsAvailable}</span>
-
+        <JobsAvailable totalAvailable={totalAvailable} />
         <Filter />
       </div>
       <div className="grid md:grid-cols-2 gap-4 mt-4">
