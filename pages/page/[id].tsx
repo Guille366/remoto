@@ -3,6 +3,7 @@ import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
+import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Jobs from "../../components/Jobs";
@@ -117,7 +118,7 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <main className="font-code min-h-total max-w-screen-lg m-auto px-4 text-gray-800">
         <Header />
 
-        <Jobs />
+        {router.isFallback ? <LoadingSpinner /> : <Jobs />}
       </main>
 
       <Footer />
