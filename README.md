@@ -11,6 +11,7 @@
 - PWA
 - Github API
 - TailwindCss
+- React Testing Library
 - localStorage
 
 ## ✔️About
