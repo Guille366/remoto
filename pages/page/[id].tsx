@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const ghData = await axios.get("https://remoto.vercel.app/api/data");
+  const ghData = await axios.get("https://remoto-hotfix.vercel.app/api/data");
   const data = ghData.data;
 
   return {
@@ -102,7 +102,9 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         : filterJobs;
 
     context?.setJobs(filter);
-  }, [context, data]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.filterArgs, data]);
 
   return (
     <div>

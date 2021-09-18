@@ -1,4 +1,10 @@
-import { ChangeEvent, useContext, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Context } from "../../pages/_app";
 import { IoFilterCircleSharp } from "@react-icons/all-files/io5/IoFilterCircleSharp";
 import { IoFilterCircleOutline } from "@react-icons/all-files/io5/IoFilterCircleOutline";
@@ -49,7 +55,7 @@ const Filter = () => {
     }
   };
 
-  const handleNumberOfFilters = () => {
+  const handleNumberOfFilters = useCallback(() => {
     let filterArgsArray = [];
 
     for (const property in context?.filterArgs) {
@@ -72,13 +78,11 @@ const Filter = () => {
 
     const number = filterArgsArray.length;
     setNumber(number);
-  };
+  }, [context?.filterArgs]);
 
   useEffect(() => {
     handleNumberOfFilters();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context?.filterArgs]);
+  }, [handleNumberOfFilters]);
 
   return (
     <div className={`flex w-full h-6 items-center justify-end`}>

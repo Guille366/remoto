@@ -89,7 +89,9 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         : filterJobs;
 
     context?.setJobs(filter);
-  }, [context, data]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.filterArgs, data]);
 
   return (
     <div>

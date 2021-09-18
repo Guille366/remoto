@@ -36,10 +36,14 @@ const Jobs = () => {
     const indexOne = page === 1 ? 0 : (page - 1) * 10;
     const indexTwo = page * 10;
     const limited =
-      context!.jobs !== undefined && context!.jobs?.slice(indexOne, indexTwo);
+      context !== null &&
+      context!.jobs !== undefined &&
+      context!.jobs?.slice(indexOne, indexTwo);
 
     setArr(limited || null);
-  }, [context, page]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.jobs, page]);
 
   const today = new Date().toString();
 
