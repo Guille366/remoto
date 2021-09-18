@@ -100,6 +100,7 @@ const Filter = () => {
             </label>
             <input
               className={` mr-3 cursor-pointer`}
+              data-testid="pj-input"
               type="checkbox"
               id="pj"
               name="pj"
