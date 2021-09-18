@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const ghData = await axios.get("https://remoto-hotfix.vercel.app/api/data");
+  const ghData = await axios.get("https://remoto.vercel.app/api/data");
   const data = ghData.data;
 
   return {
