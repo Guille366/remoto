@@ -1,8 +1,7 @@
-import { render, screen, userEvent } from "../../tests";
+import { render, screen } from "../../tests";
 import JobsAvailable from ".";
 
 describe("JobsAvailable", () => {
-  // Starts closed
   test("should have the correct text according to the totalAvailable", () => {
     render(<JobsAvailable totalAvailable={6} />);
     const test = screen.queryByText(/6 vagas disponíveis/i);
