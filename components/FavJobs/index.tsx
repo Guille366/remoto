@@ -2,6 +2,7 @@ import Link from "next/link";
 import formatDate from "../../utils/formatDate";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
+import JobsAvailable from "../JobsAvailable";
 
 interface FavTypes {
   favData: {
@@ -17,13 +18,14 @@ interface FavTypes {
 }
 
 const FavJobs = ({ favData }: FavTypes) => {
+  const totalAvailable = favData?.length;
+
   return (
     <div className="font-nunito pt-4 pb-8">
       <Alert />
-      {favData.length !== 0 && (
-        <p className="text-sm pt-0">{favData.length} vagas favoritadas</p>
-      )}
-      <div className="grid md:grid-cols-2 gap-4">
+      <JobsAvailable totalAvailable={totalAvailable} fav />
+
+      <div className="grid md:grid-cols-2 gap-4 mt-4">
         {favData.length === 0 ? (
           <h2 className="w-full text-center pt-12 text-xl">
             Sem favoritos por enquanto...

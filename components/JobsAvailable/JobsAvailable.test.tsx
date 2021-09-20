@@ -15,4 +15,11 @@ describe("JobsAvailable", () => {
 
     expect(test).toBeInTheDocument();
   });
+
+  test("should render fav text if fav option is selected", () => {
+    render(<JobsAvailable totalAvailable={1} fav />);
+    const test = screen.queryByText(/1 vaga favoritada/i);
+
+    expect(test).toBeInTheDocument();
+  });
 });
