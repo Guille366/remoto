@@ -9,17 +9,6 @@ import Header from "../../components/Header";
 import Jobs from "../../components/Jobs";
 import { Context } from "../_app";
 
-interface DateType {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
-  }[];
-  title: string;
-}
-
 export async function getStaticPaths() {
   return {
     paths: [],
@@ -47,7 +36,7 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const page = !Number(id) ? 1 : Number(id);
 
   useEffect(() => {
-    const staticData: DateType[] = data;
+    const staticData: DataTypes[] = data;
 
     // Filter by date
     const filterJobs = staticData?.sort((a, b) => {

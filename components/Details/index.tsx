@@ -7,19 +7,6 @@ import { TiArrowBackOutline as Back } from "@react-icons/all-files/ti/TiArrowBac
 import formatDate from "../../utils/formatDate";
 import { useRouter } from "next/router";
 
-interface DataType {
-  data: {
-    body: string;
-    html_url: string;
-    created_at: string;
-    id: number;
-    labels: {
-      name: string;
-    }[];
-    title: string;
-  };
-}
-
 const Details = ({ data }: DataType) => {
   const router = useRouter();
 

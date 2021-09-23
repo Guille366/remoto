@@ -10,19 +10,8 @@ import { useRouter } from "next/router";
 import LoadingSpinner from "../common/LoadingSpinner";
 import JobsAvailable from "../JobsAvailable";
 
-interface StateTypes {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
-  }[];
-  title: string;
-}
-
 const Jobs = () => {
-  const [arr, setArr] = useState<StateTypes[] | null>(null);
+  const [arr, setArr] = useState<DataTypes[] | null>(null);
 
   const context = useContext(Context);
 

@@ -4,19 +4,6 @@ import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 import JobsAvailable from "../JobsAvailable";
 
-interface FavTypes {
-  favData: {
-    body: string;
-    html_url: string;
-    created_at: string;
-    id: number;
-    labels: {
-      name: string;
-    }[];
-    title: string;
-  }[];
-}
-
 const FavJobs = ({ favData }: FavTypes) => {
   const totalAvailable = favData?.length;
 

@@ -1,30 +1,6 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-// Types
-interface DataType {
-  data: {
-    body: string;
-    html_url: string;
-    created_at: string;
-    id: number;
-    labels: {
-      name: string;
-    }[];
-    title: string;
-  }[];
-}
-interface FilteredDataType {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
-  }[];
-  title: string;
-}
-
 // URLS
 const reactBrPageOne =
   "https://api.github.com/repos/react-brasil/vagas/issues?state=open&page=1&per_page=100";
@@ -56,17 +32,12 @@ export default async function miscHandler(
         const rbTwo = rbPageTwo.data;
         const fbOne = fbPageOne.data;
         const fbTwo = fbPageTwo.data;
-        const allJobs: FilteredDataType[] = [
-          ...rbOne,
-          ...fbOne,
-          ...rbTwo,
-          ...fbTwo,
-        ];
+        const allJobs: DataTypes[] = [...rbOne, ...fbOne, ...rbTwo, ...fbTwo];
 
         const filteredData = allJobs.filter((item) =>
           item.labels.some((i) => i.name.toUpperCase().includes("REMOTO"))
         );
-        const obj: DataType = {
+        const obj: DataTypeArr = {
           data: filteredData,
         };
 

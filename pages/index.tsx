@@ -7,17 +7,6 @@ import Header from "../components/Header";
 import Jobs from "../components/Jobs";
 import { Context } from "./_app";
 
-interface DateType {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
-  }[];
-  title: string;
-}
-
 export async function getStaticProps() {
   const ghData = await axios.get("https://remoto.vercel.app/api/data");
   const data = ghData.data;
@@ -34,7 +23,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const context = useContext(Context);
 
   useEffect(() => {
-    const staticData: DateType[] = data;
+    const staticData: DataTypes[] = data;
 
     // Filter by date
     const filterJobs = staticData.sort((a, b) => {

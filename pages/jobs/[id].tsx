@@ -6,27 +6,6 @@ import Details from "../../components/Details";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-interface DataType {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
-  }[];
-  title: string;
-}
-interface ArrType {
-  params: {
-    id: string;
-  };
-}
-interface ParamType {
-  params: {
-    id: string;
-  };
-}
-
 export async function getStaticProps({ params }: ParamType) {
   const ghData = await axios.get("https://remoto.vercel.app/api/data");
 
@@ -34,7 +13,7 @@ export async function getStaticProps({ params }: ParamType) {
 
   //Filter data arr
   const filteredData = data.data.filter(
-    (item: DataType) => item.id === Number(params.id)
+    (item: DataTypes) => item.id === Number(params.id)
   );
 
   // 404 if page id is not found within data
@@ -79,7 +58,7 @@ const JobDescription = ({
   //   return <div>Loading...</div>;
   // }
 
-  const typedData: DataType = data || null;
+  const typedData: DataTypes = data || null;
 
   return (
     <div>

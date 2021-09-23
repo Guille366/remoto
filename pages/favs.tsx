@@ -5,19 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import FavJobs from "../components/FavJobs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-// import Pagination from "../components/Pagination";
 import { Context } from "./_app";
-
-interface DataTypes {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
-  }[];
-  title: string;
-}
 
 export async function getStaticProps() {
   const ghData = await axios.get("https://remoto.vercel.app/api/data");
@@ -84,8 +72,6 @@ const Favorites = ({
         <Header fav />
 
         <FavJobs favData={favJobs} />
-
-        {/* <Pagination fav favLength={favJobs.length} /> */}
       </main>
 
       <Footer />

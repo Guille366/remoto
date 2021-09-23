@@ -1,52 +1,16 @@
 import "../styles/global.css";
 import type { AppProps } from "next/app";
-import { createContext, Dispatch, SetStateAction, useState } from "react";
-
-interface JobsTypes {
-  body: string;
-  html_url: string;
-  created_at: string;
-  id: number;
-  labels: {
-    name: string;
-  }[];
-  title: string;
-}
-
-interface AlertTypes {
-  msg: string | null;
-  active: boolean;
-}
-interface ContextTypes {
-  jobs: JobsTypes[] | null;
-  setJobs: Dispatch<SetStateAction<JobsTypes[] | null>>;
-  alert: {
-    msg: string | null;
-    active: boolean;
-  };
-  setAlert: Dispatch<SetStateAction<AlertTypes>>;
-  filterArgs: {
-    pj: boolean;
-    clt: boolean;
-    junior: boolean;
-    pleno: boolean;
-    senior: boolean;
-  };
-  setFilterArgs: Dispatch<
-    SetStateAction<{
-      pj: boolean;
-      clt: boolean;
-      junior: boolean;
-      pleno: boolean;
-      senior: boolean;
-    }>
-  >;
-}
+import {
+  createContext,
+  //  Dispatch,
+  //  SetStateAction,
+  useState,
+} from "react";
 
 export const Context = createContext<ContextTypes | null>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [jobs, setJobs] = useState<JobsTypes[] | null>(null);
+  const [jobs, setJobs] = useState<DataTypes[] | null>(null);
   const [alert, setAlert] = useState<AlertTypes>({ msg: null, active: false });
   const [filterArgs, setFilterArgs] = useState({
     pj: false,
