@@ -14,7 +14,7 @@ const FavJobs = ({ favData }: FavTypes) => {
 
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         {favData.length === 0 ? (
-          <h2 className="w-full text-center pt-12 text-xl">
+          <h2 className="w-full col-span-2 font-light text-center pt-12 text-xl">
             Sem favoritos por enquanto...
           </h2>
         ) : (
