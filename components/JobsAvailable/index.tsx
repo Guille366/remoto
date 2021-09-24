@@ -9,7 +9,7 @@ const JobsAvailable = ({
 }) => {
   return (
     <>
-      {totalAvailable && (
+      {totalAvailable !== 0 && totalAvailable !== undefined && (
         <span className="whitespace-nowrap text-sm pt-0">
           {totalAvailable > 1
             ? totalAvailable +
