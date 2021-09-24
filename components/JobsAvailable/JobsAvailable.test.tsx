@@ -22,4 +22,11 @@ describe("JobsAvailable", () => {
 
     expect(test).toBeInTheDocument();
   });
+
+  test("should render nothing if 0 totalAvailable", () => {
+    render(<JobsAvailable totalAvailable={0} />);
+    const test = screen.queryByText(/0/i);
+
+    expect(test).not.toBeInTheDocument();
+  });
 });
