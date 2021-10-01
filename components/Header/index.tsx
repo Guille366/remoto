@@ -8,8 +8,8 @@ const Header = ({ fav }: { fav?: boolean }) => {
   const isHome = router.pathname === "/";
 
   return (
-    <div className="flex justify-between w-full py-6">
-      <div>
+    <div className="flex flex-col sm:flex-row justify-between w-full py-6">
+      <div className="self-center">
         <Link href="/">
           <a className="font-code text-6xl md:text-5xl no-underline text-gray-800 hover:text-gray-800">
             <span className="text-purple-700 font-bold">{"<"}</span>
@@ -21,7 +21,7 @@ const Header = ({ fav }: { fav?: boolean }) => {
           Dev jobs para trabalhar de onde quiser.
         </p>
       </div>
-      <div className={`pt-4 self-end`}>
+      <div className={`pt-4 self-center sm:self-end`}>
         <Link href="/">
           <a
             className={`${
