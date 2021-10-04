@@ -10,4 +10,10 @@ describe("Header", () => {
     expect(homeLink).toBeInTheDocument();
     expect(FavLink).toBeInTheDocument();
   });
+  test("should have logo", () => {
+    render(<Header />);
+    const logo = screen.queryByText(/remoto/i);
+
+    expect(logo).toBeInTheDocument();
+  });
 });
