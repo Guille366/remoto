@@ -5,15 +5,15 @@ import {
   useEffect,
   useState,
 } from "react";
-import { Context } from "../../pages/_app";
 import { IoFilterCircleSharp } from "@react-icons/all-files/io5/IoFilterCircleSharp";
 import { IoFilterCircleOutline } from "@react-icons/all-files/io5/IoFilterCircleOutline";
+import { FilterContext } from "../../context/filter";
 
 const Filter = () => {
   const [open, setOpen] = useState(false);
   const [number, setNumber] = useState(0);
 
-  const context = useContext(Context);
+  const context = useContext(FilterContext);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;

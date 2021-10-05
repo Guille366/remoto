@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import { Context } from "../../../pages/_app";
+import { AlertContext } from "../../../context/alert";
 
 const Alert = () => {
-  const context = useContext(Context);
+  const context = useContext(AlertContext);
 
   useEffect(() => {
     const clearAlert = setTimeout(() => {

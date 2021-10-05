@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import FavJobs from "../components/FavJobs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { Context } from "./_app";
+import { AlertContext } from "../context/alert";
 
 export async function getStaticProps() {
   const ghData = await axios.get("https://remoto.vercel.app/api/data");
@@ -24,7 +24,7 @@ const Favorites = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [favJobs, setFavJobs] = useState<DataTypes[]>([]);
 
-  const context = useContext(Context);
+  const context = useContext(AlertContext);
 
   useEffect(() => {
     const staticData: DataTypes[] = data;

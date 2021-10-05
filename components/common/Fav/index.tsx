@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, memo } from "react";
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
 import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
-import { Context } from "../../../pages/_app";
+import { AlertContext } from "../../../context/alert";
 
 const Fav = ({
   id,
@@ -14,7 +14,7 @@ const Fav = ({
 }) => {
   const [icon, setIcon] = useState(<div />);
 
-  const context = useContext(Context);
+  const context = useContext(AlertContext);
 
   const handleIcon = (id: number) => {
     const stringId = String(id);

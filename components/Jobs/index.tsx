@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Context } from "../../pages/_app";
 import formatDate from "../../utils/formatDate";
 import Link from "next/link";
 import Alert from "../common/Alert";
@@ -9,11 +8,12 @@ import Pagination from "../Pagination";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../common/LoadingSpinner";
 import JobsAvailable from "../JobsAvailable";
+import { JobsContext } from "../../context/jobs";
 
 const Jobs = () => {
   const [arr, setArr] = useState<DataTypes[] | null>(null);
 
-  const context = useContext(Context);
+  const context = useContext(JobsContext);
 
   const router = useRouter();
   const { id } = router.query;
