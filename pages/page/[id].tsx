@@ -7,7 +7,8 @@ import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Jobs from "../../components/Jobs";
-import { Context } from "../_app";
+import { FilterContext } from "../../context/filter";
+import { JobsContext } from "../../context/jobs";
 
 export async function getStaticPaths() {
   return {
@@ -29,7 +30,8 @@ export async function getStaticProps() {
 }
 
 const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const context = useContext(Context);
+  const filterContext = useContext(FilterContext);
+  const jobsContext = useContext(JobsContext);
 
   const router = useRouter();
   const { id } = router.query;
@@ -48,8 +50,8 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
     // Array of filter state keys
     let filterArgsArray = [];
-    for (const property in context?.filterArgs) {
-      const args: any = context?.filterArgs;
+    for (const property in filterContext?.filterArgs) {
+      const args: any = filterContext?.filterArgs;
 
       if (args[property]) {
         switch (property) {
@@ -90,10 +92,10 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
           })
         : filterJobs;
 
-    context?.setJobs(filter);
+    jobsContext?.setJobs(filter);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context?.filterArgs, data]);
+  }, [data, filterContext?.filterArgs]);
 
   return (
     <div>
