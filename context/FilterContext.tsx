@@ -2,6 +2,7 @@ import React, {
   createContext,
   Dispatch,
   SetStateAction,
+  useEffect,
   useState,
 } from "react";
 
@@ -22,6 +23,7 @@ interface FilterTypes {
     pleno: boolean;
     senior: boolean;
   };
+  filterArray: string[];
 }
 
 interface FilterState {
@@ -42,9 +44,34 @@ const FilterProvider: React.FC = ({ children }) => {
     pleno: false,
     senior: false,
   });
+  const [filterArray, setFilterArray] = useState<string[]>([]);
+
+  useEffect(() => {
+    let filterArgsArray = [];
+    for (const property in filterArgs) {
+      const args: any = filterArgs;
+
+      if (args[property]) {
+        switch (property) {
+          case "junior":
+            filterArgsArray.push("JUNIOR");
+            break;
+          case "senior":
+            filterArgsArray.push("SENIOR");
+            break;
+          default:
+            filterArgsArray.push(property.toUpperCase());
+            break;
+        }
+      }
+    }
+    const mapped = filterArgsArray.map((item) => item.toUpperCase());
+
+    setFilterArray(mapped);
+  }, [filterArgs]);
 
   return (
-    <FilterContext.Provider value={{ filterArgs, setFilterArgs }}>
+    <FilterContext.Provider value={{ filterArgs, setFilterArgs, filterArray }}>
       {children}
     </FilterContext.Provider>
   );

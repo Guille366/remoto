@@ -8,7 +8,7 @@ import Pagination from "../Pagination";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../common/LoadingSpinner";
 import JobsAvailable from "../JobsAvailable";
-import { JobsContext } from "../../context/jobs";
+import { JobsContext } from "../../context/JobsContext";
 
 const Jobs = () => {
   const [arr, setArr] = useState<DataTypes[] | null>(null);

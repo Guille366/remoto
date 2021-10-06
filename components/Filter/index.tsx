@@ -7,7 +7,7 @@ import {
 } from "react";
 import { IoFilterCircleSharp } from "@react-icons/all-files/io5/IoFilterCircleSharp";
 import { IoFilterCircleOutline } from "@react-icons/all-files/io5/IoFilterCircleOutline";
-import { FilterContext } from "../../context/filter";
+import { FilterContext } from "../../context/FilterContext";
 
 const Filter = () => {
   const [open, setOpen] = useState(false);
