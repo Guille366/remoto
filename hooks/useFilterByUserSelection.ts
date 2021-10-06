@@ -1,13 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { JobsContext } from "../context/JobsContext";
 
 const useFilterByUserSelection = (
   filterArray: string[],
   jobsData: DataTypes[]
 ) => {
-  const [filteredByUserSelection, setFilteredByUserSelection] = useState<
-    DataTypes[]
-  >([]);
   const jobsContext = useContext(JobsContext);
 
   useEffect(() => {
