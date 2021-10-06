@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, memo } from "react";
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
 import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
-import { AlertContext } from "../../../context/alert";
+import { AlertContext } from "../../../context/AlertContext";
 
 const Fav = ({
   id,

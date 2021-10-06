@@ -2,9 +2,9 @@ import "../styles/global.css";
 import type { AppProps } from "next/app";
 
 // Context
-import JobsProvider from "../context/jobs";
-import AlertProvider from "../context/alert";
-import FilterProvider from "../context/filter";
+import JobsProvider from "../context/JobsContext";
+import AlertProvider from "../context/AlertContext";
+import FilterProvider from "../context/FilterContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
