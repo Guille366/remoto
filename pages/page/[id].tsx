@@ -2,13 +2,14 @@ import axios from "axios";
 import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Jobs from "../../components/Jobs";
-import { FilterContext } from "../../context/filter";
-import { JobsContext } from "../../context/jobs";
+import { FilterContext } from "../../context/FilterContext";
+import useFilterByDate from "../../hooks/useFilterByDate";
+import useFilterByUserSelection from "../../hooks/useFilterByUserSelection";
 
 export async function getStaticPaths() {
   return {
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps() {
   const ghData = await axios.get("https://remoto.vercel.app/api/data");
-  const data = ghData.data;
+  const data: any = ghData.data;
 
   return {
     props: {
@@ -31,70 +32,15 @@ export async function getStaticProps() {
 
 const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const filterContext = useContext(FilterContext);
-  const jobsContext = useContext(JobsContext);
 
   const router = useRouter();
   const { id } = router.query;
   const page = !Number(id) ? 1 : Number(id);
 
-  useEffect(() => {
-    const staticData: DataTypes[] = data;
+  const jobsFilteredByDate = useFilterByDate(data);
 
-    const jobsFilteredByDate = staticData?.sort((a, b) => {
-      const dateA: any = new Date(a.created_at);
-      const dateB: any = new Date(b.created_at);
-
-      return dateB - dateA;
-    });
-
-    // Array of filter state keys
-    let filterArgsArray = [];
-    for (const property in filterContext?.filterArgs) {
-      const args: any = filterContext?.filterArgs;
-
-      if (args[property]) {
-        switch (property) {
-          case "junior":
-            filterArgsArray.push("JUNIOR");
-            break;
-          case "senior":
-            filterArgsArray.push("SENIOR");
-            break;
-          default:
-            filterArgsArray.push(property.toUpperCase());
-            break;
-        }
-      }
-    }
-    const mapped = filterArgsArray.map((item) => item.toUpperCase());
-
-    // Filter filterJobs acording to keys of state
-    const filteredByArgs =
-      filterArgsArray?.length !== 0
-        ? jobsFilteredByDate.filter((item) => {
-            let mappedValues: string[] = [];
-            item.labels.forEach((i) => {
-              if (i.name.includes("Júnior")) {
-                mappedValues.push("JUNIOR");
-                return;
-              }
-              if (i.name.includes("Sênior")) {
-                mappedValues.push("SENIOR");
-                return;
-              }
-
-              mappedValues.push(i.name.toUpperCase());
-              return;
-            });
-
-            return mapped.every((j) => mappedValues.some((z) => z.includes(j)));
-          })
-        : jobsFilteredByDate;
-
-    jobsContext?.setJobs(filteredByArgs);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, filterContext?.filterArgs]);
+  const filterArray = filterContext?.filterArray || [];
+  useFilterByUserSelection(filterArray, jobsFilteredByDate);
 
   return (
     <div>
