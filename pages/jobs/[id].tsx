@@ -2,6 +2,7 @@ import axios from "axios";
 import { InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
+import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Details from "../../components/Details";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -9,7 +10,7 @@ import Header from "../../components/Header";
 export async function getStaticProps({ params }: ParamType) {
   const ghData = await axios.get("https://remoto.vercel.app/api/data");
 
-  const data = ghData.data;
+  const data: any = ghData.data;
 
   //Filter data arr
   const filteredData = data.data.filter(
@@ -56,7 +57,13 @@ const JobDescription = ({
       <main className="font-code min-h-total max-w-screen-lg m-auto px-4">
         <Header />
 
-        {router.isFallback ? <div>Loading...</div> : <Details data={data} />}
+        {router.isFallback ? (
+          <div>
+            <LoadingSpinner />
+          </div>
+        ) : (
+          <Details data={data} />
+        )}
       </main>
 
       <Footer />
