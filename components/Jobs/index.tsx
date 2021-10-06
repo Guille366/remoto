@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import formatDate from "../../utils/formatDate";
 import Link from "next/link";
 import Alert from "../common/Alert";
@@ -9,11 +9,11 @@ import { useRouter } from "next/router";
 import LoadingSpinner from "../common/LoadingSpinner";
 import JobsAvailable from "../JobsAvailable";
 import { JobsContext } from "../../context/JobsContext";
+import useLimitJobsPerPage from "../../hooks/useLimitJobsPerPage";
 
 const Jobs = () => {
-  const [arr, setArr] = useState<DataTypes[] | null>(null);
-
   const context = useContext(JobsContext);
+  const allJobs = context?.jobs || [];
 
   const router = useRouter();
   const { id } = router.query;
@@ -21,18 +21,7 @@ const Jobs = () => {
   const jobsLength =
     (context?.jobs !== undefined && context!.jobs?.length) || 1;
 
-  useEffect(() => {
-    const indexOne = page === 1 ? 0 : (page - 1) * 10;
-    const indexTwo = page * 10;
-    const limited =
-      context !== null &&
-      context!.jobs !== undefined &&
-      context!.jobs?.slice(indexOne, indexTwo);
-
-    setArr(limited || null);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context?.jobs, page]);
+  const limitedJobsPerPage = useLimitJobsPerPage(page, allJobs);
 
   const today = new Date().toString();
 
@@ -46,10 +35,10 @@ const Jobs = () => {
         <Filter />
       </div>
       <div className="grid md:grid-cols-2 gap-4 mt-4">
-        {!arr ? (
+        {limitedJobsPerPage.length === 0 ? (
           <LoadingSpinner />
         ) : (
-          arr.map((item) => (
+          limitedJobsPerPage.map((item) => (
             <div key={item.id} className="relative">
               <Fav id={item.id} />
 
