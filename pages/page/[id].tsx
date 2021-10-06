@@ -40,8 +40,7 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   useEffect(() => {
     const staticData: DataTypes[] = data;
 
-    // Filter by date
-    const filterJobs = staticData?.sort((a, b) => {
+    const jobsFilteredByDate = staticData?.sort((a, b) => {
       const dateA: any = new Date(a.created_at);
       const dateB: any = new Date(b.created_at);
 
@@ -70,9 +69,9 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const mapped = filterArgsArray.map((item) => item.toUpperCase());
 
     // Filter filterJobs acording to keys of state
-    const filter =
+    const filteredByArgs =
       filterArgsArray?.length !== 0
-        ? filterJobs.filter((item) => {
+        ? jobsFilteredByDate.filter((item) => {
             let mappedValues: string[] = [];
             item.labels.forEach((i) => {
               if (i.name.includes("Júnior")) {
@@ -90,9 +89,9 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
             return mapped.every((j) => mappedValues.some((z) => z.includes(j)));
           })
-        : filterJobs;
+        : jobsFilteredByDate;
 
-    jobsContext?.setJobs(filter);
+    jobsContext?.setJobs(filteredByArgs);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, filterContext?.filterArgs]);

@@ -11,9 +11,6 @@ const reactBrPageTwo =
 const frontBrPageTwo =
   "https://api.github.com/repos/frontendbr/vagas/issues?state=open&&page=2&per_page=100";
 
-// check if is in prod or dev
-// const isDev = !process.env.AWS_REGION;
-
 export default async function miscHandler(
   req: NextApiRequest,
   res: NextApiResponse
