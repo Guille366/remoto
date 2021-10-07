@@ -1,5 +1,5 @@
 import { memo } from "react";
-import useFav from "../../../hooks/useFav";
+import useFavIcon from "../../../hooks/useFavIcon";
 
 const Fav = ({
   id,
@@ -10,7 +10,7 @@ const Fav = ({
   className?: string;
   big?: boolean;
 }) => {
-  const { icon, handleSaveId } = useFav(id);
+  const { icon, handleSaveId } = useFavIcon(id);
 
   return (
     <button
