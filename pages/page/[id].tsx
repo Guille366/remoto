@@ -18,8 +18,14 @@ export async function getStaticPaths() {
   };
 }
 
+const env = process.env.NODE_ENV;
+const url =
+  env === "development"
+    ? "https://remoto-hotfix.vercel.app/api/data"
+    : "https://remoto.vercel.app/api/data";
+
 export async function getStaticProps() {
-  const ghData = await axios.get("https://remoto.vercel.app/api/data");
+  const ghData = await axios.get(url);
   const data: any = ghData.data;
 
   return {
