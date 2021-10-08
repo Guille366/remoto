@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { JobsContext } from "../context/JobsContext";
 
 const useFilterByUserSelection = (
@@ -6,9 +6,10 @@ const useFilterByUserSelection = (
   jobsData: DataTypes[]
 ) => {
   const jobsContext = useContext(JobsContext);
+  const setJobs = jobsContext?.setJobs;
 
-  useEffect(() => {
-    const filterByUserSelection =
+  const filterByUserSelection = useCallback(() => {
+    const filter =
       filterArray.length !== 0
         ? jobsData.filter((job) => {
             let selectedFilterValue: string[] = [];
@@ -32,10 +33,12 @@ const useFilterByUserSelection = (
           })
         : jobsData;
 
-    jobsContext?.setJobs(filterByUserSelection);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return filter;
   }, [filterArray, jobsData]);
+
+  useEffect(() => {
+    setJobs !== undefined && setJobs(filterByUserSelection());
+  }, [filterByUserSelection, setJobs]);
 
   return;
 };
