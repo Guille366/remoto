@@ -1,5 +1,6 @@
 import { memo } from "react";
 import useFavIcon from "../../../hooks/useFavIcon";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 
 const Fav = ({
   id,
@@ -10,14 +11,18 @@ const Fav = ({
   className?: string;
   big?: boolean;
 }) => {
-  const { icon, handleSaveId } = useFavIcon(id);
+  const { icon, handleGetIcon } = useFavIcon(id);
+  const { handleSaveToStorage } = useLocalStorage();
 
   return (
     <button
       className={`${className} ${
         big ? "static" : "absolute"
       } right-0 top-0 p-2 text-xl transition-colors hover:text-red-600`}
-      onClick={() => handleSaveId(id)}
+      onClick={() => {
+        handleSaveToStorage(id);
+        handleGetIcon(id);
+      }}
     >
       {icon}
     </button>
