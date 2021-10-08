@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useCallback, useEffect } from "react";
 import { useState } from "react";
 
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
@@ -7,7 +7,7 @@ import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
 const useFavIcon = (id: number) => {
   const [icon, setIcon] = useState<ReactElement>(<div />);
 
-  const handleGetIcon = (id: number) => {
+  const handleGetIcon = useCallback((id: number) => {
     const stringId = String(id);
 
     if (localStorage) {
@@ -20,11 +20,11 @@ const useFavIcon = (id: number) => {
       );
       return;
     }
-  };
+  }, []);
 
   useEffect(() => {
     handleGetIcon(id);
-  }, [id]);
+  }, [id, handleGetIcon]);
 
   return { icon, handleGetIcon };
 };
