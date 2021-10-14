@@ -18,7 +18,7 @@ const Header = ({ fav }: { fav?: boolean }) => {
           </a>
         </Link>
         <p className="text-gray-500 text-center p-0 font-nunito font-light text-sm">
-          Dev jobs para trabalhar de onde quiser.
+          Vagas dev para trabalhar de onde quiser.
         </p>
       </div>
       <div className={`pt-4 self-center sm:self-end`}>
