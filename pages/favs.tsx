@@ -4,14 +4,9 @@ import Head from "next/head";
 import FavJobs from "../components/FavJobs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { url } from "../constants";
 import useFilterByDate from "../hooks/useFilterByDate";
 import useFilterByFav from "../hooks/useFilterByFav";
-
-const env = process.env.NODE_ENV;
-const url =
-  env === "development"
-    ? "https://remoto-hotfix.vercel.app/api/data"
-    : "https://remoto.vercel.app/api/data";
 
 export async function getStaticProps() {
   const ghData = await axios.get(url);

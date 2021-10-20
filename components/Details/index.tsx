@@ -6,6 +6,7 @@ import { BiLinkExternal as Issue } from "@react-icons/all-files/bi/BiLinkExterna
 import { TiArrowBackOutline as Back } from "@react-icons/all-files/ti/TiArrowBackOutline";
 import formatDate from "../../utils/formatDate";
 import { useRouter } from "next/router";
+import replacer from "../../utils/replacer";
 
 const Details = ({ data }: DataType) => {
   const router = useRouter();
@@ -33,7 +34,9 @@ const Details = ({ data }: DataType) => {
           <Fav big id={data?.id} className="text-2xl" />
         </div>
       </div>
-      <h1 className="mt-4 text-3xl md:text-4xl font-bold">{data?.title}</h1>
+      <h1 className="mt-4 text-3xl md:text-4xl font-bold">
+        {replacer(data?.title)}
+      </h1>
       <div className="font-nunito my-4">
         <p className="text-gray-500 text-sm p-0 font-mono">
           {formatDate(data?.created_at)}

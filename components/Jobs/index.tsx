@@ -10,6 +10,7 @@ import LoadingSpinner from "../common/LoadingSpinner";
 import JobsAvailable from "../JobsAvailable";
 import { JobsContext } from "../../context/JobsContext";
 import useLimitJobsPerPage from "../../hooks/useLimitJobsPerPage";
+import replacer from "../../utils/replacer";
 
 const Jobs = () => {
   const context = useContext(JobsContext);
@@ -53,7 +54,7 @@ const Jobs = () => {
                     {formatDate(item.created_at) === formatDate(today) &&
                       "Nova!"}
                   </small>
-                  <h2 className="font-code pt-0">{item.title}</h2>
+                  <h2 className="font-code pt-0">{replacer(item.title)}</h2>
                   <div className="flex flex-row flex-wrap">
                     {item.labels.map((item, key) => (
                       <div
