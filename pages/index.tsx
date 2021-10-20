@@ -5,15 +5,10 @@ import { useContext } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Jobs from "../components/Jobs";
+import { url } from "../constants";
 import { FilterContext } from "../context/FilterContext";
 import useFilterByDate from "../hooks/useFilterByDate";
 import useFilterByUserSelection from "../hooks/useFilterByUserSelection";
-
-const env = process.env.NODE_ENV;
-const url =
-  env === "development"
-    ? "https://remoto-hotfix.vercel.app/api/data"
-    : "https://remoto.vercel.app/api/data";
 
 export async function getStaticProps() {
   const ghData = await axios.get(url);
