@@ -6,10 +6,8 @@ const reactBrPageOne =
   "https://api.github.com/repos/react-brasil/vagas/issues?state=open&page=1&per_page=100";
 const frontBrPageOne =
   "https://api.github.com/repos/frontendbr/vagas/issues?state=open&&page=1&per_page=100";
-const reactBrPageTwo =
-  "https://api.github.com/repos/react-brasil/vagas/issues?state=open&page=2&per_page=100";
-const frontBrPageTwo =
-  "https://api.github.com/repos/frontendbr/vagas/issues?state=open&&page=2&per_page=100";
+const backBr =
+  "https://api.github.com/repos/backend-br/vagas/issues?state=open&&page=1&per_page=100";
 
 export default async function miscHandler(
   req: NextApiRequest,
@@ -20,16 +18,15 @@ export default async function miscHandler(
   switch (method) {
     case "GET":
       try {
-        const rbPageOne = await axios.get(reactBrPageOne);
-        const rbPageTwo = await axios.get(reactBrPageTwo);
-        const fbPageOne = await axios.get(frontBrPageOne);
-        const fbPageTwo = await axios.get(frontBrPageTwo);
+        const reactOpenings = await axios.get(reactBrPageOne);
+        const frontEndOpenings = await axios.get(frontBrPageOne);
+        const backendOpenings = await axios.get(backBr);
 
-        const rbOne = rbPageOne.data;
-        const rbTwo = rbPageTwo.data;
-        const fbOne = fbPageOne.data;
-        const fbTwo = fbPageTwo.data;
-        const allJobs: DataTypes[] = [...rbOne, ...fbOne, ...rbTwo, ...fbTwo];
+        const allJobs: DataTypes[] = [
+          ...reactOpenings.data,
+          ...frontEndOpenings.data,
+          ...backendOpenings.data,
+        ];
 
         const filteredData = allJobs.filter((item) =>
           item.labels.some((i) => i.name.toUpperCase().includes("REMOTO"))
