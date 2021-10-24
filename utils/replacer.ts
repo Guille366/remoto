@@ -6,6 +6,7 @@ const replacer = (string: string) => {
     .replace("[REMOTE]", "")
     .replace("[Home Office]", "")
     .replace("[100% Remoto]", "")
+    .replace("[100% remoto]", "")
     .replace("[100% REMOTO]", "")
     .trim();
 };
