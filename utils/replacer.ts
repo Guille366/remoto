@@ -8,6 +8,7 @@ const replacer = (string: string) => {
     .replace("[100% Remoto]", "")
     .replace("[100% remoto]", "")
     .replace("[100% REMOTO]", "")
+    .replace("[🏝️ Remoto]", "")
     .trim();
 };
 
