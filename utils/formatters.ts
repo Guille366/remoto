@@ -1,4 +1,4 @@
-export const titleReplacer = (string: string) => {
+export const titleFormatter = (string: string) => {
   if (!string) return;
 
   return string
@@ -17,7 +17,7 @@ export const titleReplacer = (string: string) => {
     .trim();
 };
 
-export const tagReplacer = (string: string) => {
+export const tagFormatter = (string: string) => {
   if (!string) return;
 
   switch (string) {
@@ -88,4 +88,14 @@ export const tagReplacer = (string: string) => {
     default:
       return "👨‍💻 " + string;
   }
+};
+
+export const dateFormatter = (date: string) => {
+  let data = new Date(date),
+    day = data.getDate().toString(),
+    dayF = day.length == 1 ? "0" + day : day,
+    month = (data.getMonth() + 1).toString(),
+    monthF = month.length == 1 ? "0" + month : month,
+    year = data.getFullYear();
+  return dayF + "/" + monthF + "/" + year;
 };
