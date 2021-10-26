@@ -45,6 +45,9 @@ export const tagFormatter = (string: string) => {
     case "🏢 Flexível":
       return "🏢 Flexível";
 
+    case "Alocado":
+      return "🏢 Alocado";
+
     case "🏢 Fora-do-país":
     case "Fora-do-país":
       return "🏢 Fora-do-país";
