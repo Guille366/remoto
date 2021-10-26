@@ -1,5 +1,5 @@
 import Link from "next/link";
-import formatDate from "../../utils/formatDate";
+import { dateFormatter, tagFormatter } from "../../utils/formatters";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 import JobsAvailable from "../JobsAvailable";
@@ -36,12 +36,12 @@ const FavJobs = ({ favData }: FavTypes) => {
                         className="font-bold text-sm py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-red-700 text-red-700"
                         key={key}
                       >
-                        {item.name}
+                        {tagFormatter(item.name)}
                       </div>
                     ))}
                   </div>
                   <p className="text-gray-500 text-sm p-0 font-mono">
-                    {formatDate(item.created_at)}
+                    {dateFormatter(item.created_at)}
                   </p>
                 </a>
               </Link>
