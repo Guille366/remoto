@@ -45,6 +45,10 @@ export const tagFormatter = (string: string) => {
     case "🏢 Flexível":
       return "🏢 Flexível";
 
+    case "🏢 Presencial":
+    case "Presencial":
+      return "🏢 Presencial";
+
     case "Alocado":
       return "🏢 Alocado";
 
@@ -82,15 +86,26 @@ export const tagFormatter = (string: string) => {
     case "Outros":
       return "⚖️ Outros";
 
+    case "Especialista":
+    case "especialista":
+      return "👨‍💻 " + string;
+
+    case "Blockchain":
+      return "₿ " + string;
+
+    case "🦠 Remoto durante pandemia":
+    case "Remoto durante pandemia":
+      return "🦠 Remoto durante pandemia";
+
     case "💰 1k-3k":
     case "💰 3k-5k":
     case "💰 5k-10k":
     case "💰 15k+":
-    case "🦠 Remoto durante pandemia":
+    case "💰 10k-15k":
       return string;
 
     default:
-      return "👨‍💻 " + string;
+      return "⌨️ " + string;
   }
 };
 
