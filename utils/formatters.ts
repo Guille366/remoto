@@ -86,6 +86,7 @@ export const tagFormatter = (string: string) => {
     case "💰 3k-5k":
     case "💰 5k-10k":
     case "💰 15k+":
+    case "🦠 Remoto durante pandemia":
       return string;
 
     default:
