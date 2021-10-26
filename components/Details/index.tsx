@@ -4,9 +4,8 @@ import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 import { BiLinkExternal as Issue } from "@react-icons/all-files/bi/BiLinkExternal";
 import { TiArrowBackOutline as Back } from "@react-icons/all-files/ti/TiArrowBackOutline";
-import formatDate from "../../utils/formatDate";
 import { useRouter } from "next/router";
-import replacer from "../../utils/replacer";
+import { dateFormatter, titleFormatter } from "../../utils/formatters";
 
 const Details = ({ data }: DataType) => {
   const router = useRouter();
@@ -35,11 +34,11 @@ const Details = ({ data }: DataType) => {
         </div>
       </div>
       <h1 className="mt-4 text-3xl md:text-4xl font-bold">
-        {replacer(data?.title)}
+        {titleFormatter(data?.title)}
       </h1>
       <div className="font-nunito my-4">
         <p className="text-gray-500 text-sm p-0 font-mono">
-          {formatDate(data?.created_at)}
+          {dateFormatter(data?.created_at)}
         </p>
         <ReactMarkdown skipHtml={true} remarkPlugins={[remarkGfm]}>
           {data?.body}
