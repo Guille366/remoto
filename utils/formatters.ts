@@ -56,12 +56,15 @@ export const tagFormatter = (string: string) => {
     case "Fora-do-país":
       return "🏢 Fora-do-país";
 
+    case "JUNIOR":
     case "Junior":
     case "Júnior":
+    case "JÚNIOR":
     case "👦 Júnior":
     case "👦 Junior":
       return "👦 Júnior";
 
+    case "PLENO":
     case "Pleno":
     case "👨 Pleno":
       return "👨 Pleno";
@@ -71,14 +74,10 @@ export const tagFormatter = (string: string) => {
       return "🏢 Remoto";
 
     case "👴 Senior":
+    case "SENIOR":
     case "Senior":
     case "Sênior":
-    case "👴 Sênior":
-      return "👴 Sênior";
-
-    case "👴 Senior":
-    case "Senior":
-    case "Sênior":
+    case "SÊNIOR":
     case "👴 Sênior":
       return "👴 Sênior";
 
@@ -88,7 +87,7 @@ export const tagFormatter = (string: string) => {
 
     case "Especialista":
     case "especialista":
-      return "👨‍💻 " + string;
+      return "👨‍💻 Especialista";
 
     case "Blockchain":
       return "₿ " + string;
