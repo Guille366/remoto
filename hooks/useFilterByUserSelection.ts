@@ -1,5 +1,6 @@
 import { useCallback, useContext, useEffect } from "react";
 import { JobsContext } from "../context/JobsContext";
+import { tagFormatter } from "../utils/formatters";
 
 const useFilterByUserSelection = (
   filterArray: string[],
@@ -12,24 +13,27 @@ const useFilterByUserSelection = (
     const filter =
       filterArray.length !== 0
         ? jobsData.filter((job) => {
-            let selectedFilterValue: string[] = [];
+            let selectedFilterValues: string[] = [];
             job.labels.forEach((label) => {
-              if (label.name.includes("Júnior")) {
-                selectedFilterValue.push("JUNIOR");
-                return;
-              }
-              if (label.name.includes("Sênior")) {
-                selectedFilterValue.push("SENIOR");
-                return;
-              }
-
-              selectedFilterValue.push(label.name.toUpperCase());
+              selectedFilterValues.push(tagFormatter(label.name) || "");
               return;
             });
 
-            return filterArray.every((filterItem) =>
-              selectedFilterValue.some((value) => value.includes(filterItem))
-            );
+            let hasNoParam =
+              !selectedFilterValues.includes("👦 Júnior") &&
+              !selectedFilterValues.includes("👨 Pleno") &&
+              !selectedFilterValues.includes("👴 Sênior");
+
+            return filterArray.every((filterItem) => {
+              return selectedFilterValues.some((value) => {
+                if (
+                  hasNoParam ||
+                  value.includes(tagFormatter(filterItem) || "")
+                ) {
+                  return true;
+                }
+              });
+            });
           })
         : jobsData;
 
