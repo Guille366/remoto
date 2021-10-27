@@ -1,6 +1,8 @@
 import { render, screen, userEvent } from "../../tests";
 import Filter from ".";
 
+jest.mock("next/router");
+
 describe("Filter", () => {
   test("should start closed", () => {
     render(<Filter />);
