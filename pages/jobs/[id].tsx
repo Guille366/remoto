@@ -6,13 +6,8 @@ import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Details from "../../components/Details";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { url } from "../../constants";
 import { titleFormatter } from "../../utils/formatters";
-
-const env = process.env.NODE_ENV;
-const url =
-  env === "development"
-    ? "https://remoto-hotfix.vercel.app/api/data"
-    : "https://remoto.vercel.app/api/data";
 
 export async function getStaticProps({ params }: ParamType) {
   const ghData = await axios.get(url);
