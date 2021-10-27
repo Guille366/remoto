@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   ChangeEvent,
   useCallback,
@@ -9,6 +10,8 @@ import { FilterContext } from "../context/FilterContext";
 
 const useFilterData = () => {
   const [numberOfFilters, setNumberOfFilters] = useState(0);
+
+  const router = useRouter();
 
   const context = useContext(FilterContext);
 
@@ -50,6 +53,10 @@ const useFilterData = () => {
       default:
         break;
     }
+
+    router.push("/page/1");
+
+    return;
   };
 
   const handleNumberOfFilters = useCallback(() => {
