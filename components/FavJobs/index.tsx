@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { dateFormatter, tagFormatter } from "../../utils/formatters";
+import getIcon from "../../utils/icons";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 import LoadingSpinner from "../common/LoadingSpinner";
@@ -38,6 +39,7 @@ const FavJobs = ({ favData }: FavTypes) => {
                           className="font-bold text-sm py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-red-700 text-red-700"
                           key={key}
                         >
+                          {getIcon(tagFormatter(item.name) || "")}{" "}
                           {tagFormatter(item.name)}
                         </div>
                       ))}
