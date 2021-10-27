@@ -23,19 +23,19 @@ export const tagFormatter = (string: string) => {
   switch (string) {
     case "A-Combinar":
     case "⚖️ A-Combinar":
-      return "⚖️ A-Combinar";
+      return `A-Combinar`;
 
     case "CLT":
     case "⚖️ CLT":
-      return "⚖️ CLT";
+      return `CLT`;
 
     case "PJ":
     case "⚖️ PJ":
-      return "⚖️ PJ";
+      return `PJ`;
 
     case "Freela":
     case "⚖️ Freela":
-      return "⚖️ Freela";
+      return `Freela`;
 
     case "Estágio":
     case "👶 Estágio":
@@ -43,18 +43,18 @@ export const tagFormatter = (string: string) => {
 
     case "Flexível":
     case "🏢 Flexível":
-      return "🏢 Flexível";
+      return `Flexível`;
 
     case "🏢 Presencial":
     case "Presencial":
-      return "🏢 Presencial";
+      return `Presencial`;
 
     case "Alocado":
-      return "🏢 Alocado";
+      return `Alocado`;
 
     case "🏢 Fora-do-país":
     case "Fora-do-país":
-      return "🏢 Fora-do-país";
+      return `Fora-do-país`;
 
     case "JUNIOR":
     case "Junior":
@@ -71,7 +71,7 @@ export const tagFormatter = (string: string) => {
 
     case "🏢 Remoto":
     case "Remoto":
-      return "🏢 Remoto";
+      return `Remoto`;
 
     case "👴 Senior":
     case "SENIOR":
@@ -83,28 +83,29 @@ export const tagFormatter = (string: string) => {
 
     case "⚖️ Outros":
     case "Outros":
-      return "⚖️ Outros";
+      return `Outros`;
 
     case "Especialista":
     case "especialista":
-      return "👨‍💻 Especialista";
+      return `Especialista`;
 
     case "Blockchain":
-      return "₿ " + string;
+      // return "₿ " + string;
+      return `Blockchain`;
 
     case "🦠 Remoto durante pandemia":
     case "Remoto durante pandemia":
-      return "🦠 Remoto durante pandemia";
+      return `Remoto durante pandemia`;
 
     case "💰 1k-3k":
     case "💰 3k-5k":
     case "💰 5k-10k":
     case "💰 15k+":
     case "💰 10k-15k":
-      return string;
+      return `${string.replace("💰", "")}`;
 
     default:
-      return "⌨️ " + string;
+      return string;
   }
 };
 
