@@ -8,6 +8,7 @@ const frontBrPageOne =
   "https://api.github.com/repos/frontendbr/vagas/issues?state=open&&page=1&per_page=100";
 const backBr =
   "https://api.github.com/repos/backend-br/vagas/issues?state=open&&page=1&per_page=100";
+const rateLimitUrl = "https://api.github.com/rate_limit";
 
 export default async function miscHandler(
   req: NextApiRequest,
@@ -41,9 +42,18 @@ export default async function miscHandler(
         // );
 
         res.status(200).json(obj);
-      } catch (error) {
+      } catch (error: any) {
         console.log(error);
-        res.status(400).json({ error: "Server Error." });
+        const limitRes = await axios.get(rateLimitUrl);
+        const rateLimit = limitRes.data.resources.core.remaining;
+        if (rateLimit === 0) {
+          res.status(429).send({
+            error:
+              "Exceeded the rate limit, wait for 60 min to renew your rate limit.",
+          });
+        }
+
+        res.status(400).json({ error: error.message });
       }
       break;
 
