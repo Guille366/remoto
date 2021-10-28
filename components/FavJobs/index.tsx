@@ -36,7 +36,7 @@ const FavJobs = ({ favData }: FavTypes) => {
                     <div className="flex flex-row flex-wrap">
                       {item.labels.map((item, key) => (
                         <div
-                          className="font-bold text-sm py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-red-700 text-red-700"
+                          className="font-bold text-sm flex items-center justify-center py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-red-700 text-red-700"
                           key={key}
                         >
                           {getIcon(tagFormatter(item.name) || "")}{" "}
