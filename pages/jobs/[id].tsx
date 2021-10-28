@@ -56,19 +56,13 @@ const JobDescription = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-code min-h-total max-w-screen-lg m-auto px-4">
-        <Header />
-
-        {router.isFallback ? (
-          <div>
-            <LoadingSpinner />
-          </div>
-        ) : (
-          <Details data={data} />
-        )}
-      </main>
-
-      <Footer />
+      {router.isFallback ? (
+        <div>
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <Details data={data} />
+      )}
     </div>
   );
 };
