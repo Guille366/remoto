@@ -5,16 +5,22 @@ import type { AppProps } from "next/app";
 import JobsProvider from "../context/JobsContext";
 import AlertProvider from "../context/AlertContext";
 import FilterProvider from "../context/FilterContext";
+import Layout from "../components/Layout";
+import SearchProvider from "../context/SearchContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <JobsProvider>
-      <AlertProvider>
-        <FilterProvider>
-          <Component {...pageProps} />
-        </FilterProvider>
-      </AlertProvider>
-    </JobsProvider>
+    <SearchProvider>
+      <JobsProvider>
+        <AlertProvider>
+          <FilterProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </FilterProvider>
+        </AlertProvider>
+      </JobsProvider>
+    </SearchProvider>
   );
 }
 export default MyApp;
