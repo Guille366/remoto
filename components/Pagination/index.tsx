@@ -4,9 +4,11 @@ import usePagination from "../../hooks/usePagination";
 const Pagination = ({
   pagesLength,
   page,
+  search,
 }: {
   pagesLength: number;
   page: number;
+  search?: boolean;
 }) => {
   const { pagination, limitedPag, pagesTotal } = usePagination(
     pagesLength,
@@ -20,9 +22,9 @@ const Pagination = ({
           <div className="flex flex-row justify-center my-8 font-nunito">
             {page >= 3 && (
               <div className="flex items-center">
-                <Link href="/page/1">
+                <Link href={search ? "/search/page/1" : "/page/1"}>
                   <a
-                    className="mx-1 px-4 no-underline py-1 font-bold rounded shadow-md text-gray-100 bg-purple-700 hover:bg-purple-900 hover:shadow-lg"
+                    className="mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-purple-700 text-purple-700 bg-transparent hover:bg-purple-900 hover:text-white hover:shadow-lg"
                     role="link"
                   >
                     {1}
@@ -34,11 +36,16 @@ const Pagination = ({
               </div>
             )}
             {limitedPag?.map((item) => (
-              <Link href={`/page/${item}`} key={item}>
+              <Link
+                href={search ? `/search/page/${item}` : `/page/${item}`}
+                key={item}
+              >
                 <a
                   className={`${
-                    item === page ? "bg-purple-900" : "bg-purple-700"
-                  } mx-1 px-4 no-underline py-1 font-bold rounded shadow-md text-gray-100 hover:bg-purple-900 hover:shadow-lg`}
+                    item === page
+                      ? "bg-purple-900 text-white"
+                      : "bg-transparent text-purple-700"
+                  } mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-purple-700 hover:bg-purple-900 hover:text-white hover:shadow-lg`}
                   role="link"
                 >
                   {item}
@@ -48,14 +55,20 @@ const Pagination = ({
             {page <= pagination?.length - 2 && (
               <>
                 <span className="px-2 py-1 font-bold">...</span>
-                <Link href={`/page/${pagination?.length}`}>
+                <Link
+                  href={
+                    search
+                      ? `/search/page/${pagination?.length}`
+                      : `/page/${pagination?.length}`
+                  }
+                >
                   <a
                     className={`${
                       pagination?.length === page
-                        ? "bg-purple-900"
-                        : "bg-purple-700"
+                        ? "bg-purple-900 text-white"
+                        : "bg-transparent text-purple-700"
                     }
-                      mx-1 px-4 no-underline py-1 font-bold rounded shadow-md text-gray-100 hover:bg-purple-900 hover:shadow-lg`}
+                      mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-purple-700 hover:bg-purple-900 hover:text-white hover:shadow-lg`}
                   >
                     {pagination?.length}
                   </a>
