@@ -102,7 +102,7 @@ export const tagFormatter = (string: string) => {
     case "💰 5k-10k":
     case "💰 15k+":
     case "💰 10k-15k":
-      return `${string.replace("💰", "")}`;
+      return `${string.replace("💰 ", "")}`;
 
     default:
       return string;
