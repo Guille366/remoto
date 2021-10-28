@@ -19,43 +19,6 @@ const Filter = () => {
         >
           <div
             className={`${
-              context?.filterArgs.pj ? "sm:text-purple-700" : ""
-            } py-2 flex flex-row items-center`}
-          >
-            <label className="mr-1 cursor-pointer" htmlFor="pj">
-              PJ
-            </label>
-            <input
-              className={` mr-3 cursor-pointer`}
-              data-testid="pj-input"
-              type="checkbox"
-              id="pj"
-              name="pj"
-              checked={context?.filterArgs.pj}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-
-          <div
-            className={`${
-              context?.filterArgs.clt ? "sm:text-purple-700" : ""
-            } py-2 flex flex-row items-center`}
-          >
-            <label className="mr-1 cursor-pointer" htmlFor="clt">
-              CLT
-            </label>
-            <input
-              className={` mr-3 cursor-pointer`}
-              type="checkbox"
-              id="clt"
-              name="clt"
-              checked={context?.filterArgs.clt}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-
-          <div
-            className={`${
               context?.filterArgs.junior ? "sm:text-purple-700" : ""
             } py-2 flex flex-row items-center`}
           >
