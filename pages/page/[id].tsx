@@ -3,6 +3,7 @@ import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useContext } from "react";
+import Banner from "../../components/Banner";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Jobs from "../../components/Jobs";
 import { url } from "../../constants";
@@ -51,6 +52,8 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {page === 1 && <Banner />}
 
       {router.isFallback ? <LoadingSpinner /> : <Jobs />}
     </div>

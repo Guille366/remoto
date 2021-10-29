@@ -8,6 +8,7 @@ import LoadingSpinner from "../../components/common/LoadingSpinner";
 import SearchedJobs from "../../components/SearchedJobs";
 import { url } from "../../constants";
 import { SearchContext } from "../../context/SearchContext";
+import { FilterContext } from "../../context/FilterContext";
 
 export async function getStaticPaths() {
   return {
@@ -32,9 +33,18 @@ const Search = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const param: any = router.query.param;
   const searchContext = useContext(SearchContext);
+  const filterContext = useContext(FilterContext);
 
   useEffect(() => {
     searchContext?.setSearchParam(param);
+
+    filterContext?.setFilterArgs({
+      pj: false,
+      clt: false,
+      junior: false,
+      pleno: false,
+      senior: false,
+    });
   }, [param]);
 
   return (
