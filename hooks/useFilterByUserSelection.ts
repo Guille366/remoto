@@ -41,8 +41,6 @@ const useFilterByUserSelection = (
     return filter;
   }, [filterArray, jobsData]);
 
-  console.log("render");
-
   useEffect(() => {
     setJobs !== undefined && setJobs(filterByUserSelection());
   }, [filterArray, !search && jobsData]);
