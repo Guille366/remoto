@@ -4,12 +4,12 @@ import { IoFilterCircleOutline } from "@react-icons/all-files/io5/IoFilterCircle
 import useFilterData from "../../hooks/useFilterData";
 import { FilterContext } from "../../context/FilterContext";
 
-const Filter = () => {
+const Filter = ({ search }: { search?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   const context = useContext(FilterContext);
 
-  const { numberOfFilters, handleChange } = useFilterData();
+  const { numberOfFilters, handleChange } = useFilterData(search);
 
   return (
     <div className={`flex w-full h-6 items-center justify-end`}>
