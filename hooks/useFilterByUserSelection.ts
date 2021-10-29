@@ -4,7 +4,8 @@ import { tagFormatter } from "../utils/formatters";
 
 const useFilterByUserSelection = (
   filterArray: string[],
-  jobsData: DataTypes[]
+  jobsData: DataTypes[],
+  search?: boolean
 ) => {
   const jobsContext = useContext(JobsContext);
   const setJobs = jobsContext?.setJobs;
@@ -40,9 +41,11 @@ const useFilterByUserSelection = (
     return filter;
   }, [filterArray, jobsData]);
 
+  console.log("render");
+
   useEffect(() => {
     setJobs !== undefined && setJobs(filterByUserSelection());
-  }, [setJobs, filterArray]);
+  }, [filterArray, !search && jobsData]);
 
   return;
 };
