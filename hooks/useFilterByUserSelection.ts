@@ -42,7 +42,7 @@ const useFilterByUserSelection = (
 
   useEffect(() => {
     setJobs !== undefined && setJobs(filterByUserSelection());
-  }, [filterByUserSelection, setJobs]);
+  }, [setJobs, filterArray]);
 
   return;
 };
