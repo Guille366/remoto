@@ -2,10 +2,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { memo } from "react";
 
-const Header = ({ fav }: { fav?: boolean }) => {
+const Header = () => {
   const router = useRouter();
 
   const isHome = router.pathname === "/";
+  const isFavs = router.pathname === "/favs";
 
   return (
     <div className="flex flex-col sm:flex-row justify-between w-full py-6">
@@ -34,7 +35,7 @@ const Header = ({ fav }: { fav?: boolean }) => {
         <Link href="/favs">
           <a
             className={`${
-              fav ? "text-purple-900 font-bold" : "text-purple-700"
+              isFavs ? "text-purple-900 font-bold" : "text-purple-700"
             } font-nunito font-light no-underline px-4 py-2 text-purple-700 hover:text-purple-900`}
           >
             Favoritos

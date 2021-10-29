@@ -2,8 +2,7 @@ import axios from "axios";
 import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useContext } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Banner from "../components/Banner";
 import Jobs from "../components/Jobs";
 import { url } from "../constants";
 import { FilterContext } from "../context/FilterContext";
@@ -41,13 +40,9 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-code min-h-total max-w-screen-lg m-auto px-4 text-gray-800">
-        <Header />
+      <Banner />
 
-        <Jobs />
-      </main>
-
-      <Footer />
+      <Jobs />
     </div>
   );
 };

@@ -4,12 +4,12 @@ import { IoFilterCircleOutline } from "@react-icons/all-files/io5/IoFilterCircle
 import useFilterData from "../../hooks/useFilterData";
 import { FilterContext } from "../../context/FilterContext";
 
-const Filter = () => {
+const Filter = ({ search }: { search?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   const context = useContext(FilterContext);
 
-  const { numberOfFilters, handleChange } = useFilterData();
+  const { numberOfFilters, handleChange } = useFilterData(search);
 
   return (
     <div className={`flex w-full h-6 items-center justify-end`}>
@@ -17,43 +17,6 @@ const Filter = () => {
         <div
           className={`flex sm:w-full absolute sm:static top-56 right-4 bg-purple-700 sm:bg-transparent text-white sm:text-gray-800 rounded shadow sm:shadow-none z-50 px-4 py-2 sm:pr-0 sm:flex-row flex-col items-start justify-end`}
         >
-          <div
-            className={`${
-              context?.filterArgs.pj ? "sm:text-purple-700" : ""
-            } py-2 flex flex-row items-center`}
-          >
-            <label className="mr-1 cursor-pointer" htmlFor="pj">
-              PJ
-            </label>
-            <input
-              className={` mr-3 cursor-pointer`}
-              data-testid="pj-input"
-              type="checkbox"
-              id="pj"
-              name="pj"
-              checked={context?.filterArgs.pj}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-
-          <div
-            className={`${
-              context?.filterArgs.clt ? "sm:text-purple-700" : ""
-            } py-2 flex flex-row items-center`}
-          >
-            <label className="mr-1 cursor-pointer" htmlFor="clt">
-              CLT
-            </label>
-            <input
-              className={` mr-3 cursor-pointer`}
-              type="checkbox"
-              id="clt"
-              name="clt"
-              checked={context?.filterArgs.clt}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-
           <div
             className={`${
               context?.filterArgs.junior ? "sm:text-purple-700" : ""

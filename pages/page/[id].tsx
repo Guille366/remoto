@@ -4,8 +4,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import Jobs from "../../components/Jobs";
 import { url } from "../../constants";
 import { FilterContext } from "../../context/FilterContext";
@@ -54,13 +52,7 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="font-code min-h-total max-w-screen-lg m-auto px-4 text-gray-800">
-        <Header />
-
-        {router.isFallback ? <LoadingSpinner /> : <Jobs />}
-      </main>
-
-      <Footer />
+      {router.isFallback ? <LoadingSpinner /> : <Jobs />}
     </div>
   );
 };
