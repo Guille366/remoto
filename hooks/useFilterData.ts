@@ -8,7 +8,7 @@ import {
 } from "react";
 import { FilterContext } from "../context/FilterContext";
 
-const useFilterData = () => {
+const useFilterData = (search?: boolean) => {
   const [numberOfFilters, setNumberOfFilters] = useState(0);
 
   const router = useRouter();
@@ -19,18 +19,6 @@ const useFilterData = () => {
     const name = e.target.name;
 
     switch (name) {
-      case "pj":
-        context?.setFilterArgs({
-          ...context?.filterArgs,
-          [name]: !context?.filterArgs.pj,
-        });
-        break;
-      case "clt":
-        context?.setFilterArgs({
-          ...context?.filterArgs,
-          [name]: !context?.filterArgs.clt,
-        });
-        break;
       case "junior":
         context?.setFilterArgs({
           ...context?.filterArgs,
@@ -54,7 +42,7 @@ const useFilterData = () => {
         break;
     }
 
-    router.push("/page/1");
+    search ? router.push("/search/page/1") : router.push("/page/1");
 
     return;
   };
