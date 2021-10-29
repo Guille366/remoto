@@ -17,6 +17,8 @@ import getIcon from "../../utils/icons";
 import Pagination from "../Pagination";
 import useSearchByParam from "../../hooks/useSearchByParam";
 import useFilterByDate from "../../hooks/useFilterByDate";
+import { FilterContext } from "../../context/FilterContext";
+import useFilterByUserSelection from "../../hooks/useFilterByUserSelection";
 
 const SearchedJobs = ({
   searchParam,
@@ -42,12 +44,16 @@ const SearchedJobs = ({
 
   const totalAvailable = context?.jobs?.length;
 
+  const filterContext = useContext(FilterContext);
+  const filterArray = filterContext?.filterArray || [];
+  useFilterByUserSelection(filterArray, jobs);
+
   return (
     <div className="font-nunito pt-4 pb-8">
       <Alert />
       <div className="w-full flex flex-row justify-between">
         <JobsAvailable totalAvailable={totalAvailable} />
-        <Filter />
+        <Filter search />
       </div>
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         {limitedJobsPerPage !== null && limitedJobsPerPage !== undefined ? (
