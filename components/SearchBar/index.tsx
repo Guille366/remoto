@@ -21,7 +21,7 @@ const SearchBar = () => {
             className="text-gray-700 appearance-none rounded w-full py-2 px-3 leading-tight focus:outline-none"
             type="text"
             name="searchParam"
-            placeholder="Procure Vaga"
+            placeholder="Procurar Vaga"
             onChange={(e) => handleInputChange(e)}
             value={searchParam}
             required
