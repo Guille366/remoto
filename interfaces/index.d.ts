@@ -33,6 +33,9 @@ interface DataTypes {
     name: string;
   }[];
   title: string;
+  reactions: {
+    total_count: number;
+  };
 }
 
 interface FavTypes {

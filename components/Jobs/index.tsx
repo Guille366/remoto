@@ -15,6 +15,7 @@ import {
   titleFormatter,
 } from "../../utils/formatters";
 import getIcon from "../../utils/icons";
+import Badges from "../common/Badges";
 
 const Jobs = () => {
   const context = useContext(JobsContext);
@@ -55,10 +56,13 @@ const Jobs = () => {
                   }}
                 >
                   <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
-                    <small className="text-red-600 opacity-80 font-bold font-code absolute top-0 left-0 p-2 pt-1">
-                      {dateFormatter(item.created_at) ===
-                        dateFormatter(today) && "Nova!"}
-                    </small>
+                    <Badges
+                      newOpening={
+                        dateFormatter(item.created_at) === dateFormatter(today)
+                      }
+                      hotOpening={item.reactions.total_count >= 1}
+                    />
+
                     <h2 className="font-code pt-0">
                       {titleFormatter(item.title)}
                     </h2>
