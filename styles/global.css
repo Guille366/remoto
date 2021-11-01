@@ -10,6 +10,10 @@
   }
 }
 
+* {
+  line-height: 1.7rem;
+}
+
 a {
   --tw-bg-opacity: 1;
   color: rgba(109, 40, 217, var(--tw-bg-opacity));
@@ -40,12 +44,14 @@ p {
 
 img {
   margin: 0 auto;
+  border-radius: 4px;
 }
 
 /* Styled List */
 ul {
   padding-left: 10px;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 li {
   /* display: flex;

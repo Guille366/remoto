@@ -3,13 +3,10 @@ import remarkGfm from "remark-gfm";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
 import { BiLinkExternal as Issue } from "@react-icons/all-files/bi/BiLinkExternal";
-import { useRouter } from "next/router";
 import { dateFormatter, titleFormatter } from "../../utils/formatters";
 import BackButton from "../common/Buttons/Back";
 
 const Details = ({ data }: DataType) => {
-  const router = useRouter();
-
   return (
     <div className="relative text-gray-800 py-4">
       <Alert />
@@ -36,7 +33,7 @@ const Details = ({ data }: DataType) => {
           {dateFormatter(data?.created_at)}
         </p>
         <ReactMarkdown skipHtml={true} remarkPlugins={[remarkGfm]}>
-          {data?.body}
+          {data?.body.replace(/\u2028/g, "")}
         </ReactMarkdown>
       </div>
     </div>
