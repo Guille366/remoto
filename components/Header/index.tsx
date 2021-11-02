@@ -5,7 +5,7 @@ import { memo } from "react";
 const Header = () => {
   const router = useRouter();
 
-  const isHome = router.pathname === "/" || router.pathname === "/page/1";
+  const isHome = router.pathname === "/" || router.asPath === "/page/1";
   const isFavs = router.pathname === "/favs";
 
   return (
