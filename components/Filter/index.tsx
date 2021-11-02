@@ -32,6 +32,7 @@ const Filter = ({ search }: { search?: boolean }) => {
               name="junior"
               checked={context?.filterArgs.junior}
               onChange={(e) => handleChange(e)}
+              data-testId="junior-input"
             />
           </div>
 

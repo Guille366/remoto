@@ -6,7 +6,7 @@ jest.mock("next/router");
 describe("Filter", () => {
   test("should start closed", () => {
     render(<Filter />);
-    const test = screen.queryByText(/pj/i);
+    const test = screen.queryByText(/pleno/i);
 
     expect(test).not.toBeInTheDocument();
   });
@@ -17,7 +17,7 @@ describe("Filter", () => {
 
     userEvent.click(btn);
 
-    const test = screen.queryByText(/pj/i);
+    const test = screen.queryByText(/pleno/i);
 
     expect(test).toBeInTheDocument();
   });
@@ -28,7 +28,7 @@ describe("Filter", () => {
 
     userEvent.click(btn);
 
-    const test = screen.getByTestId(/pj-input/i);
+    const test = screen.getByTestId(/junior-input/i);
 
     userEvent.click(test);
 
@@ -41,7 +41,7 @@ describe("Filter", () => {
 
     userEvent.click(btn);
 
-    const test = screen.getByTestId(/pj-input/i);
+    const test = screen.getByTestId(/junior-input/i);
 
     userEvent.click(test);
     userEvent.click(test);
