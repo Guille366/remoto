@@ -37,6 +37,9 @@ const getIcon = (type: string) => {
     case "Fora-do-país":
       return <WorkIcon className="text-xl mr-1" />;
 
+    case "👶 Estágio":
+      return "";
+
     case "👦 Júnior":
       return "";
 
