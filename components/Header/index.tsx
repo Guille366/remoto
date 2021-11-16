@@ -9,20 +9,17 @@ const Header = () => {
   const isFavs = router.pathname === "/favs";
 
   return (
-    <div className="flex flex-col sm:flex-row justify-between w-full py-6">
-      <div className="self-center">
+    <div className="flex flex-col sm:flex-row justify-between w-full py-4">
+      <div className="self-center flex items-center">
         <Link href="/">
-          <a className="font-code text-6xl md:text-5xl no-underline text-gray-800 hover:text-gray-800">
-            <span className="text-purple-700 font-bold">{"<"}</span>
+          <a className="font-code text-6xl md:text-5xl font-bold no-underline text-gray-800 hover:text-gray-800">
+            <span className="text-purple-700 font-normal">{"<"}</span>
             {"REMOTO"}
-            <span className="text-purple-700 font-bold">{"/>"}</span>
+            <span className="text-purple-700 font-normal">{"/>"}</span>
           </a>
         </Link>
-        <p className="text-gray-500 text-center p-0 font-nunito font-light text-sm">
-          Vagas dev para trabalhar de onde quiser.
-        </p>
       </div>
-      <div className={`pt-4 self-center sm:self-end`}>
+      <div className={`self-center flex items-center`}>
         <Link href="/">
           <a
             className={`${
