@@ -11,14 +11,14 @@ const SearchBar = () => {
   } = useSearch();
 
   return (
-    <div className="flex items-center justify-center w-full flex-1 py-4 md:py-10 md:px-20 text-center">
-      <div className="w-full max-w-md">
+    <div className="flex items-center justify-center w-full flex-1 py-4 text-center">
+      <div className="w-full max-w-md bg-white rounded">
         <form
           className="flex items-center rounded shadow-md border border-purple-700 border-opacity-25 hover:border-opacity-50 focus-within:border-opacity-50 focus-within:shadow-lg"
           onSubmit={(e) => handleSubmit(e)}
         >
           <input
-            className="text-gray-700 appearance-none rounded w-full py-2 px-3 leading-tight focus:outline-none"
+            className="text-gray-700 appearance-none rounded w-full py-2 px-3 md:py-3 md:px-4 leading-tight focus:outline-none"
             type="text"
             name="searchParam"
             placeholder="Procurar Vaga"
