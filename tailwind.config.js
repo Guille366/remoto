@@ -8,6 +8,9 @@ module.exports = {
         nunito: ["Nunito", "sans-serif"],
         code: ["Fira Code", "monospace"],
       },
+      zIndex: {
+        "-1": "-1",
+      },
     },
   },
   variants: {
