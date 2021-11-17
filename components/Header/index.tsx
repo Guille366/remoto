@@ -13,9 +13,9 @@ const Header = () => {
       <div className="self-center flex items-center">
         <Link href="/">
           <a className="font-code text-6xl md:text-5xl font-bold no-underline text-gray-700 hover:text-gray-800">
-            <span className="text-purple-700 font-normal">{"<"}</span>
+            <span className="text-purple-700">{"<"}</span>
             {"REMOTO"}
-            <span className="text-purple-700 font-normal">{"/>"}</span>
+            <span className="text-purple-700">{"/>"}</span>
           </a>
         </Link>
       </div>
