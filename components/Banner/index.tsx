@@ -12,6 +12,9 @@ const Banner = () => {
           src={heroImage}
           alt="hero"
           layout="responsive"
+          quality={100}
+          priority={true}
+          placeholder="blur"
         />
       </div>
       <div>
