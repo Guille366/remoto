@@ -26,6 +26,15 @@ export default class extends Document {
           {/* TIP: set viewport head meta tag in _app.js, otherwise it will show a warning */}
           {/* <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover' /> */}
 
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Nunito:wght@200;300;400;700&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
+
           <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
