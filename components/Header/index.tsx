@@ -12,7 +12,7 @@ const Header = () => {
     <div className="flex flex-col sm:flex-row justify-between w-full py-4">
       <div className="self-center flex items-center">
         <Link href="/">
-          <a className="font-code text-6xl md:text-5xl font-bold no-underline text-gray-800 hover:text-gray-800">
+          <a className="font-code text-6xl md:text-5xl font-bold no-underline text-gray-700 hover:text-gray-800">
             <span className="text-purple-700 font-normal">{"<"}</span>
             {"REMOTO"}
             <span className="text-purple-700 font-normal">{"/>"}</span>
@@ -33,7 +33,7 @@ const Header = () => {
           <a
             className={`${
               isFavs ? "text-purple-900 font-bold" : "text-purple-700"
-            } font-nunito font-light no-underline px-4 py-2 text-purple-700 hover:text-purple-900`}
+            } font-nunito no-underline font-light px-4 py-2 text-purple-700 hover:text-purple-900`}
           >
             Favoritos
           </a>

@@ -3,6 +3,7 @@ import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useContext } from "react";
 import Banner from "../components/Banner";
+import Title from "../components/common/Title";
 import Jobs from "../components/Jobs";
 import { url } from "../constants";
 import { FilterContext } from "../context/FilterContext";
@@ -42,6 +43,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <Banner />
 
+      <Title>Todas as vagas</Title>
       <Jobs />
     </div>
   );

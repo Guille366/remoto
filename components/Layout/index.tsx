@@ -5,7 +5,7 @@ import Header from "../Header";
 const Layout: React.FC = ({ children }) => {
   return (
     <>
-      <main className="font-code min-h-total max-w-screen-lg m-auto px-4 text-gray-800">
+      <main className="font-code min-h-total max-w-screen-lg m-auto px-4 text-gray-700">
         <Header />
         {children}
       </main>

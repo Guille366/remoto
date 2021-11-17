@@ -83,7 +83,7 @@ const Filter = ({ search }: { search?: boolean }) => {
         ) : (
           <IoFilterCircleOutline className="text-2xl" />
         )}
-        <span>{`(${numberOfFilters})`}</span>
+        <span className="font-light">{`(${numberOfFilters})`}</span>
       </button>
     </div>
   );

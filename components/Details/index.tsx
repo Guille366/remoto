@@ -8,7 +8,7 @@ import BackButton from "../common/Buttons/Back";
 
 const Details = ({ data }: DataType) => {
   return (
-    <div className="relative text-gray-800 py-4">
+    <div className="relative py-4">
       <Alert />
       <div className="flex w-full flex-row justify-between">
         <BackButton />
