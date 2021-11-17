@@ -10,7 +10,7 @@ const JobsAvailable = ({
   return (
     <>
       {totalAvailable !== 0 && totalAvailable !== undefined && (
-        <span className="whitespace-nowrap text-sm pt-0">
+        <span className="whitespace-nowrap font-light text-sm pt-0">
           {totalAvailable > 1
             ? totalAvailable +
               (fav ? " vagas favoritadas" : " vagas disponíveis")
