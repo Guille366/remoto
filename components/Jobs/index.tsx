@@ -63,7 +63,7 @@ const Jobs = () => {
                       hotOpening={item.reactions.total_count >= 1}
                     />
 
-                    <h2 className="font-code font-normal pt-0">
+                    <h2 className="font-code pb-2 pt-0">
                       {titleFormatter(item.title)}
                     </h2>
                     <div className="flex flex-row flex-wrap">
