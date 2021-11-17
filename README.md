@@ -35,3 +35,8 @@ yarn build
 ```
 yarn dev
 ```
+
+<!-- todo -->
+<!-- add overlay to hero image -->
+<!-- maybe change badges to be pills -->
+<!-- add a way to click tags and see all opening according to tag -->

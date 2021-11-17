@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        nunito: ["Nunito", "sans-serif"],
-        code: ["Fira Code", "monospace"],
+        nunito: ["Nunito", "Fira Code", "sans-serif"],
+        code: ["Fira Code", "Nunito", "sans-serif"],
       },
       zIndex: {
         "-1": "-1",

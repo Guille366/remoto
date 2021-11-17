@@ -32,7 +32,7 @@ const FavJobs = ({ favData }: FavTypes) => {
                   }}
                 >
                   <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-red-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
-                    <h2 className="font-code font-normal pt-0">{item.title}</h2>
+                    <h2 className="font-code pb-2 pt-0">{item.title}</h2>
                     <div className="flex flex-row flex-wrap">
                       {item.labels.map(
                         (item, key) =>
