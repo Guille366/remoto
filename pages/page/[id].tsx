@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import Banner from "../../components/Banner";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
+import Title from "../../components/common/Title";
 import Jobs from "../../components/Jobs";
 import { url } from "../../constants";
 import { FilterContext } from "../../context/FilterContext";
@@ -53,7 +54,12 @@ const Page = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {page === 1 && <Banner />}
+      {page === 1 && (
+        <>
+          <Banner />
+          <Title>Todas as vagas</Title>
+        </>
+      )}
 
       {router.isFallback ? <LoadingSpinner /> : <Jobs />}
     </div>
