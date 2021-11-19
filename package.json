@@ -1,6 +1,6 @@
 {
   "name": "remoto",
-  "version": "0.6",
+  "version": "0.7",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "@tanem/react-nprogress": "^3.0.82",
     "axios": "^0.24.0",
     "babel-jest": "^27.3.1",
     "identity-obj-proxy": "^3.0.0",
