@@ -23,7 +23,7 @@ const Header = () => {
           </a>
         </Link>
       </div>
-      <div className={`self-center flex items-center`}>
+      <div className={`self-center flex items-center mt-4 sm:mt-0`}>
         <Link href="/">
           <a
             className={`${
