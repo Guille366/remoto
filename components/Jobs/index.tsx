@@ -16,6 +16,7 @@ import {
 } from "../../utils/formatters";
 import getIcon from "../../utils/icons";
 import Badges from "../common/Badges";
+import Labels from "../common/Labels";
 
 const Jobs = () => {
   const context = useContext(JobsContext);
@@ -70,13 +71,10 @@ const Jobs = () => {
                       {item.labels.map(
                         (item, key) =>
                           key <= 12 && (
-                            <div
-                              className="font-bold text-sm flex items-center justify-center py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-purple-700 text-purple-700"
-                              key={key}
-                            >
+                            <Labels key={key}>
                               {getIcon(tagFormatter(item.name) || "")}{" "}
                               {tagFormatter(item.name)}
-                            </div>
+                            </Labels>
                           )
                       )}
                     </div>

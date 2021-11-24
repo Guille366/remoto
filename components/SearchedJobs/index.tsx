@@ -20,6 +20,7 @@ import useFilterByDate from "../../hooks/useFilterByDate";
 import { FilterContext } from "../../context/FilterContext";
 import useFilterByUserSelection from "../../hooks/useFilterByUserSelection";
 import Badges from "../common/Badges";
+import Labels from "../common/Labels";
 
 const SearchedJobs = ({
   searchParam,
@@ -85,13 +86,10 @@ const SearchedJobs = ({
                       {item.labels.map(
                         (item, key) =>
                           key <= 12 && (
-                            <div
-                              className="font-bold text-sm flex items-center justify-center py-0.5 px-1.5 mx-1 my-1 rounded-lg border border-purple-700 text-purple-700"
-                              key={key}
-                            >
+                            <Labels key={key}>
                               {getIcon(tagFormatter(item.name) || "")}{" "}
                               {tagFormatter(item.name)}
-                            </div>
+                            </Labels>
                           )
                       )}
                     </div>
