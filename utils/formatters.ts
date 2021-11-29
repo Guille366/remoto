@@ -118,3 +118,19 @@ export const dateFormatter = (date: string) => {
     year = data.getFullYear();
   return dayF + "/" + monthF + "/" + year;
 };
+
+export const handleLevel = (string: string) => {
+  switch (string) {
+    case "👶 Estágio":
+      return true;
+    case "👨 Pleno":
+      return true;
+    case "👴 Sênior":
+      return true;
+    case "👦 Júnior":
+      return true;
+
+    default:
+      return false;
+  }
+};
