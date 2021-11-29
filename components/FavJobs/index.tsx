@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { dateFormatter, tagFormatter } from "../../utils/formatters";
+import {
+  dateFormatter,
+  handleLevel,
+  tagFormatter,
+} from "../../utils/formatters";
 import getIcon from "../../utils/icons";
 import Alert from "../common/Alert";
 import Fav from "../common/Fav";
@@ -38,7 +42,11 @@ const FavJobs = ({ favData }: FavTypes) => {
                       {item.labels.map(
                         (item, key) =>
                           key <= 12 && (
-                            <Labels fav key={key}>
+                            <Labels
+                              fav
+                              key={key}
+                              level={handleLevel(tagFormatter(item.name) || "")}
+                            >
                               {getIcon(tagFormatter(item.name) || "")}{" "}
                               {tagFormatter(item.name)}
                             </Labels>

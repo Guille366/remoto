@@ -10,6 +10,7 @@ import Filter from "../Filter";
 import JobsAvailable from "../JobsAvailable";
 import {
   dateFormatter,
+  handleLevel,
   tagFormatter,
   titleFormatter,
 } from "../../utils/formatters";
@@ -86,7 +87,10 @@ const SearchedJobs = ({
                       {item.labels.map(
                         (item, key) =>
                           key <= 12 && (
-                            <Labels key={key}>
+                            <Labels
+                              key={key}
+                              level={handleLevel(tagFormatter(item.name) || "")}
+                            >
                               {getIcon(tagFormatter(item.name) || "")}{" "}
                               {tagFormatter(item.name)}
                             </Labels>
