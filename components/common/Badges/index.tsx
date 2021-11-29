@@ -9,13 +9,13 @@ const Badges = ({
 }) => {
   return (
     <div className="opacity-80 font-bold font-code absolute -mt-1 top-0 left-0 p-2 pt-1">
-      <span className="text-red-600 relative">
+      <span className="text-red-700 relative">
         <small className="absolute animate-bounce pt-1">
           {newOpening && "Nova!"}
         </small>
       </span>
       <span
-        className={`text-yellow-500 ${
+        className={`text-yellow-600 ${
           newOpening ? "left-12" : "left-0"
         } relative`}
       >
