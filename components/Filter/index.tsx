@@ -15,7 +15,7 @@ const Filter = ({ search }: { search?: boolean }) => {
     <div className={`flex w-full h-6 items-center justify-end`}>
       {open && (
         <div
-          className={`flex sm:w-full absolute sm:static top-80 mt-32 sm:mt-0 right-4 bg-purple-700 sm:bg-transparent text-white sm:text-gray-800 rounded shadow sm:shadow-none z-50 px-4 py-2 sm:pr-0 sm:flex-row flex-col items-start justify-end`}
+          className={`flex sm:w-full absolute sm:static top-52 mt-28 sm:mt-0 right-4 bg-purple-700 sm:bg-transparent text-white sm:text-gray-800 rounded shadow sm:shadow-none z-50 px-4 py-2 sm:pr-0 sm:flex-row flex-col items-start justify-end`}
         >
           <div
             className={`${

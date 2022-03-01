@@ -1,7 +1,5 @@
 import { useContext } from "react";
-import Link from "next/link";
 import Alert from "../common/Alert";
-import Fav from "../common/Fav";
 import Filter from "../Filter";
 import Pagination from "../Pagination";
 import { useRouter } from "next/router";
@@ -9,15 +7,7 @@ import LoadingSpinner from "../common/LoadingSpinner";
 import JobsAvailable from "../JobsAvailable";
 import { JobsContext } from "../../context/JobsContext";
 import useLimitJobsPerPage from "../../hooks/useLimitJobsPerPage";
-import {
-  dateFormatter,
-  handleLevel,
-  tagFormatter,
-  titleFormatter,
-} from "../../utils/formatters";
-import getIcon from "../../utils/icons";
-import Badges from "../common/Badges";
-import Labels from "../common/Labels";
+import ListItem from "./ListItem";
 
 const Jobs = () => {
   const context = useContext(JobsContext);
@@ -48,46 +38,7 @@ const Jobs = () => {
             <LoadingSpinner />
           ) : (
             limitedJobsPerPage.map((item) => (
-              <div key={item.id} className="relative">
-                <Fav id={item.id} />
-
-                <Link
-                  href={{
-                    pathname: `/jobs/[id]`,
-                    query: { id: item.id },
-                  }}
-                >
-                  <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
-                    <Badges
-                      newOpening={
-                        dateFormatter(item.created_at) === dateFormatter(today)
-                      }
-                      hotOpening={item.reactions.total_count >= 1}
-                    />
-
-                    <h2 className="font-code pb-2 pt-0">
-                      {titleFormatter(item.title)}
-                    </h2>
-                    <div className="flex flex-row flex-wrap">
-                      {item.labels.map(
-                        (item, key) =>
-                          key <= 12 && (
-                            <Labels
-                              key={key}
-                              level={handleLevel(tagFormatter(item.name) || "")}
-                            >
-                              {getIcon(tagFormatter(item.name) || "")}{" "}
-                              {tagFormatter(item.name)}
-                            </Labels>
-                          )
-                      )}
-                    </div>
-                    <p className="text-gray-500 text-sm p-0 font-mono">
-                      {dateFormatter(item.created_at)}
-                    </p>
-                  </a>
-                </Link>
-              </div>
+              <ListItem data={item} />
             ))
           )
         ) : (

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { memo } from "react";
+import NavItem from "./NavItem";
 
 const Header = () => {
   const router = useRouter();
@@ -16,32 +17,16 @@ const Header = () => {
     >
       <div className="self-center flex items-center">
         <Link href="/">
-          <a className="font-code text-6xl md:text-5xl font-bold no-underline text-gray-700 hover:text-gray-800">
-            <span className="text-purple-700">{"<"}</span>
-            {"REMOTO"}
-            <span className="text-purple-700">{"/>"}</span>
+          <a className={`${isHome ? "text-white" : "text-purple-700" } font-code text-6xl md:text-5xl font-bold no-underline text-white hover:text-gray-800`}>
+            {/* <span className="font-nunito font text-5xl -mr-1">{"</>"}</span> */}
+            REMOTO
+            {/* <span className="text-purple-700">{"/>"}</span> */}
           </a>
         </Link>
       </div>
       <div className={`self-center flex items-center mt-4 sm:mt-0`}>
-        <Link href="/">
-          <a
-            className={`${
-              isHome ? "text-purple-700 font-bold" : "text-purple-700"
-            } font-nunito font-light no-underline px-4 py-2 text-purple-700 hover:text-purple-900`}
-          >
-            Home
-          </a>
-        </Link>
-        <Link href="/favs">
-          <a
-            className={`${
-              isFavs ? "text-purple-700 font-bold" : "text-purple-700"
-            } font-nunito no-underline font-light px-4 py-2 text-purple-700 hover:text-purple-900`}
-          >
-            Favoritos
-          </a>
-        </Link>
+        <NavItem to="/" condition={isHome} text="Home" />
+        <NavItem to="/favs" condition={isHome} active={isFavs} text="Favoritos" />
       </div>
     </div>
   );

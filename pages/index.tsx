@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Banner from "../components/Banner";
 import Title from "../components/common/Title";
 import Jobs from "../components/Jobs";
-import { url } from "../constants";
+import { url } from "../config";
 import { FilterContext } from "../context/FilterContext";
 import useFilterByDate from "../hooks/useFilterByDate";
 import useFilterByUserSelection from "../hooks/useFilterByUserSelection";

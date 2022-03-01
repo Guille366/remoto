@@ -6,10 +6,12 @@ const Fav = ({
   id,
   className = "",
   big,
+  hidden,
 }: {
   id: number;
   className?: string;
   big?: boolean;
+  hidden?: boolean;
 }) => {
   const { icon, handleGetIcon } = useFavIcon(id);
   const { handleSaveToStorage } = useLocalStorage();
@@ -18,7 +20,9 @@ const Fav = ({
     <button
       className={`${className} ${
         big ? "static" : "absolute"
-      } right-0 top-0 p-2 text-xl transition-colors hover:text-red-600`}
+        }
+        ${hidden ? "hidden" : "flex"} 
+      right-0 top-0 p-2 text-xl transition-colors hover:text-red-600`}
       onClick={() => {
         handleSaveToStorage(id);
         handleGetIcon(id);

@@ -6,7 +6,7 @@ import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Details from "../../components/Details";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { url } from "../../constants";
+import { url } from "../../config";
 import { titleFormatter } from "../../utils/formatters";
 
 export async function getStaticProps({ params }: ParamType) {
