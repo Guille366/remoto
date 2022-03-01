@@ -4,7 +4,7 @@ import Head from "next/head";
 import FavJobs from "../components/FavJobs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { url } from "../constants";
+import { url } from "../config";
 import useFilterByDate from "../hooks/useFilterByDate";
 import useFilterByFav from "../hooks/useFilterByFav";
 

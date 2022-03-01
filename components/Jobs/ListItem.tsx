@@ -44,7 +44,7 @@ const ListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, title, reac
                     query: { id: id },
                   }}
                 >
-                  <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
+                  <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50 hover:bg-purple-50">
                     <Badges
                       newOpening={
                         dateFormatter(created_at) === dateFormatter(today)

@@ -19,7 +19,7 @@ const Banner = () => {
         />
       </div>
       <div className="mt-28 md:mt-20 ">
-        <h1 className="text-gray-800 text-xl p-1 rounded md:text-3xl text-center md:flex hidden md:mb-4 font-bold z-10">
+        <h1 className="text-white text-xl p-1 rounded md:text-3xl text-center md:flex hidden md:mb-4 font-bold z-10">
           Vagas dev para trabalhar de onde quiser.
         </h1>
         <SearchBar />

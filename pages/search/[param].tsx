@@ -6,7 +6,7 @@ import { InferGetStaticPropsType } from "next";
 import BackButton from "../../components/common/Buttons/Back";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import SearchedJobs from "../../components/SearchedJobs";
-import { url } from "../../constants";
+import { url } from "../../config";
 import { SearchContext } from "../../context/SearchContext";
 import { FilterContext } from "../../context/FilterContext";
 
