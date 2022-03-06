@@ -1,3 +1,4 @@
+import { extractEmail, extractLink } from './../../utils/extractFromString';
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -31,6 +32,8 @@ export default async function miscHandler(
 
         const filteredData = allJobs.filter((item) =>
           item.labels.some((i) => i.name.toUpperCase().includes("REMOTO"))
+            && !item.body.includes('parceiro da plataforma')
+            && (!!extractLink(item.body) || !!extractEmail(item.body))
         );
         const obj: DataTypeArr = {
           data: filteredData,
