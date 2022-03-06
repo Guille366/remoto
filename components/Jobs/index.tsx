@@ -37,8 +37,8 @@ const Jobs = () => {
           limitedJobsPerPage.length === 0 ? (
             <LoadingSpinner />
           ) : (
-            limitedJobsPerPage.map((item) => (
-              <ListItem data={item} />
+            limitedJobsPerPage.map((item, key) => (
+              <ListItem data={item} key={key} />
             ))
           )
         ) : (
