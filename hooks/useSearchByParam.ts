@@ -16,7 +16,7 @@ const useSearchByParam = (searchParam: string, jobsData: DataTypes[]) => {
       return job.labels.some((label) => {
         const labelName = tagFormatter(label.name) || "undefined";
 
-        return labelName.includes(normalizedSearchParam);
+        return labelName.toUpperCase().includes(normalizedSearchParam);
       });
     });
 
