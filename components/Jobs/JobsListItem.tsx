@@ -62,6 +62,7 @@ const ListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, title, reac
                     <Labels
                       key={key}
                       level={handleLevel(tagFormatter(item.name) || "")}
+                      name={item.name}
                     >
                       {getIcon(tagFormatter(item.name) || "")}{" "}
                       {tagFormatter(item.name)}
