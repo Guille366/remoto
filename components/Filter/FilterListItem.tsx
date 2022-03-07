@@ -11,7 +11,7 @@ const Checkbox: React.FC<CheckboxTypes> = ({ active, text, handleChange, name })
   return (
     <div
         className={`${
-            active ? "sm:text-purple-700" : ""
+            active ? "sm:text-violet-700" : ""
         } py-3 flex flex-row items-center`}
         >
         <label className="mr-1 cursor-pointer" htmlFor={name}>

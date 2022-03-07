@@ -46,7 +46,7 @@ export default async function miscHandler(
 
         res.status(200).json(obj);
       } catch (error: any) {
-        console.log(error);
+        console.error(error);
         const limitRes = await axios.get(rateLimitUrl);
         const rateLimit = limitRes.data.resources.core.remaining;
         if (rateLimit === 0) {

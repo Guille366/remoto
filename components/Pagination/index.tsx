@@ -24,7 +24,7 @@ const Pagination = ({
               <div className="flex items-center">
                 <Link href={search ? "/search/page/1" : "/page/1"}>
                   <a
-                    className="mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-purple-700 text-purple-700 bg-transparent hover:bg-purple-900 hover:text-white hover:shadow-lg"
+                    className="mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-violet-700 text-violet-700 bg-transparent hover:bg-violet-900 hover:text-white hover:shadow-lg"
                     role="link"
                   >
                     {1}
@@ -43,9 +43,9 @@ const Pagination = ({
                 <a
                   className={`${
                     item === page
-                      ? "bg-purple-900 text-white"
-                      : "bg-transparent text-purple-700"
-                  } mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-purple-700 hover:bg-purple-900 hover:text-white hover:shadow-lg`}
+                      ? "bg-violet-900 text-white"
+                      : "bg-transparent text-violet-700"
+                  } mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-violet-700 hover:bg-violet-900 hover:text-white hover:shadow-lg`}
                   role="link"
                 >
                   {item}
@@ -65,10 +65,10 @@ const Pagination = ({
                   <a
                     className={`${
                       pagination?.length === page
-                        ? "bg-purple-900 text-white"
-                        : "bg-transparent text-purple-700"
+                        ? "bg-violet-900 text-white"
+                        : "bg-transparent text-violet-700"
                     }
-                      mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-purple-700 hover:bg-purple-900 hover:text-white hover:shadow-lg`}
+                      mx-1 px-4 no-underline py-1 font-bold rounded shadow-md border border-violet-700 hover:bg-violet-900 hover:text-white hover:shadow-lg`}
                   >
                     {pagination?.length}
                   </a>

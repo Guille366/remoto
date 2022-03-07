@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className="taller h-56 sm:-mt-28 -mt-36 w-full flex flex-col items-center justify-center">
       <div className="absolute taller h-56 left-0 w-full overflow-hidden -z-1">
-        <div className="absolute h-56 taller left-0 w-full overflow-hidden bg-opacity-20 sm:bg-opacity-20 bg-purple-700" />
+        <div className="absolute h-56 taller left-0 w-full overflow-hidden bg-opacity-20 sm:bg-opacity-20 bg-violet-700" />
         <Image
           className="rounded-none -z-2 opacity-90"
           src={heroImage}

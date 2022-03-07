@@ -14,8 +14,16 @@
   }
 }
 
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
 * {
   line-height: 1.7rem;
+  scrollbar-width: thin !important;
 }
 
 a {
@@ -51,15 +59,12 @@ img {
   border-radius: 4px;
 }
 
-/* Styled List */
 ul {
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 li {
-  /* display: flex;
-  flex-direction: column; */
   margin-top: 1rem;
 }
 li:first-child {
@@ -73,7 +78,6 @@ ul li::before {
   --tw-bg-opacity: 1;
   color: rgba(109, 40, 217, var(--tw-bg-opacity));
   display: inline-block;
-  /* width: 1.5rem; */
   font-size: 1rem;
   font-weight: 900;
   font-family: monospace;
