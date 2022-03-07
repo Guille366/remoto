@@ -21,8 +21,6 @@ const Jobs = () => {
 
   const limitedJobsPerPage = useLimitJobsPerPage(page, allJobs);
 
-  const today = new Date().toString();
-
   const totalAvailable = context?.jobs?.length;
 
   return (

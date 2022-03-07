@@ -21,7 +21,7 @@ const Fav = ({
       className={`${className} ${
         big ? "static" : "absolute"
         }
-        ${hidden ? "hidden" : "flex"} 
+        ${hidden ? "md:hidden flex" : "flex"} 
       right-0 top-0 p-2 text-xl transition-colors hover:text-red-600`}
       onClick={() => {
         handleSaveToStorage(id);

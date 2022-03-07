@@ -8,7 +8,7 @@ const BackButton = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="py-1 text-3xl flex items-center text-purple-700 hover:text-purple-900"
+      className="py-1 text-3xl flex items-center text-violet-700 hover:text-violet-900"
     >
       <Icon />
     </button>

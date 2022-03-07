@@ -7,7 +7,9 @@ export const titleFormatter = (string: string) => {
 
   return string
     .replace("[Remoto]", "")
+    .replace("[Remota]", "")
     .replace("[Remote]", "")
+    .replace("[REMOTA]", "")
     .replace("[REMOTO]", "")
     .replace("[REMOTE]", "")
     .replace("[Home Office]", "")

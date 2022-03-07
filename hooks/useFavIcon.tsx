@@ -16,7 +16,7 @@ const useFavIcon = (id: number) => {
         return;
       }
       setIcon(
-        <AiOutlineHeart className="text-purple-700 hover:text-red-600" />
+        <AiOutlineHeart className="text-violet-700 hover:text-red-600" />
       );
       return;
     }

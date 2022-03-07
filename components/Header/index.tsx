@@ -17,10 +17,8 @@ const Header = () => {
     >
       <div className="self-center flex items-center">
         <Link href="/">
-          <a className={`${isHome ? "text-white" : "text-purple-700" } font-code text-6xl md:text-5xl font-bold no-underline text-white hover:text-gray-800`}>
-            {/* <span className="font-nunito font text-5xl -mr-1">{"</>"}</span> */}
+          <a className={`font-code text-6xl md:text-5xl font-bold no-underline hover:text-gray-800 ${isHome ? "text-white" : "text-violet-700"}`}>
             REMOTO
-            {/* <span className="text-purple-700">{"/>"}</span> */}
           </a>
         </Link>
       </div>

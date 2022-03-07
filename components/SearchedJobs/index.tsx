@@ -1,27 +1,17 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
 import React, { useContext } from "react";
 import { JobsContext } from "../../context/JobsContext";
 import useLimitJobsPerPage from "../../hooks/useLimitJobsPerPage";
 import Alert from "../common/Alert";
-import Fav from "../common/Fav";
 import LoadingSpinner from "../common/LoadingSpinner";
 import Filter from "../Filter";
 import JobsAvailable from "../JobsAvailable";
-import {
-  dateFormatter,
-  handleLevel,
-  tagFormatter,
-  titleFormatter,
-} from "../../utils/formatters";
-import getIcon from "../../utils/icons";
 import Pagination from "../Pagination";
 import useSearchByParam from "../../hooks/useSearchByParam";
 import useFilterByDate from "../../hooks/useFilterByDate";
 import { FilterContext } from "../../context/FilterContext";
 import useFilterByUserSelection from "../../hooks/useFilterByUserSelection";
-import Badges from "../common/Badges";
-import Labels from "../common/Labels";
+import ListItem from "../Jobs/JobsListItem";
 
 const SearchedJobs = ({
   searchParam,
@@ -43,8 +33,6 @@ const SearchedJobs = ({
 
   const limitedJobsPerPage = useLimitJobsPerPage(page, jobs);
 
-  const today = new Date().toString();
-
   const totalAvailable = context?.jobs?.length;
 
   const filterContext = useContext(FilterContext);
@@ -63,47 +51,8 @@ const SearchedJobs = ({
           limitedJobsPerPage.length === 0 ? (
             <p>Vaga não encontrada.</p>
           ) : (
-            limitedJobsPerPage.map((item) => (
-              <div key={item.id} className="relative">
-                <Fav id={item.id} />
-
-                <Link
-                  href={{
-                    pathname: `/jobs/[id]`,
-                    query: { id: item.id },
-                  }}
-                >
-                  <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
-                    <Badges
-                      newOpening={
-                        dateFormatter(item.created_at).standard === dateFormatter(today).standard
-                      }
-                      hotOpening={item.reactions.total_count >= 1}
-                    />
-                    <h2 className="font-code pb-2  pt-0">
-                      {titleFormatter(item.title)}
-                    </h2>
-                    <div className="flex flex-row flex-wrap">
-                      {item.labels.map(
-                        (item, key) =>
-                          key <= 12 && (
-                            <Labels
-                              key={key}
-                              level={handleLevel(tagFormatter(item.name) || "")}
-                              name={item.name}
-                            >
-                              {getIcon(tagFormatter(item.name) || "")}{" "}
-                              {tagFormatter(item.name)}
-                            </Labels>
-                          )
-                      )}
-                    </div>
-                    <p className="text-gray-500 text-xs p-0 mt-4 font-mono">
-                      ⏱️ {dateFormatter(item.created_at).fromNow}
-                    </p>
-                  </a>
-                </Link>
-              </div>
+            limitedJobsPerPage.map((item, key) => (
+              <ListItem data={item} key={key} />
             ))
           )
         ) : (

@@ -14,7 +14,7 @@ const SearchBar = () => {
     <div className="flex items-center justify-start w-full flex-1 py-4 text-center">
       <div className="w-full max-w-md bg-white rounded-lg">
         <form
-          className="flex items-center rounded shadow-md border border-purple-700 border-opacity-25 hover:border-opacity-50 focus-within:border-opacity-50 focus-within:shadow-lg"
+          className="flex items-center rounded shadow-md border border-violet-700 border-opacity-25 hover:border-opacity-50 focus-within:border-opacity-50 focus-within:shadow-lg"
           onSubmit={(e) => handleSubmit(e)}
         >
           <input
@@ -29,7 +29,7 @@ const SearchBar = () => {
           />
 
           <button
-            className="cursor-pointer bg-transparent text-purple-700 rounded p-2 hover:text-purple-900 focus:outline-none flex items-center justify-center"
+            className="cursor-pointer bg-transparent text-violet-700 rounded p-2 hover:text-violet-900 focus:outline-none flex items-center justify-center"
             type="submit"
           >
             <FaSearch />

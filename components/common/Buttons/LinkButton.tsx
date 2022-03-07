@@ -10,7 +10,7 @@ interface LinkButtonTypes {
 const LinkButton: React.FC<LinkButtonTypes> = ({ isEmail, text, to, className }) => {
   return (
     <a href={isEmail ? `mailto:${to}` : to }
-      className={`font-mono px-4 py-2 mx-2 bg-purple-700 text-white no-underline rounded hover:bg-purple-600 ${className}`}
+      className={`font-mono px-4 py-2 mx-2 bg-violet-700 text-white no-underline rounded hover:bg-violet-600 ${className}`}
       target="_blank"
       rel="noreferrer"
     >

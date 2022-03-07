@@ -47,7 +47,7 @@ const Filter = ({ search }: { search?: boolean }) => {
       )}
 
       <button
-        className={`px-4 py-1 m-2 ml-0 flex flex-row whitespace-nowrap border border-purple-700 rounded-md  ${open ? "bg-purple-700 text-white" : "text-purple-700 hover:bg-purple-50"}`}
+        className={`px-4 py-1 m-2 ml-0 flex flex-row whitespace-nowrap border border-violet-700 rounded-md  ${open ? "bg-violet-700 text-white" : "text-violet-700 hover:bg-violet-50"}`}
         onClick={() => setOpen(!open)}
       >
         Adicionar Filtro 
