@@ -11,8 +11,8 @@ const SearchBar = () => {
   } = useSearch();
 
   return (
-    <div className="flex items-center justify-center w-full flex-1 py-4 text-center">
-      <div className="w-full max-w-md bg-white rounded">
+    <div className="flex items-center justify-start w-full flex-1 py-4 text-center">
+      <div className="w-full max-w-md bg-white rounded-lg">
         <form
           className="flex items-center rounded shadow-md border border-purple-700 border-opacity-25 hover:border-opacity-50 focus-within:border-opacity-50 focus-within:shadow-lg"
           onSubmit={(e) => handleSubmit(e)}
