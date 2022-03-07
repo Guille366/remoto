@@ -1,88 +1,57 @@
-import { useContext, useState } from "react";
-import { IoFilterCircleSharp } from "@react-icons/all-files/io5/IoFilterCircleSharp";
-import { IoFilterCircleOutline } from "@react-icons/all-files/io5/IoFilterCircleOutline";
+import { useCallback, useContext, useRef, useState } from "react";
+import { IoIosAdd } from "@react-icons/all-files/io/IoIosAdd";
 import useFilterData from "../../hooks/useFilterData";
 import { FilterContext } from "../../context/FilterContext";
+import Checkbox from "./FilterListItem";
+import useClickOutside from "../../hooks/useClickOutside";
 
 const Filter = ({ search }: { search?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   const context = useContext(FilterContext);
-
+  
   const { numberOfFilters, handleChange } = useFilterData(search);
+  
+  const ref = useRef(null);
+  const handler = useCallback(() => setOpen(false), []);
+  useClickOutside(ref, handler)
 
   return (
-    <div className={`flex w-full h-6 items-center justify-end`}>
+    <div
+      className={`flex h-6 items-center relative`}
+      ref={ref}
+    >
       {open && (
         <div
-          className={`flex sm:w-full absolute sm:static top-52 mt-28 sm:mt-0 right-4 bg-purple-700 sm:bg-transparent text-white sm:text-gray-800 rounded shadow sm:shadow-none z-50 px-4 py-2 sm:pr-0 sm:flex-row flex-col items-start justify-end`}
+          className={`flex absolute top-8 bg-white text-gray-800 rounded shadow-lg z-50 px-8 py-4 flex-col items-center justify-end`}
         >
-          <div
-            className={`${
-              context?.filterArgs.junior ? "sm:text-purple-700" : ""
-            } py-2 flex flex-row items-center`}
-          >
-            <label className="mr-1 cursor-pointer" htmlFor="junior">
-              Júnior
-            </label>
-            <input
-              className={`mr-3 cursor-pointer`}
-              type="checkbox"
-              id="junior"
-              name="junior"
-              checked={context?.filterArgs.junior}
-              onChange={(e) => handleChange(e)}
-              data-testId="junior-input"
-            />
-          </div>
-
-          <div
-            className={`${
-              context?.filterArgs.pleno ? "sm:text-purple-700" : ""
-            } py-2 flex flex-row items-center`}
-          >
-            <label className="mr-1 cursor-pointer" htmlFor="pleno">
-              Pleno
-            </label>
-            <input
-              className={`mr-3 cursor-pointer`}
-              type="checkbox"
-              id="pleno"
-              name="pleno"
-              checked={context?.filterArgs.pleno}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-
-          <div
-            className={`${
-              context?.filterArgs.senior ? "sm:text-purple-700" : ""
-            } py-2 flex flex-row items-center`}
-          >
-            <label className="mr-1 cursor-pointer" htmlFor="senior">
-              Sênior
-            </label>
-            <input
-              className={`mr-3 cursor-pointer`}
-              type="checkbox"
-              id="senior"
-              name="senior"
-              checked={context?.filterArgs.senior}
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
+          <Checkbox 
+            active={context?.filterArgs.junior}
+            handleChange={handleChange}
+            text="👦 Júnior"
+            name="junior"
+          />
+          <Checkbox 
+            active={context?.filterArgs.pleno}
+            handleChange={handleChange}
+            text="👨 Pleno"
+            name="pleno"
+          />
+          <Checkbox 
+            active={context?.filterArgs.senior}
+            handleChange={handleChange}
+            text="👴 Sênior"
+            name="senior"
+          />
         </div>
       )}
 
       <button
-        className="p-4 pr-0 flex flex-row whitespace-nowrap text-purple-700 hover:text-purple-900"
+        className={`px-4 py-1 m-2 ml-0 flex flex-row whitespace-nowrap border border-purple-700 rounded-md  ${open ? "bg-purple-700 text-white" : "text-purple-700 hover:bg-purple-50"}`}
         onClick={() => setOpen(!open)}
       >
-        {open ? (
-          <IoFilterCircleSharp className="text-2xl" />
-        ) : (
-          <IoFilterCircleOutline className="text-2xl" />
-        )}
+        Adicionar Filtro 
+        <IoIosAdd className="text-2xl" />
         <span className="font-light">{`(${numberOfFilters})`}</span>
       </button>
     </div>

@@ -7,7 +7,7 @@ import LoadingSpinner from "../common/LoadingSpinner";
 import JobsAvailable from "../JobsAvailable";
 import { JobsContext } from "../../context/JobsContext";
 import useLimitJobsPerPage from "../../hooks/useLimitJobsPerPage";
-import ListItem from "./ListItem";
+import ListItem from "./JobsListItem";
 
 const Jobs = () => {
   const context = useContext(JobsContext);
@@ -29,8 +29,8 @@ const Jobs = () => {
     <div className="font-nunito pt-4 pb-8">
       <Alert />
       <div className="w-full flex flex-row justify-between">
-        <JobsAvailable totalAvailable={totalAvailable} />
         <Filter />
+        <JobsAvailable totalAvailable={totalAvailable} />
       </div>
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         {limitedJobsPerPage !== null && limitedJobsPerPage !== undefined ? (
