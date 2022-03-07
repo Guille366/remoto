@@ -46,6 +46,7 @@ const FavJobs = ({ favData }: FavTypes) => {
                               fav
                               key={key}
                               level={handleLevel(tagFormatter(item.name) || "")}
+                              name={item.name}
                             >
                               {getIcon(tagFormatter(item.name) || "")}{" "}
                               {tagFormatter(item.name)}

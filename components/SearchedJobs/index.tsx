@@ -55,8 +55,8 @@ const SearchedJobs = ({
     <div className="font-nunito pt-4 pb-8">
       <Alert />
       <div className="w-full flex flex-row justify-between">
-        <JobsAvailable totalAvailable={totalAvailable} />
         <Filter search />
+        <JobsAvailable totalAvailable={totalAvailable} />
       </div>
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         {limitedJobsPerPage !== null && limitedJobsPerPage !== undefined ? (
@@ -90,6 +90,7 @@ const SearchedJobs = ({
                             <Labels
                               key={key}
                               level={handleLevel(tagFormatter(item.name) || "")}
+                              name={item.name}
                             >
                               {getIcon(tagFormatter(item.name) || "")}{" "}
                               {tagFormatter(item.name)}
@@ -97,8 +98,8 @@ const SearchedJobs = ({
                           )
                       )}
                     </div>
-                    <p className="text-gray-500 text-sm p-0 font-mono">
-                      {dateFormatter(item.created_at).standard}
+                    <p className="text-gray-500 text-xs p-0 mt-4 font-mono">
+                      ⏱️ {dateFormatter(item.created_at).fromNow}
                     </p>
                   </a>
                 </Link>
