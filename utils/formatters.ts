@@ -1,3 +1,7 @@
+import moment from "moment"
+moment.locale('pt-br')
+import 'moment/locale/pt-br'
+
 export const titleFormatter = (string: string) => {
   if (!string) return;
 
@@ -110,13 +114,17 @@ export const tagFormatter = (string: string) => {
 };
 
 export const dateFormatter = (date: string) => {
-  let data = new Date(date),
+  const data = new Date(date),
     day = data.getDate().toString(),
     dayF = day.length == 1 ? "0" + day : day,
     month = (data.getMonth() + 1).toString(),
     monthF = month.length == 1 ? "0" + month : month,
     year = data.getFullYear();
-  return dayF + "/" + monthF + "/" + year;
+
+  const standard = dayF + "/" + monthF + "/" + year;
+  const fromNow = moment(data).fromNow()
+
+  return { standard, fromNow }
 };
 
 export const handleLevel = (string: string) => {

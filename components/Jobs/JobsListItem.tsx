@@ -28,7 +28,7 @@ const ListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, title, reac
     const handleHover = (arg: string) => {
         arg === 'enter' ? setHover(true) : setHover(false)
     }
-
+  
   return (
     <div 
         key={id} 
@@ -47,7 +47,7 @@ const ListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, title, reac
           <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50 hover:bg-purple-50">
             <Badges
               newOpening={
-                dateFormatter(created_at) === dateFormatter(today)
+                dateFormatter(created_at).standard === dateFormatter(today).standard
               }
               hotOpening={reactions.total_count >= 1}
             />
@@ -69,8 +69,8 @@ const ListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, title, reac
                   )
               )}
             </div>
-            <p className="text-gray-500 text-sm p-0 font-mono">
-              {dateFormatter(created_at)}
+            <p className="text-gray-500 text-xs p-0 mt-4 font-mono">
+              ⏱️ {dateFormatter(created_at).fromNow}
             </p>
           </a>
         </Link>

@@ -32,7 +32,7 @@ const Details = ({ data }: DataType) => {
       </h1>
       <div className="font-nunito my-4">
         <p className="text-gray-500 text-sm p-0 font-mono">
-          {dateFormatter(data?.created_at)}
+          {dateFormatter(data?.created_at).standard}
         </p>
         <ReactMarkdown skipHtml={true} remarkPlugins={[remarkGfm]}>
           {data?.body.replace(/\u2028/g, "")}

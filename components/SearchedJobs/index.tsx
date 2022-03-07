@@ -76,7 +76,7 @@ const SearchedJobs = ({
                   <a className="text-gray-700 flex flex-col justify-center h-full p-4 no-underline shadow-md rounded border-purple-700 border border-opacity-25 hover:shadow-lg hover:border-opacity-50">
                     <Badges
                       newOpening={
-                        dateFormatter(item.created_at) === dateFormatter(today)
+                        dateFormatter(item.created_at).standard === dateFormatter(today).standard
                       }
                       hotOpening={item.reactions.total_count >= 1}
                     />
@@ -98,7 +98,7 @@ const SearchedJobs = ({
                       )}
                     </div>
                     <p className="text-gray-500 text-sm p-0 font-mono">
-                      {dateFormatter(item.created_at)}
+                      {dateFormatter(item.created_at).standard}
                     </p>
                   </a>
                 </Link>
