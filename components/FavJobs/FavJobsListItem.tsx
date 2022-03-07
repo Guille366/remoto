@@ -56,7 +56,7 @@ const FavJobsListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, titl
             <h2 className="font-code pb-2 pt-0">
               {titleFormatter(title)}
             </h2>
-            <div className="flex flex-row overflow-x-auto snap-x snap-mandatory scrollbar-thin md:scrollbar-thumb-transparent rounded-scroll md:scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thumb-rounded-full hover:scrollbar-thumb-red-700 hover:scrollbar-red-violet-100 pb-2">
+            <div className="flex flex-row overflow-x-auto snap-x snap-mandatory scrollbar-thin md:scrollbar-thumb-transparent md:scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thumb-rounded-full hover:scrollbar-thumb-red-700 hover:scrollbar-red-violet-100 pb-2">
               {labels.map(
                 (item, key) =>
                     <Labels

@@ -30,7 +30,7 @@ const Jobs = () => {
         <Filter />
         <JobsAvailable totalAvailable={totalAvailable} />
       </div>
-      <div className="grid md:grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         {limitedJobsPerPage !== null && limitedJobsPerPage !== undefined ? (
           limitedJobsPerPage.length === 0 ? (
             <LoadingSpinner />

@@ -11,7 +11,7 @@ const FavJobs = ({ favData }: FavTypes) => {
       <Alert />
       <JobsAvailable totalAvailable={totalAvailable} fav />
 
-      <div className="grid md:grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         {favData !== null && favData !== undefined ? (
           favData.length === 0 ? (
             <h2 className="w-full col-span-2 font-light text-center pt-12 text-xl">
