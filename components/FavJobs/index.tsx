@@ -53,8 +53,8 @@ const FavJobs = ({ favData }: FavTypes) => {
                           )
                       )}
                     </div>
-                    <p className="text-gray-500 text-sm p-0 font-mono">
-                      {dateFormatter(item.created_at)}
+                    <p className="text-gray-500 text-xs p-0 mt-4 font-mono">
+                      ⏱️ {dateFormatter(item.created_at).fromNow}
                     </p>
                   </a>
                 </Link>
