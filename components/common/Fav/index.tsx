@@ -7,11 +7,13 @@ const Fav = ({
   className = "",
   big,
   hidden,
+  light,
 }: {
   id: number;
   className?: string;
   big?: boolean;
   hidden?: boolean;
+  light?: boolean;
 }) => {
   const { icon, handleGetIcon } = useFavIcon(id);
   const { handleSaveToStorage } = useLocalStorage();
@@ -21,8 +23,9 @@ const Fav = ({
       className={`${className} ${
         big ? "static" : "absolute"
         }
-        ${hidden ? "md:hidden flex" : "flex"} 
-      right-0 top-0 p-2 text-xl transition-colors hover:text-red-600`}
+        ${hidden ? "md:hidden flex" : "flex"}
+        ${light ? "text-yellow-600 hover:text-yellow-600" : "text-violet-700 hover:text-yellow-600"}
+      right-0 top-0 p-2 text-xl transition-colors `}
       onClick={() => {
         handleSaveToStorage(id);
         handleGetIcon(id);

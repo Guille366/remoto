@@ -4,18 +4,21 @@ import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Details from "../../components/Details";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import { url } from "../../config";
 import { titleFormatter } from "../../utils/formatters";
+import premiumData from "../../data/premium"
 
 export async function getStaticProps({ params }: ParamType) {
   const ghData = await axios.get(url);
 
   const data: any = ghData.data;
+  const premiumIncludedData = [
+    ...premiumData,
+    ...data.data,
+  ]
 
   //Filter data arr
-  const filteredData = data.data.filter(
+  const filteredData = premiumIncludedData.filter(
     (item: DataTypes) => item.id === Number(params.id)
   );
 

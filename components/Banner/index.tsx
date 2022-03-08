@@ -1,8 +1,8 @@
-import React from "react";
-import heroImage from "../../assets/images/banner-img.jpg";
-import bannerHero from "../../assets/images/world.svg";
-import Image from "next/image";
-import LinkButton from "../common/Buttons/LinkButton";
+import React from 'react';
+import heroImage from '../../assets/images/banner-img.jpg';
+import bannerHero from '../../assets/images/world.svg';
+import Image from 'next/image';
+import LinkButton from '../common/Buttons/LinkButton';
 
 const Banner = () => {
   return (
@@ -25,13 +25,13 @@ const Banner = () => {
           <h1 className="text-white text-xl p-1 rounded sm:text-3xl text-start sm:flex sm:justify-start hidden sm:mb-4 font-bold z-10">
             Vagas dev para trabalhar de onde quiser.
           </h1>
-          
+
           <LinkButton
             text="Confira Vagas"
-            to="#todas"
+            to="#vagas"
             className="self-start"
             anchor
-            light
+            variant="light"
           />
         </div>
 

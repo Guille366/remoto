@@ -16,10 +16,13 @@ export const titleFormatter = (string: string) => {
     .replace("[100% Remoto]", "")
     .replace("[100% remoto]", "")
     .replace("[100% REMOTO]", "")
+    .replace("[100% REMOTO!]", "")
     .replace("[🏝️ Remoto]", "")
     .replace("[100% REMOTA]", "")
     .replace("[100% remota]", "")
     .replace("[100% Remota]", "")
+    .replace("[REMOTO FOREVER]", "")
+    .replace("[Remoto Forever]", "")
     .trim();
 };
 
