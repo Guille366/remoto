@@ -12,11 +12,11 @@ const useFavIcon = (id: number) => {
 
     if (localStorage) {
       if (localStorage.getItem(stringId)) {
-        setIcon(<AiFillHeart className="text-red-600" />);
+        setIcon(<AiFillHeart className="text-yellow-600" />);
         return;
       }
       setIcon(
-        <AiOutlineHeart className="text-violet-700 hover:text-red-600" />
+        <AiOutlineHeart />
       );
       return;
     }

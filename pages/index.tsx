@@ -1,14 +1,15 @@
-import axios from "axios";
-import type { InferGetStaticPropsType } from "next";
-import Head from "next/head";
-import { useContext } from "react";
-import Banner from "../components/Banner";
-import Title from "../components/common/Title";
-import Jobs from "../components/Jobs";
-import { url } from "../config";
-import { FilterContext } from "../context/FilterContext";
-import useFilterByDate from "../hooks/useFilterByDate";
-import useFilterByUserSelection from "../hooks/useFilterByUserSelection";
+import axios from 'axios';
+import type { InferGetStaticPropsType } from 'next';
+import Head from 'next/head';
+import { useContext } from 'react';
+import Banner from '../components/Banner';
+import Title from '../components/common/Title';
+import Jobs from '../components/Jobs';
+import PremiumJobs from '../components/Jobs/PremiumJobs';
+import { url } from '../config';
+import { FilterContext } from '../context/FilterContext';
+import useFilterByDate from '../hooks/useFilterByDate';
+import useFilterByUserSelection from '../hooks/useFilterByUserSelection';
 
 export async function getStaticProps() {
   const ghData = await axios.get(url);
@@ -43,7 +44,10 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <Banner />
 
-      <Title id="todas">Todas as vagas</Title>
+      <Title id="vagas">Vagas em destaque</Title>
+      <PremiumJobs />
+
+      <Title>Todas as vagas</Title>
       <Jobs />
     </div>
   );

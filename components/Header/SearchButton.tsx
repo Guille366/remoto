@@ -12,7 +12,7 @@ const SearchButton: React.FC<NavItemTypes> = ({ condition, active, onClick }) =>
         <div
             className={`
                 font-nunito no-underline font-bold px-4 py-1 ml-2 rounded cursor-pointer
-                ${condition ? "text-white md:hover:text-gray-800" : "text-gray-800 hover:text-violet-700"}
+                ${condition ? "text-white md:hover:text-violet-700" : "text-gray-800 hover:text-violet-700"}
                 ${active ? "text-violet-700" : ""}
             `}
             onClick={() => onClick(true)}

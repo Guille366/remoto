@@ -26,7 +26,7 @@ const Header = () => {
     >
       <div className="self-center flex items-center">
         <Link href="/">
-          <a className={`font-code text-6xl md:text-5xl font-bold no-underline hover:text-gray-800 ${isHome ? "text-white" : "text-violet-700"}`}>
+          <a className={`font-code text-6xl md:text-5xl font-bold no-underline hover:text-violet-700 ${isHome ? "text-white" : "text-violet-700"}`}>
             REMOTO
           </a>
         </Link>
