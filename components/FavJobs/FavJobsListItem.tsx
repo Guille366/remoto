@@ -70,7 +70,7 @@ const FavJobsListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, titl
                     </Labels>
               )}
             </div>
-            <p className="text-gray-500 text-xs p-0 mt-4 font-mono">
+            <p className="text-gray-500 text-xs p-0 mt-2 font-mono">
               ⏱️ {dateFormatter(created_at).fromNow}
             </p>
           </a>

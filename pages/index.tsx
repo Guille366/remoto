@@ -43,7 +43,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
       <Banner />
 
-      <Title>Todas as vagas</Title>
+      <Title id="todas">Todas as vagas</Title>
       <Jobs />
     </div>
   );
