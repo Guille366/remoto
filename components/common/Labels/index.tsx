@@ -24,7 +24,7 @@ const Labels = ({
   
   return (
     <div
-      className={`font-bold text-sm flex items-center justify-center py-0.5 px-1.5 mx-1 my-1 rounded-lg border whitespace-nowrap ${
+      className={`font-bold text-sm flex items-center justify-center py-0.5 px-1.5 my-1 rounded-lg border whitespace-nowrap ${
         fav
           ? `border-red-700 text-red-700 hover:bg-red-700 hover:text-white`
           : level

@@ -3,7 +3,7 @@ import useSearch from "../../hooks/useSearch";
 
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 
-const SearchBar = () => {
+const SearchBar = React.forwardRef<HTMLDivElement>((props, ref) => {
   const {
     handleInputChange,
     handleSubmit,
@@ -11,7 +11,7 @@ const SearchBar = () => {
   } = useSearch();
 
   return (
-    <div className="flex items-center justify-start w-full flex-1 py-4 text-center">
+    <div ref={ref} className="flex items-center justify-start w-full flex-1 text-center text-sm">
       <div className="w-full max-w-md bg-white rounded-lg">
         <form
           className="flex items-center rounded shadow-md border border-violet-700 border-opacity-25 hover:border-opacity-50 focus-within:border-opacity-50 focus-within:shadow-lg"
@@ -26,6 +26,7 @@ const SearchBar = () => {
             value={searchParam}
             required
             autoComplete="searchParam"
+            autoFocus
           />
 
           <button
@@ -38,6 +39,8 @@ const SearchBar = () => {
       </div>
     </div>
   );
-};
+});
+
+SearchBar.displayName = "SearchBar";
 
 export default SearchBar;

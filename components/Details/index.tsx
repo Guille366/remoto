@@ -37,7 +37,7 @@ const Details = ({ data }: DataType) => {
         <ReactMarkdown skipHtml={true} remarkPlugins={[remarkGfm]}>
           {data?.body.replace(/\u2028/g, "")}
         </ReactMarkdown>
-        <div className="mt-4">
+        <div className="mt-4 w-20">
           <LinkButton
               isEmail={isEmail}
               to={isEmail ? email || '' : link || ''}

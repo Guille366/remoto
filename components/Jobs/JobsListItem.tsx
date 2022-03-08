@@ -55,7 +55,7 @@ const ListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, title, reac
             <h2 className="font-code pb-2 pt-0">
               {titleFormatter(title)}
             </h2>
-            <div className="flex flex-row overflow-x-auto snap-x snap-mandatory scrollbar-thin md:scrollbar-thumb-transparent md:scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thumb-rounded-full hover:scrollbar-thumb-violet-700 hover:scrollbar-track-violet-100 pb-2">
+            <div className="flex flex-row gap-2 overflow-x-auto snap-x snap-mandatory scrollbar-thin md:scrollbar-thumb-transparent md:scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thumb-rounded-full hover:scrollbar-thumb-violet-700 hover:scrollbar-track-violet-100 pb-2">
               {labels.map(
                 (item, key) =>
                   <Labels
@@ -68,7 +68,7 @@ const ListItem: React.FC<ListItemTypes> = ({ data: { id, created_at, title, reac
                   </Labels>
               )}
             </div>
-            <p className="text-gray-500 text-xs p-0 mt-4 font-mono">
+            <p className="text-gray-500 text-xs p-0 mt-2 font-mono">
               ⏱️ {dateFormatter(created_at).fromNow}
             </p>
           </a>
