@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { ReactNode } from "react";
+import { formatSearch } from "../../../utils/formatters";
 
 const Labels = ({
   children,
@@ -19,7 +20,7 @@ const Labels = ({
   const handleClick = (e: any) => {
     e.preventDefault();
 
-    const url = `/search/${name}`;
+    const url = `/search/${formatSearch(name)}`;
 
     router.push(url);
   }
