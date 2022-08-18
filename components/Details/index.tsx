@@ -6,21 +6,30 @@ import { dateFormatter, titleFormatter } from '../../utils/formatters';
 import BackButton from '../common/Buttons/Back';
 import { extractEmail, extractLink } from '../../utils/extractFromString';
 import LinkButton from '../common/Buttons/LinkButton';
+import { useRouter } from 'next/router';
 
 const Details = ({ data }: DataType) => {
   const email = extractEmail(data.body);
   const link = extractLink(data.body);
   const isEmail = !link;
 
+  const router = useRouter();
+  const isApp = router.pathname.includes('app');
+
   return (
     <div className="relative py-4">
       <Alert />
       <div className="flex w-full flex-row justify-between">
-        <BackButton />
-        <div className="relative flex flex-row align-center">
-          <Fav big id={data?.id} className="text-2xl mx-2" />
+        {!isApp && <BackButton />}
+        <div
+          className={`relative flex flex-row align-center ${
+            isApp ? 'w-full' : ''
+          }`}
+        >
+          {!isApp && <Fav big id={data?.id} className="text-2xl mx-2" />}
 
           <LinkButton
+            className={isApp ? 'ml-auto' : ''}
             isEmail={isEmail}
             to={isEmail ? email || '' : link || ''}
             text="Aplique"
