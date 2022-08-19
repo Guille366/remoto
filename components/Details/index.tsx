@@ -19,23 +19,20 @@ const Details = ({ data }: DataType) => {
   return (
     <div className="relative py-4">
       <Alert />
-      <div className="flex w-full flex-row justify-between">
-        {!isApp && <BackButton />}
-        <div
-          className={`relative flex flex-row align-center ${
-            isApp ? 'w-full' : ''
-          }`}
-        >
-          {!isApp && <Fav big id={data?.id} className="text-2xl mx-2" />}
+      {!isApp && (
+        <div className="flex w-full flex-row justify-between">
+          <BackButton />
+          <div className="relative flex flex-row align-center">
+            <Fav big id={data?.id} className="text-2xl mx-2" />
 
-          <LinkButton
-            className={isApp ? 'ml-auto' : ''}
-            isEmail={isEmail}
-            to={isEmail ? email || '' : link || ''}
-            text="Aplique"
-          />
+            <LinkButton
+              isEmail={isEmail}
+              to={isEmail ? email || '' : link || ''}
+              text="Aplique"
+            />
+          </div>
         </div>
-      </div>
+      )}
       <h1 className="mt-4 text-3xl md:text-4xl font-bold">
         {titleFormatter(data?.title)}
       </h1>
