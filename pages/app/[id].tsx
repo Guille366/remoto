@@ -6,18 +6,13 @@ import LoadingSpinner from "../../components/common/LoadingSpinner";
 import Details from "../../components/Details";
 import { url } from "../../config";
 import { titleFormatter } from "../../utils/formatters";
-import premiumData from "../../data/premium"
 
 export async function getStaticProps({ params }: ParamType) {
   const ghData = await axios.get(url);
 
-  const data: any = ghData.data;
-  const premiumIncludedData = [
-    ...premiumData,
-    ...data.data,
-  ]
+  const { data } = ghData.data;
 
-  const filteredData = premiumIncludedData.filter(
+  const filteredData = data.filter(
     (item: DataTypes) => item.id === Number(params.id)
   );
 
