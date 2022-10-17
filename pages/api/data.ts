@@ -1,15 +1,7 @@
 import { extractEmail, extractLink } from './../../utils/extractFromString';
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-// URLS
-const reactBrPageOne =
-  "https://api.github.com/repos/react-brasil/vagas/issues?state=open&page=1&per_page=100";
-const frontBrPageOne =
-  "https://api.github.com/repos/frontendbr/vagas/issues?state=open&&page=1&per_page=100";
-const backBr =
-  "https://api.github.com/repos/backend-br/vagas/issues?state=open&&page=1&per_page=100";
-const rateLimitUrl = "https://api.github.com/rate_limit";
+import { URL } from '../../constants';
 
 export default async function miscHandler(
   req: NextApiRequest,
@@ -20,9 +12,9 @@ export default async function miscHandler(
   switch (method) {
     case "GET":
       try {
-        const reactOpenings = await axios.get(reactBrPageOne);
-        const frontEndOpenings = await axios.get(frontBrPageOne);
-        const backendOpenings = await axios.get(backBr);
+        const reactOpenings = await axios.get(URL.SOURCE_ONE);
+        const frontEndOpenings = await axios.get(URL.SOURCE_TWO);
+        const backendOpenings = await axios.get(URL.SOURCE_THREE);
 
         const allJobs: DataTypes[] = [
           ...reactOpenings.data,
@@ -39,15 +31,10 @@ export default async function miscHandler(
           data: filteredData,
         };
 
-        // res.setHeader(
-        //   "Cache-Control",
-        //   "s-maxage=43200, stale-while-revalidate"
-        // );
-
         res.status(200).json(obj);
       } catch (error: any) {
         console.error(error);
-        const limitRes = await axios.get(rateLimitUrl);
+        const limitRes = await axios.get(URL.RATE_LIMIT);
         const rateLimit = limitRes.data.resources.core.remaining;
         if (rateLimit === 0) {
           res.status(429).send({
