@@ -45,6 +45,7 @@ const Search = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
       pleno: false,
       senior: false,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [param]);
 
   return (

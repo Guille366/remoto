@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders properly 1`] = `
+<div
+  class="opacity-80 font-bold font-code absolute -mt-1 top-0 left-0 p-2 pt-1"
+>
+  <span
+    class="text-red-700 relative"
+  >
+    <small
+      class="absolute animate-bounce pt-1"
+    >
+      Nova!
+    </small>
+  </span>
+  <span
+    class="text-yellow-600 left-12 relative"
+  >
+    <small
+      class="absolute animate-bounce pt-1"
+    >
+      Hot!
+    </small>
+  </span>
+</div>
+`;

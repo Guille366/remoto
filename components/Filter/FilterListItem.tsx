@@ -24,7 +24,6 @@ const Checkbox: React.FC<CheckboxTypes> = ({ active, text, handleChange, name })
             name={name}
             checked={active}
             onChange={handleChange}
-            data-testId={`${name}-input`}
         />
     </div>
   )

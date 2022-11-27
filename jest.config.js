@@ -24,7 +24,7 @@ module.exports = {
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
   },
   transformIgnorePatterns: [
-    "/node_modules/",
+    "/node_modules/(?!(react-markdown|vfile|unist-util-stringify-position|unified|bail|is-plain-obj|trough|remark-parse|mdast-util-from-markdown|mdast-util-to-string|micromark|decode-named-character-reference|character-entities|remark-rehype|mdast-util-to-hast|unist-builder|unist-util-visit|unist-util-is|unist-util-position|unist-util-generated|mdast-util-definitions|property-information|hast-util-whitespace|space-separated-tokens|comma-separated-tokens|remark-gfm|mdast-util-gfm|ccount|mdast-util-find-and-replace|escape-string-regexp|mdast-util-to-markdown|markdown-table))",
     "^.+\\.module\\.(css|sass|scss)$",
   ],
 };

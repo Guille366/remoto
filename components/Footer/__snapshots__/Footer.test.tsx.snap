@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders properly 1`] = `
+<footer
+  class="font-nunito flex items-center justify-center w-full h-14 px-4 text-xs"
+>
+  <div
+    class="w-full flex flex-row justify-between items-center m-auto h-14 max-w-screen-lg border-t border-gray-200"
+  >
+    <p
+      class="text-start text-gray-500"
+    >
+      ©
+      2022
+       
+      <span
+        class="font-code"
+      >
+        REMOTO
+      </span>
+      .
+    </p>
+    <p
+      class="text-end text-gray-400"
+    >
+      by
+       
+      <a
+        class="font-code"
+        href="https://github.com/vorsakha"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        @vorsakha
+      </a>
+    </p>
+  </div>
+</footer>
+`;

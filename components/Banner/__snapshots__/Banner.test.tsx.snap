@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders properly 1`] = `
+<div
+  class="taller h-56 sm:-mt-28 -mt-36 w-full flex flex-col items-center justify-center"
+>
+  <div
+    class="absolute taller h-56 left-0 w-full overflow-hidden -z-1"
+  >
+    <div
+      class="absolute h-56 taller left-0 w-full overflow-hidden bg-opacity-20 sm:bg-opacity-20 bg-violet-700"
+    />
+    <span
+      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"
+    >
+      <img
+        alt="hero"
+        class="rounded-none -z-2 opacity-90"
+        data-nimg="fill"
+        decoding="async"
+        sizes="100vw"
+        src="/_next/image?url=%2Fimg.jpg&w=3840&q=100"
+        srcset="/_next/image?url=%2Fimg.jpg&w=640&q=100 640w, /_next/image?url=%2Fimg.jpg&w=750&q=100 750w, /_next/image?url=%2Fimg.jpg&w=828&q=100 828w, /_next/image?url=%2Fimg.jpg&w=1080&q=100 1080w, /_next/image?url=%2Fimg.jpg&w=1200&q=100 1200w, /_next/image?url=%2Fimg.jpg&w=1920&q=100 1920w, /_next/image?url=%2Fimg.jpg&w=2048&q=100 2048w, /_next/image?url=%2Fimg.jpg&w=3840&q=100 3840w"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; filter: blur(20px); background-size: cover; background-image: url(data:image/png;base64,imagedata); background-position: 0% 0%;"
+      />
+      <noscript />
+    </span>
+  </div>
+  <div
+    class="mt-28 sm:mt-20 flex flex-row gap-4 items-center"
+  >
+    <div
+      class="md:w-2/4 flex flex-col items-center"
+    >
+      <h1
+        class="text-white text-xl p-1 rounded sm:text-3xl text-start sm:flex sm:justify-start hidden sm:mb-4 font-bold z-10"
+      >
+        Vagas dev para trabalhar de onde quiser.
+      </h1>
+      <a
+        class="font-mono px-4 py-2 mx-2 no-underline rounded shadow-lg
+      bg-white text-violet-700 hover:bg-violet-700 hover:text-white
+      self-start"
+        href="#vagas"
+        rel="noreferrer"
+        target="_self"
+      >
+        Confira Vagas
+      </a>
+    </div>
+    <div
+      class="md:flex hidden items-center justify-center w-2/4"
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          />
+        </span>
+        <img
+          alt="world-hero"
+          data-nimg="intrinsic"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </span>
+    </div>
+  </div>
+</div>
+`;

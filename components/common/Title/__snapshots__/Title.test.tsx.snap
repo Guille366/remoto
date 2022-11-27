@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders properly 1`] = `
+<h2
+  class="text-2xl font-nunito font-bold"
+>
+  Test
+</h2>
+`;

@@ -28,7 +28,7 @@ describe("Filter", () => {
 
     userEvent.click(btn);
 
-    const test = screen.getByTestId(/junior-input/i);
+    const test = screen.getAllByRole("checkbox")[0];
 
     userEvent.click(test);
 
@@ -41,7 +41,7 @@ describe("Filter", () => {
 
     userEvent.click(btn);
 
-    const test = screen.getByTestId(/junior-input/i);
+    const test = screen.getAllByRole("checkbox")[0];
 
     userEvent.click(test);
     userEvent.click(test);
