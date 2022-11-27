@@ -3,11 +3,13 @@ name: tests CI
 on: [push, pull_request]
 
 jobs:
-  tests:
+  build:
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Set Node.js 16.x
         uses: actions/setup-node@v3
         with:
@@ -17,7 +19,13 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: install
-      - name: tests
+
+      - name: Build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
+
+      - name: Tests
         uses: borales/actions-yarn@v4
         with:
           cmd: test
