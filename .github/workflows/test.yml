@@ -1,10 +1,10 @@
-name: tests CI
+name: CI
 
 on: [push, pull_request]
 
 jobs:
   build:
-    name: Test
+    name: Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -16,16 +16,16 @@ jobs:
           node-version: 16.x
 
       - name: Run install
-        uses: borales/actions-yarn@v4
+        uses: Borales/actions-yarn@v4.1.0
         with:
           cmd: install
 
       - name: Build
-        uses: borales/actions-yarn@v4
+        uses: Borales/actions-yarn@v4.1.0
         with:
           cmd: build
 
       - name: Tests
-        uses: borales/actions-yarn@v4
+        uses: Borales/actions-yarn@v4.1.0
         with:
           cmd: test
