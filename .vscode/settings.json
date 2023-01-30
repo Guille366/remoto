@@ -1,0 +1,8 @@
+{
+    "marquee.widgets.npm-stats.packageNames": [
+        "remoto"
+    ],
+    "files.watcherExclude": {
+        "**/target": true
+    }
+}
