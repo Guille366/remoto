@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "cobol",
+            "request": "attach",
+            "name": "COBOL (native): Attach to process",
+            "processId": "${command:pickProcess}"
+        },
+        {
+            "type": "cobol",
             "request": "launch",
             "name": "COBOL (native): Wait for attachment",
             "waitForAttachment": {
