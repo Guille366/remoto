@@ -7,6 +7,14 @@
         {
             "type": "cobol",
             "request": "launch",
+            "name": "COBOL (native): Wait for attachment",
+            "waitForAttachment": {
+                "any": {}
+            }
+        },
+        {
+            "type": "cobol",
+            "request": "launch",
             "name": "COBOL (native): remote",
             "program": "<insert-program-name-here>",
             "remoteDebug": {
